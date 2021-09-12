@@ -2,17 +2,17 @@
 //  WeatherModel.swift
 //  Elseweather
 //
-//  Created by Ярослав on 12.09.2021.
+//  Created by Jarek Šedý on 12.09.2021.
 //
 
 import Foundation
 
-struct Weather: Codable {
-    let location: Location
-    let current: Current
+struct WAWeather: Codable {
+    let location: WALocation
+    let current: WACurrent
 }
 
-struct Location: Codable {
+struct WALocation: Codable {
     let name, region, country: String
     let lat, lon: Double
     let tzID: String
@@ -27,13 +27,13 @@ struct Location: Codable {
     }
 }
 
-struct Current: Codable {
+struct WACurrent: Codable {
     let lastUpdatedEpoch: Int
     let lastUpdated: String
     let tempC: Double
     let tempF: Double
     let isDay: Int
-    let condition: Condition
+    let condition: WACondition
     let windMPH: Double
     let windKPH, windDegree: Int
     let windDir: String
@@ -72,7 +72,7 @@ struct Current: Codable {
     }
 }
 
-struct Condition: Codable {
+struct WACondition: Codable {
     let text, icon: String
     let code: Int
 }
