@@ -20,7 +20,7 @@ class RandomLocationFetcher {
         }
     }
     
-    func get() -> Location? {
+    func random() -> Location? {
         return locations.count > 0 ? locations[Int.random(in: 0...locations.count)] : nil
     }
     

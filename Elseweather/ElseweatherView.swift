@@ -10,7 +10,7 @@ import SwiftUI
 struct ElseweatherView: View {
     var body: some View {
         Button("Tap me!") {
-            print(randomLocationFetcher.get() ?? "nil")
+            print(randomLocationFetcher.random() ?? "nil")
         }
     }
 }
