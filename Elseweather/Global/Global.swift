@@ -13,3 +13,4 @@ let apiKey: String = "f9979cbf228a4fa2a0e180440212605"
 
 let randomLocationFetcher = RandomLocationFetcher()
 let weatherFetcher = WeatherFetcher(apiKey: apiKey)
+let weatherQueue = WeatherQueue(20)
