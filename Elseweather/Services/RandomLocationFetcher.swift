@@ -14,17 +14,17 @@ class RandomLocationFetcher {
     
     init() {
         DispatchQueue.global(qos: .userInteractive).async {
-            self.loadLocations { data in
-                self.parseLocations(data: data)
+            self.load { data in
+                self.parse(data: data)
             }
         }
     }
     
-    func random() -> Location? {
+    func fetch() -> Location? {
         return locations.count > 0 ? locations[Int.random(in: 0...locations.count)] : nil
     }
     
-    fileprivate func loadLocations(_ completion: @escaping (Data) -> ()) {
+    fileprivate func load(_ completion: @escaping (Data) -> ()) {
         
         guard let url = Bundle.main.url(forResource: "LocationCoordinates", withExtension: "csv") else {
             fatalError("Could not locate LocationCoordinates.csv. Terminating.")
@@ -37,7 +37,7 @@ class RandomLocationFetcher {
         }
     }
     
-    fileprivate func parseLocations(data: Data) {
+    fileprivate func parse(data: Data) {
         
         let locationStringArray = String(decoding: data, as: UTF8.self).components(separatedBy: "\n")
         
