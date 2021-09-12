@@ -13,9 +13,11 @@ class RandomLocationFetcher {
     var locations: [Location] = []
     
     init() {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.load { data in
-                self.parse(data: data)
+                DispatchQueue.main.async {
+                    self.parse(data: data)
+                }
             }
         }
     }

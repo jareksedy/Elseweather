@@ -34,14 +34,14 @@ struct WACurrent: Codable {
     let tempF: Double
     let isDay: Int
     let condition: WACondition
-    let windMPH: Double
-    let windKPH, windDegree: Int
+    let windMPH, windKPH, windDegree: Double
     let windDir: String
     let pressureMB: Int
     let pressureIN, precipMM, precipIN: Double
     let humidity, cloud: Int
     let feelslikeC, feelslikeF: Double
-    let visKM, visMiles, uv: Int
+    let visKM, visMiles: Double
+    let uv: Int
     let gustMPH, gustKPH: Double
     let airQuality: [String: Double]
 

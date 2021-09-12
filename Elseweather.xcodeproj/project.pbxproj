@@ -16,6 +16,7 @@
 		CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
 		CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */; };
+		CAFC958E26EE272000ABF8EE /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CAB6233826EDA8C500E85106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAB6233D26EDA8C500E85106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */,
+				CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAFC958E26EE272000ABF8EE /* WeatherFetcher.swift in Sources */,
 				CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */,
 				CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */,
 				CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */,
