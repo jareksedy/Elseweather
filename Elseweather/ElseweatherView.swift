@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ElseweatherView: View {
     var body: some View {
-        Text(String(describing: randomLocationFetcher.get()))
-            .padding()
+        Button("Tap me!") {
+            print(randomLocationFetcher.get() ?? "nil")
+        }
     }
 }
 

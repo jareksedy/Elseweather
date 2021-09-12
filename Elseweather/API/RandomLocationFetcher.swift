@@ -6,22 +6,40 @@
 //
 
 import Foundation
+import Alamofire
 
 class RandomLocationFetcher {
     
     var locations: [Location] = []
     
     init() {
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.loadLocations { data in
+                self.parseLocations(data: data)
+            }
+        }
+    }
+    
+    func get() -> Location? {
+        return locations.count > 0 ? locations[Int.random(in: 0...locations.count)] : nil
+    }
+    
+    fileprivate func loadLocations(_ completion: @escaping (Data) -> ()) {
         
         guard let url = Bundle.main.url(forResource: "LocationCoordinates", withExtension: "csv") else {
-            fatalError("Could not locate app data file.")
+            fatalError("Could not locate LocationCoordinates.csv. Terminating.")
         }
         
-        guard let data = try? String(contentsOf: url) else {
-            fatalError("Could not load app data.")
+        AF.request(url, method: .get).responseData{ response in
+            
+            guard let data = response.data else { fatalError("Could not load LocationCoordinates.csv. Terminating.") }
+            completion(data)
         }
+    }
+    
+    fileprivate func parseLocations(data: Data) {
         
-        let locationStringArray = data.components(separatedBy: "\n")
+        let locationStringArray = String(decoding: data, as: UTF8.self).components(separatedBy: "\n")
         
         locations = locationStringArray.map {
             let coordinates = $0.components(separatedBy: ",")
@@ -29,12 +47,7 @@ class RandomLocationFetcher {
             let lon = Double(coordinates[1]) ?? 0.0
             return (lat, lon)
         }
-    }
-    
-    func get() -> Location {
-        return locations[Int.random(in: 0...locations.count)]
-    }
-    
-    fileprivate func loadLocations () {
+        
+        guard locations.count > 0 else { fatalError("Could not parse LocationCoordinates.csv. Terminating.") }
     }
 }
