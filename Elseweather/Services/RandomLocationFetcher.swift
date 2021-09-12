@@ -21,7 +21,7 @@ class RandomLocationFetcher {
     }
     
     fileprivate func load() -> Data {
-        
+        print("loading data...")
         guard let url = Bundle.main.url(forResource: "LocationCoordinates", withExtension: "csv") else {
             fatalError("Could not locate LocationCoordinates.csv. Terminating.")
         }
@@ -29,7 +29,7 @@ class RandomLocationFetcher {
         guard let data = try? Data(contentsOf: url) else {
             fatalError("Could not load LocationCoordinates.csv. Terminating.")
         }
-        
+        print("loading data...done!")
         return data
     }
     

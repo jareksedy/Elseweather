@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ElseweatherView: View {
+    
+    let randomLocationFetcher = RandomLocationFetcher()
+    
     var body: some View {
         Button("Tap me!") {
             

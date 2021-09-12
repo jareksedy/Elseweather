@@ -27,14 +27,12 @@ class WeatherQueue {
     
     fileprivate func fill() {
         
-        DispatchQueue.global(qos: .userInitiated).async {
+        while self.items.count < self.length {
             
-            while self.items.count < self.length {
+            weatherFetcher.fetch(randomLocationFetcher.fetch()) { weather in
                 
-                weatherFetcher.fetch(randomLocationFetcher.fetch()) { weather in
-                    
-                    self.items.append(weather)
-                }
+                self.items.append(weather)
+                print("appended!")
             }
         }
     }
