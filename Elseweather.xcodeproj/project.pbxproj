@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
-		CAB6233726EDA8BF00E85106 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233626EDA8BF00E85106 /* ContentView.swift */; };
+		CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
 		CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		CAB6233126EDA8BF00E85106 /* Elseweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elseweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherApp.swift; sourceTree = "<group>"; };
-		CAB6233626EDA8BF00E85106 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherView.swift; sourceTree = "<group>"; };
 		CAB6233826EDA8C500E85106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAB6233D26EDA8C500E85106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +33,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA71A06826EDB1AF00831014 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAB6233826EDA8C500E85106 /* Assets.xcassets */,
+				CAB6233D26EDA8C500E85106 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CAB6232826EDA8BE00E85106 = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
-				CAB6233626EDA8BF00E85106 /* ContentView.swift */,
-				CAB6233826EDA8C500E85106 /* Assets.xcassets */,
-				CAB6233D26EDA8C500E85106 /* Info.plist */,
+				CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */,
+				CA71A06826EDB1AF00831014 /* Resources */,
 				CAB6233A26EDA8C500E85106 /* Preview Content */,
 			);
 			path = Elseweather;
@@ -138,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAB6233726EDA8BF00E85106 /* ContentView.swift in Sources */,
+				CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */,
 				CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +279,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Elseweather/Preview Content\"";
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Elseweather/Info.plist;
+				INFOPLIST_FILE = Elseweather/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -293,7 +301,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Elseweather/Preview Content\"";
 				DEVELOPMENT_TEAM = 4NK62H99X6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Elseweather/Info.plist;
+				INFOPLIST_FILE = Elseweather/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

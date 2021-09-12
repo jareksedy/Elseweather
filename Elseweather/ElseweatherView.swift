@@ -2,20 +2,20 @@
 //  ContentView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 12.09.2021.
+//  Created by Jarek Šedý on 12.09.2021.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct ElseweatherView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ElseweatherView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ElseweatherView()
     }
 }
