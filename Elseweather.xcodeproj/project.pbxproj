@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3FC62D26EDB78F000987C5 /* locationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */; };
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
 		CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locationCoordinates.csv; sourceTree = "<group>"; };
 		CAB6233126EDA8BF00E85106 /* Elseweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elseweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherApp.swift; sourceTree = "<group>"; };
 		CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherView.swift; sourceTree = "<group>"; };
@@ -33,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3FC62F26EDB7B2000987C5 /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */,
+			);
+			path = LocalData;
+			sourceTree = "<group>";
+		};
 		CA71A06826EDB1AF00831014 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +73,7 @@
 			children = (
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
 				CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */,
+				CA3FC62F26EDB7B2000987C5 /* LocalData */,
 				CA71A06826EDB1AF00831014 /* Resources */,
 				CAB6233A26EDA8C500E85106 /* Preview Content */,
 			);
@@ -134,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3FC62D26EDB78F000987C5 /* locationCoordinates.csv in Resources */,
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
 			);
