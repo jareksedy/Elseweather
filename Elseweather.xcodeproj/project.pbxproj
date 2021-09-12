@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA3FC62D26EDB78F000987C5 /* locationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */; };
+		CA3FC62D26EDB78F000987C5 /* LocationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA3FC62C26EDB78E000987C5 /* LocationCoordinates.csv */; };
 		CA83676126EDC7B70098C709 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676026EDC7B70098C709 /* Global.swift */; };
 		CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */; };
 		CA83676826EDCA110098C709 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CA83676726EDCA110098C709 /* Alamofire */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locationCoordinates.csv; sourceTree = "<group>"; };
+		CA3FC62C26EDB78E000987C5 /* LocationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocationCoordinates.csv; sourceTree = "<group>"; };
 		CA83676026EDC7B70098C709 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLocationFetcher.swift; sourceTree = "<group>"; };
 		CA83676926EDCBC00098C709 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		CA3FC62F26EDB7B2000987C5 /* LocalData */ = {
 			isa = PBXGroup;
 			children = (
-				CA3FC62C26EDB78E000987C5 /* locationCoordinates.csv */,
+				CA3FC62C26EDB78E000987C5 /* LocationCoordinates.csv */,
 			);
 			path = LocalData;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA3FC62D26EDB78F000987C5 /* locationCoordinates.csv in Resources */,
+				CA3FC62D26EDB78F000987C5 /* LocationCoordinates.csv in Resources */,
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
 			);

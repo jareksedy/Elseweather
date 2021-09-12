@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ElseweatherView: View {
     var body: some View {
-        Text("Hello, world!")
+        Text(String(describing: randomLocationFetcher.get()))
             .padding()
     }
 }
