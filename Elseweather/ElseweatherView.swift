@@ -15,10 +15,12 @@ struct ElseweatherView: View {
     var body: some View {
         Button("Tap me!") {
             
-            guard let weather = weatherFetcher.fetch(randomLocationFetcher.fetch()) else { return }
+            let location = randomLocationFetcher.fetch()
+            
+            guard let weather = weatherFetcher.fetch(location) else { return }
 
             let country = weather.location.country
-            let region = weather.location.region
+            let region = weather.computedRegion ?? weather.location.region
             let name = weather.location.name
             
             print("\(name), \(region), \(country).")
