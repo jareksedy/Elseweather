@@ -74,3 +74,106 @@ struct WACondition: Codable {
     let text, icon: String
     let code: Int
 }
+
+extension WAWeather {
+    
+    var conditionString: String {
+        
+        let instance = Session.shared
+        
+        let customWeatherConditions = [
+            1030: "and misty",
+            1063: "with rain patches",
+            1066: "with snow patches",
+            1069: "and sleet",
+            1087: "with thundery outbreaks",
+            1117: "and blizzard condition",
+            1135: "and foggy",
+            1147: "with freezing fog",
+            1150: "with a light drizzle",
+            1153: "with a light drizzle",
+            1168: "with freezing drizzle",
+            1171: "with freezing drizzle",
+            1180: "with rain patches",
+            1183: "and a light rain",
+            1186: "with rain at times",
+            1189: "and raining",
+            1192: "with heavy rain at times",
+            1195: "and raining heavily",
+            1198: "with freezing rain",
+            1201: "with heavy freezing rain",
+            1204: "with sleet",
+            1207: "with heavy sleet",
+            1210: "with snow patches",
+            1213: "and a light snow",
+            1216: "with snow patches",
+            1219: "and snowing",
+            1222: "and snowing heavily",
+            1225: "with heavy snow",
+            1237: "with ice pellets",
+            1240: "with rain showers",
+            1243: "with heavy rain showers",
+            1246: "with torrential rain",
+            1249: "with sleet showers",
+            1252: "with heavy sleet showers",
+            1255: "with snow showers",
+            1258: "with heavy snow showers",
+            1261: "with showers of ice pellets",
+            1264: "with heavy showers of ice pellets",
+            1273: "with rain and thunder",
+            1276: "with heavy rain and thunder",
+            1279: "with snow and thunder",
+            1282: "with heavy snow and thunder",
+        ]
+        
+        var condition = "It’s "
+        
+        let temperature = instance.userSettings["Units"] == .metric ? self.current.tempC : self.current.tempF
+        
+        condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"       
+        condition += "\n"
+        condition += customWeatherConditions[self.current.condition.code] ?? "and " + self.current.condition.text.lowercased()
+        
+        return condition
+    }
+    
+    var abbreviatedCountry: String? {
+        
+        let countriesAbbreviations = [
+            "United States of America": "USA",
+            "United Kingdom": "UK",
+        ]
+        
+        return countriesAbbreviations.keys.contains(self.location.country) ? countriesAbbreviations[self.location.country]! : nil
+    }
+    
+    var computedRegion: String? {
+        
+        if self.location.region != "" && !self.location.region.contains(self.location.country) && self.location.region != self.location.name && !self.location.region.hasNonAsciiCharacters() {
+            
+            return self.location.region.replacingOccurrences(of: "'", with: "")
+            
+        } else {
+            
+            return nil
+        }
+    }
+    
+    var computedLocalDate: String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, MMM dd yyyy"
+        let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: self.location.tzID)!)
+        
+        return dateFormatter.string(from: localDate)
+    }
+    
+    var computedLocalTime: String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: self.location.tzID)!)
+        
+        return dateFormatter.string(from: localDate)
+    }
+}

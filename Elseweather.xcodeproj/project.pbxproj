@@ -122,11 +122,11 @@
 			children = (
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
 				CAB6233626EDA8BF00E85106 /* ElseweatherView.swift */,
-				CA83676226EDC8F90098C709 /* Global */,
 				CA83676B26EDCBCA0098C709 /* Models */,
 				CA83676526EDC95C0098C709 /* Services */,
 				CA535C8426F2535A00BD48BC /* Extensions */,
 				CA3FC62F26EDB7B2000987C5 /* LocalData */,
+				CA83676226EDC8F90098C709 /* Global */,
 				CA71A06826EDB1AF00831014 /* Resources */,
 				CAB6233A26EDA8C500E85106 /* Preview Content */,
 			);

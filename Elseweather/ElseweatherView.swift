@@ -22,6 +22,8 @@ struct ElseweatherView: View {
             let name = weather.location.name
             
             print("\(name), \(region), \(country).")
+            print(weather.conditionString)
+            print()
             
         }
     }
