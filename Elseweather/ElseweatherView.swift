@@ -10,11 +10,18 @@ import SwiftUI
 struct ElseweatherView: View {
     
     let randomLocationFetcher = RandomLocationFetcher()
+    let weatherFetcher = WeatherFetcher()
     
     var body: some View {
         Button("Tap me!") {
             
-            print(randomLocationFetcher.fetch())
+            guard let weather = weatherFetcher.fetch(randomLocationFetcher.fetch()) else { return }
+
+            let country = weather.location.country
+            let region = weather.location.region
+            let name = weather.location.name
+            
+            print("\(name), \(region), \(country).")
             
         }
     }

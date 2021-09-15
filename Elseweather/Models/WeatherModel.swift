@@ -43,7 +43,6 @@ struct WACurrent: Codable {
     let visKM, visMiles: Double
     let uv: Int
     let gustMPH, gustKPH: Double
-    let airQuality: [String: Double]
 
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
@@ -68,7 +67,6 @@ struct WACurrent: Codable {
         case uv
         case gustMPH = "gust_mph"
         case gustKPH = "gust_kph"
-        case airQuality = "air_quality"
     }
 }
 

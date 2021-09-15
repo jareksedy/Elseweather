@@ -9,27 +9,19 @@ import Foundation
 
 class WeatherFetcher {
     
-    var apiKey: String
-    
-    init (apiKey: String) {
-        self.apiKey = apiKey
-    }
-    
-    func fetch(_ location: Location) throws -> WAWeather? {
+    func fetch(_ location: Location) -> WAWeather? {
         
         var weather: WAWeather?
         
-        do { let url = URL(string: baseUrl + "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")
+        let url = URL(string: baseUrl + "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")
+        
+        do { let data = try Data(contentsOf: url!)
             
-                    do { let data = try Data(contentsOf: url!)
-                        
-                        do { weather = try JSONDecoder().decode(WAWeather.self, from: data)
-                            
-                        } catch { throw error }
-                        
-                    } catch { throw error }
+            do { weather = try JSONDecoder().decode(WAWeather.self, from: data)
+                
+            } catch { print(error) }
             
-                } catch {throw error }
+        } catch { print(error) }
         
         return weather
     }
