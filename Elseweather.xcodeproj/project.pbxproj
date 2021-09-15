@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CA11D22026EE4B3B007C7E93 /* WeatherQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */; };
-		CA11D22226EE4E95007C7E93 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11D22126EE4E95007C7E93 /* temp.swift */; };
 		CA3FC62D26EDB78F000987C5 /* LocationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA3FC62C26EDB78E000987C5 /* LocationCoordinates.csv */; };
 		CA83676126EDC7B70098C709 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676026EDC7B70098C709 /* Global.swift */; };
 		CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQueue.swift; sourceTree = "<group>"; };
-		CA11D22126EE4E95007C7E93 /* temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
 		CA3FC62C26EDB78E000987C5 /* LocationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocationCoordinates.csv; sourceTree = "<group>"; };
 		CA83676026EDC7B70098C709 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLocationFetcher.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */,
-				CA11D22126EE4E95007C7E93 /* temp.swift */,
 				CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */,
 				CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */,
 			);
@@ -207,7 +204,6 @@
 				CAFC958E26EE272000ABF8EE /* WeatherFetcher.swift in Sources */,
 				CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */,
 				CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */,
-				CA11D22226EE4E95007C7E93 /* temp.swift in Sources */,
 				CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */,
 				CA83676126EDC7B70098C709 /* Global.swift in Sources */,
 				CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */,

@@ -15,18 +15,20 @@ class WeatherFetcher {
         self.apiKey = apiKey
     }
     
-    func fetch(_ location: Location) throws -> WAWeather {
+    func fetch(_ location: Location) throws -> WAWeather? {
         
-        var weather: WAWeather
+        var weather: WAWeather?
         
-        do { let url = URL(string: baseUrl + "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")!
+        do { let url = URL(string: baseUrl + "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")
             
-                    do { let data = try Data(contentsOf: url)
+                    do { let data = try Data(contentsOf: url!)
                         
                         do { weather = try JSONDecoder().decode(WAWeather.self, from: data)
                             
                         } catch { throw error }
+                        
                     } catch { throw error }
+            
                 } catch {throw error }
         
         return weather
