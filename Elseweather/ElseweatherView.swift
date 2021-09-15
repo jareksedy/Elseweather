@@ -14,14 +14,7 @@ struct ElseweatherView: View {
     var body: some View {
         Button("Tap me!") {
             
-            guard let weather = weatherQueue.dequeue() else {
-
-                print("Not yet ready!")
-                return
-
-            }
-
-            print("\(weather.location.name), \(weather.location.region), \(weather.location.country).")
+            print(randomLocationFetcher.fetch())
             
         }
     }

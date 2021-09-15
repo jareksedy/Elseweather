@@ -6,44 +6,42 @@
 //
 
 import Foundation
-import Alamofire
 
 class RandomLocationFetcher {
     
-    var locations: [Location] = []
+    fileprivate var locations: [Location] = []
     
     init() {
-        parse(data: load())
+        load()
     }
     
     func fetch() -> Location {
         return locations[Int.random(in: 0...locations.count)]
     }
     
-    fileprivate func load() -> Data {
-        print("loading data...")
-        guard let url = Bundle.main.url(forResource: "LocationCoordinates", withExtension: "csv") else {
-            fatalError("Could not locate LocationCoordinates.csv. Terminating.")
+    fileprivate func load() {
+        
+        guard let url = Bundle.main.url(forResource: dataFileName, withExtension: dataFileExt) else {
+            fatalError("Could not locate \(dataFileName).\(dataFileExt). Terminating.")
         }
         
         guard let data = try? Data(contentsOf: url) else {
-            fatalError("Could not load LocationCoordinates.csv. Terminating.")
+            fatalError("Could not load \(dataFileName).\(dataFileExt). Terminating.")
         }
-        print("loading data...done!")
-        return data
+        
+        parse(data)
     }
     
-    fileprivate func parse(data: Data) {
+    fileprivate func parse(_ data: Data) {
         
-        let locationStringArray = String(decoding: data, as: UTF8.self).components(separatedBy: "\n")
-        
-        locations = locationStringArray.map {
+        locations = String(decoding: data, as: UTF8.self).components(separatedBy: "\n").map {
+            
             let coordinates = $0.components(separatedBy: ",")
             let lat = Double(coordinates[0]) ?? 0.0
             let lon = Double(coordinates[1]) ?? 0.0
             return (lat, lon)
         }
         
-        guard locations.count > 0 else { fatalError("Could not parse LocationCoordinates.csv. Terminating.") }
+        guard locations.count > 0 else { fatalError("Could not parse \(dataFileName).\(dataFileExt). Terminating.") }
     }
 }
