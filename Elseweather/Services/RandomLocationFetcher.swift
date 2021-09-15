@@ -21,18 +21,22 @@ class RandomLocationFetcher {
     
     fileprivate func load() {
         
-        guard let url = Bundle.main.url(forResource: dataFileName, withExtension: dataFileExt) else {
-            fatalError("Could not locate \(dataFileName).\(dataFileExt). Terminating.")
+        let instance = Session.shared
+        
+        guard let url = Bundle.main.url(forResource: instance.dataFileName, withExtension: instance.dataFileExt) else {
+            fatalError("Could not locate \(instance.dataFileName).\(instance.dataFileExt). Terminating.")
         }
         
         guard let data = try? Data(contentsOf: url) else {
-            fatalError("Could not load \(dataFileName).\(dataFileExt). Terminating.")
+            fatalError("Could not load \(instance.dataFileName).\(instance.dataFileExt). Terminating.")
         }
         
         parse(data)
     }
     
     fileprivate func parse(_ data: Data) {
+        
+        let instance = Session.shared
         
         locations = String(decoding: data, as: UTF8.self).components(separatedBy: "\n").map {
             
@@ -42,6 +46,6 @@ class RandomLocationFetcher {
             return (lat, lon)
         }
         
-        guard locations.count > 0 else { fatalError("Could not parse \(dataFileName).\(dataFileExt). Terminating.") }
+        guard locations.count > 0 else { fatalError("Could not parse \(instance.dataFileName).\(instance.dataFileExt). Terminating.") }
     }
 }

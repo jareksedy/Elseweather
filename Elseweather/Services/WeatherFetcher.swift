@@ -11,9 +11,11 @@ class WeatherFetcher {
     
     func fetch(_ location: Location) -> WAWeather? {
         
+        let instance = Session.shared
+        
         var weather: WAWeather?
         
-        let url = URL(string: baseUrl + "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")
+        let url = URL(string: instance.baseUrl + "?key=\(instance.apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no")
         
         do { let data = try Data(contentsOf: url!)
             
