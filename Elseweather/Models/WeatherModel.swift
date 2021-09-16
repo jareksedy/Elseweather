@@ -79,8 +79,6 @@ extension WAWeather {
     
     var condition: String {
         
-        let instance = Session.shared
-        
         let customWeatherConditions = [
             1030: "and misty",
             1063: "with rain patches",
@@ -128,7 +126,7 @@ extension WAWeather {
         
         var condition = "It’s "
         
-        let temperature = instance.userSettings["Units"] as! Units == .metric ? self.current.tempC : self.current.tempF
+        let temperature = Session.shared.userSettings["Units"] as! Units == .metric ? self.current.tempC : self.current.tempF
         
         condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"       
         condition += "\n"
