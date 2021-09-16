@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Session {
+final class Session {
     
     static let shared = Session()
     
@@ -19,9 +19,17 @@ class Session {
     
     var userSettings = [
         "Units": Units.metric,
-    ]
+        "AppBackground": AppBackground.minimalist
+    ] as [String : Any]
 }
 
-enum Units {
-    case metric, imperial
+enum Units: Int {
+    case metric
+    case imperial
+}
+
+enum AppBackground: Int {
+    case minimalist
+    case colored
+    case blurhashed
 }

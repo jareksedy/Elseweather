@@ -128,7 +128,7 @@ extension WAWeather {
         
         var condition = "It’s "
         
-        let temperature = instance.userSettings["Units"] == .metric ? self.current.tempC : self.current.tempF
+        let temperature = instance.userSettings["Units"] as! Units == .metric ? self.current.tempC : self.current.tempF
         
         condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"       
         condition += "\n"
