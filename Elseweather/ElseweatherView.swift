@@ -19,14 +19,9 @@ struct ElseweatherView: View {
             
             guard let weather = weatherFetcher.fetch(location) else { return }
 
-            let country = weather.location.country
-            let region = weather.computedRegion ?? weather.location.region
-            let name = weather.location.name
-            
-            print("\(name), \(region), \(country).")
-            print(weather.conditionString)
+            print(weather.condition)
+            print(weather.locality)
             print()
-            
         }
     }
 }

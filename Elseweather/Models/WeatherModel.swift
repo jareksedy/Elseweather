@@ -77,7 +77,7 @@ struct WACondition: Codable {
 
 extension WAWeather {
     
-    var conditionString: String {
+    var condition: String {
         
         let instance = Session.shared
         
@@ -147,7 +147,7 @@ extension WAWeather {
         return countriesAbbreviations.keys.contains(self.location.country) ? countriesAbbreviations[self.location.country]! : nil
     }
     
-    var computedRegion: String? {
+    var region: String? {
         
         if self.location.region != "" && !self.location.region.contains(self.location.country) && self.location.region != self.location.name && !self.location.region.hasNonAsciiCharacters() {
             
@@ -159,7 +159,19 @@ extension WAWeather {
         }
     }
     
-    var computedLocalDate: String {
+    var locality: String {
+        
+        var location = "in "
+        let region = self.region != nil ? self.region! + ", " : ""
+        
+        location += "\(self.location.name), "
+        location += "\(region)"
+        location += "\(self.abbreviatedCountry ?? self.location.country)."
+        
+        return location
+    }
+    
+    var localDate: String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, MMM dd yyyy"
@@ -168,7 +180,7 @@ extension WAWeather {
         return dateFormatter.string(from: localDate)
     }
     
-    var computedLocalTime: String {
+    var localTime: String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
