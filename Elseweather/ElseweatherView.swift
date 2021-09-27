@@ -14,7 +14,6 @@ struct ElseweatherView: View {
     
     var body: some View {
         Button("Tap me!") {
-            
             let location = randomLocationFetcher.fetch()
             
             guard let weather = weatherFetcher.fetch(location) else { return }
@@ -28,6 +27,6 @@ struct ElseweatherView: View {
 
 struct ElseweatherView_Previews: PreviewProvider {
     static var previews: some View {
-        ElseweatherView()
+        ElseweatherView().preferredColorScheme(.dark)
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA11D22026EE4B3B007C7E93 /* WeatherQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */; };
+		CA2DC32227017EA50093FB36 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */; };
 		CA535C8326F2535100BD48BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8226F2535100BD48BC /* Extensions.swift */; };
 		CA535C8926F2557A00BD48BC /* LocationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA535C8826F2557A00BD48BC /* LocationCoordinates.csv */; };
 		CA535C8B26F2578E00BD48BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8A26F2578E00BD48BC /* Session.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQueue.swift; sourceTree = "<group>"; };
+		CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		CA535C8226F2535100BD48BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA535C8826F2557A00BD48BC /* LocationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocationCoordinates.csv; sourceTree = "<group>"; };
 		CA535C8A26F2578E00BD48BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				CA83676026EDC7B70098C709 /* Global.swift */,
 				CA535C8A26F2578E00BD48BC /* Session.swift */,
+				CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA2DC32227017EA50093FB36 /* ThreadSafeArray.swift in Sources */,
 				CAFC958E26EE272000ABF8EE /* WeatherFetcher.swift in Sources */,
 				CAB6233726EDA8BF00E85106 /* ElseweatherView.swift in Sources */,
 				CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */,

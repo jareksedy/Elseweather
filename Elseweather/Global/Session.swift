@@ -2,7 +2,7 @@
 //  Session.swift
 //  Elseweather
 //
-//  Created by Ярослав on 15.09.2021.
+//  Created by Jarek Šedý on 15.09.2021.
 //
 
 import Foundation
