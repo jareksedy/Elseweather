@@ -16,7 +16,7 @@ class RandomLocationFetcher {
     }
     
     func fetch() -> Location {
-        return locations[Int.random(in: 0...locations.count)]
+        return locations[Int.random(in: 0...locations.count - 1)]
     }
     
     fileprivate func load() {

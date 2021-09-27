@@ -9,23 +9,29 @@ import SwiftUI
 
 struct ElseweatherView: View {
     
-    let weatherQueue = WeatherQueue(length: 10)
+    @ObservedObject var weatherQueue = WeatherQueue(length: 10)
     
     var body: some View {
-        Button("Tap me!") {
-            guard let weather = weatherQueue.dequeue() else { return }
+        VStack {
+            Button("Fetch weather data") {
+                guard let weather = weatherQueue.dequeue() else { return }
+                
+                print(weather.condition)
+                print(weather.locality)
+                print()
+                
+                weatherQueue.enqueue(1)
+            }
+            .padding()
             
-            print(weather.condition)
-            print(weather.locality)
-            print()
-            
-            weatherQueue.enqueue(1)
+            Text("QLen: \(weatherQueue.pubCount ?? 0)")
+                .padding()
         }
     }
 }
 
 struct ElseweatherView_Previews: PreviewProvider {
     static var previews: some View {
-        ElseweatherView().preferredColorScheme(.dark)
+            ElseweatherView().preferredColorScheme(.dark)
     }
 }
