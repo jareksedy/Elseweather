@@ -17,11 +17,8 @@ class WeatherFetcher {
                                 "?key=\(Session.shared.apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no") else { return nil }
         
         do { let data = try Data(contentsOf: url)
-            
             do { weather = try JSONDecoder().decode(WAWeather.self, from: data)
-                
             } catch { print(error) }
-            
         } catch { print(error) }
         
         return weather
