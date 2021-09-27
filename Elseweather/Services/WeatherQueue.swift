@@ -11,6 +11,7 @@ import SwiftUI
 class WeatherQueue: ObservableObject {
     
     @Published var itemsCount: Int?
+    var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
     
     let randomLocationFetcher = RandomLocationFetcher()
     let weatherFetcher = WeatherFetcher()
@@ -50,9 +51,7 @@ class WeatherQueue: ObservableObject {
     }
     
     func dequeue() -> WAWeather? {
-        let result = count > 0 ? items.valueArray.first : nil
-        
-        if count > 0 { items.removeFirst() }
+        let result = count > 0 ? items.removeFirst() : nil
         itemsCount = count
         return result
     }
