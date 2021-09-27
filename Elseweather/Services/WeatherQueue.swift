@@ -5,35 +5,32 @@
 //  Created by Jarek Šedý on 12.09.2021.
 //
 
-//import Foundation
-//
-//class WeatherQueue {
-//
-//    init(_ length: Int) {
-//        self.length = length
-//        fill()
-//    }
-//
-//    func dequeue() -> WAWeather? {
-//        return count > 0 ? items.removeFirst() : nil
-//    }
-//
-//    fileprivate var count: Int { self.items.count }
-//    fileprivate var length: Int
-//
-//    fileprivate var items: [WAWeather] = [] {
-//        didSet { fill() }
-//    }
-//
-//    fileprivate func fill() {
-//
-//        while self.items.count < self.length {
-//
-//            weatherFetcher.fetch(randomLocationFetcher.fetch()) { weather in
-//
-//                self.items.append(weather)
-//                print("appended!")
-//            }
-//        }
-//    }
-//}
+import Foundation
+
+class WeatherQueue {
+    let randomLocationFetcher = RandomLocationFetcher()
+    let weatherFetcher = WeatherFetcher()
+    
+    private var threadSafeWeatherArray = ThreadSafeArray<WAWeather>()
+    private var count: Int { self.threadSafeWeatherArray.valueArray.count }
+    private var length: Int
+    
+    init(length: Int) {
+        self.length = length
+        enqueue(length)
+    }
+    
+    func enqueue(_ iterations: Int) {
+        DispatchQueue.concurrentPerform(iterations: iterations) { _ in
+            let location = randomLocationFetcher.fetch()
+            guard let weather = weatherFetcher.fetch(location) else { return }
+            threadSafeWeatherArray.append(weather)
+        }
+    }
+    
+    func dequeue() -> WAWeather? {
+        let result = count > 0 ? threadSafeWeatherArray.valueArray.first : nil
+        threadSafeWeatherArray.removeFirst()
+        return result
+    }
+}

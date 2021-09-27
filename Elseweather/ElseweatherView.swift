@@ -9,18 +9,17 @@ import SwiftUI
 
 struct ElseweatherView: View {
     
-    let randomLocationFetcher = RandomLocationFetcher()
-    let weatherFetcher = WeatherFetcher()
+    let weatherQueue = WeatherQueue(length: 10)
     
     var body: some View {
         Button("Tap me!") {
-            let location = randomLocationFetcher.fetch()
+            guard let weather = weatherQueue.dequeue() else { return }
             
-            guard let weather = weatherFetcher.fetch(location) else { return }
-
             print(weather.condition)
             print(weather.locality)
             print()
+            
+            weatherQueue.enqueue(1)
         }
     }
 }

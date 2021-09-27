@@ -17,6 +17,12 @@ class ThreadSafeArray<T> {
         }
     }
     
+    public func removeFirst() {
+        queue.async(flags: .barrier) {
+            let _ = self.array.removeFirst()
+        }
+    }
+    
     public var valueArray: [T] {
         var result = [T]()
         queue.sync {
