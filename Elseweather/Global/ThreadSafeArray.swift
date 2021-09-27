@@ -9,7 +9,9 @@ import Foundation
 
 class ThreadSafeArray<T> {
     private var array = [T]()
-    private let queue = DispatchQueue(label: "Thread Safe Array", qos: .userInitiated, attributes: .concurrent)
+    private let queue = DispatchQueue(label: "Thread Safe Array",
+                                      qos: .userInitiated,
+                                      attributes: .concurrent)
     
     public func append(_ value: T) {
         queue.async(flags: .barrier) {

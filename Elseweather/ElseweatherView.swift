@@ -20,11 +20,11 @@ struct ElseweatherView: View {
                 print(weather.locality)
                 print()
                 
-                weatherQueue.enqueue(1)
+                weatherQueue.enqueueAsync(1)
             }
             .padding()
             
-            Text("QLen: \(weatherQueue.pubCount ?? 0)")
+            Text("QLen: \(weatherQueue.itemsCount ?? 0)")
                 .padding()
         }
     }

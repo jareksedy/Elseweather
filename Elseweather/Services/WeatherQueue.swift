@@ -10,52 +10,50 @@ import SwiftUI
 
 class WeatherQueue: ObservableObject {
     
-    @Published var pubCount: Int?
+    @Published var itemsCount: Int?
     
     let randomLocationFetcher = RandomLocationFetcher()
     let weatherFetcher = WeatherFetcher()
     
-    private var threadSafeWeatherArray = ThreadSafeArray<WAWeather>()
-    private var count: Int { self.threadSafeWeatherArray.valueArray.count }
+    private var items = ThreadSafeArray<WAWeather>()
+    private var count: Int { self.items.valueArray.count }
     private var length: Int
     
     init(length: Int) {
         self.length = length
-        enqueueMain(1)
-        enqueue(length)
+        enqueueSync(1)
+        enqueueAsync(length - 1)
     }
     
-    func enqueueMain(_ iterations: Int) {
+    func enqueueSync(_ iterations: Int) {
         DispatchQueue.concurrentPerform(iterations: iterations) { _ in
             let location = self.randomLocationFetcher.fetch()
             guard let weather = self.weatherFetcher.fetch(location) else { return }
-            self.threadSafeWeatherArray.append(weather)
+            self.items.append(weather)
             DispatchQueue.main.async {
-                self.pubCount = self.count
+                self.itemsCount = self.count
             }
         }
     }
     
-    func enqueue(_ iterations: Int) {
+    func enqueueAsync(_ iterations: Int) {
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.concurrentPerform(iterations: iterations) { _ in
                 let location = self.randomLocationFetcher.fetch()
                 guard let weather = self.weatherFetcher.fetch(location) else { return }
-                self.threadSafeWeatherArray.append(weather)
+                self.items.append(weather)
                 DispatchQueue.main.async {
-                    self.pubCount = self.count
+                    self.itemsCount = self.count
                 }
             }
         }
     }
     
     func dequeue() -> WAWeather? {
-        let result = count > 0 ? threadSafeWeatherArray.valueArray.first : nil
+        let result = count > 0 ? items.valueArray.first : nil
         
-        if count > 0 {
-            threadSafeWeatherArray.removeFirst()
-        }
-        pubCount = count
+        if count > 0 { items.removeFirst() }
+        itemsCount = count
         return result
     }
 }
