@@ -13,8 +13,8 @@ class WeatherQueue: ObservableObject {
     @Published var itemsCount: Int?
     var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
     
-    let randomLocationFetcher = RandomLocationFetcher()
-    let weatherFetcher = WeatherFetcher()
+    private lazy var randomLocationFetcher = RandomLocationFetcher()
+    private lazy var weatherFetcher = WeatherFetcher()
     
     private var items = ThreadSafeArray<WAWeather>()
     private var count: Int { self.items.valueArray.count }
