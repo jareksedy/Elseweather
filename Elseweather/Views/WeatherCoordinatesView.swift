@@ -24,7 +24,7 @@ struct WeatherCoordinatesView: View {
                     Text("LON. \(weather.location.lon.toGeoCoordinate())")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
-                    
+
                     Divider(0)
                 }
             }

@@ -146,9 +146,7 @@ extension WAWeather {
         if self.location.region != "" && !self.location.region.contains(self.location.country) && self.location.region != self.location.name && !self.location.region.hasNonAsciiCharacters() {
             
             return self.location.region.replacingOccurrences(of: "'", with: "")
-            
         } else {
-            
             return nil
         }
     }
