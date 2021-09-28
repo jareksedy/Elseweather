@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct WeatherCoordinatesView: View {
-    var weather: WAWeather
+    var weatherViewModel: WeatherViewModel
     var body: some View {
         Group {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("LAT. \(weather.location.lat.toGeoCoordinate())")
+                    Text("LAT. \(weatherViewModel.lat)")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
 
@@ -21,7 +21,7 @@ struct WeatherCoordinatesView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("LON. \(weather.location.lon.toGeoCoordinate())")
+                    Text("LON. \(weatherViewModel.lon)")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
 
@@ -34,6 +34,6 @@ struct WeatherCoordinatesView: View {
 
 struct WeatherCoordinatesView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCoordinatesView(weather: weatherQueue.head!).preferredColorScheme(.dark)
+        WeatherCoordinatesView(weatherViewModel: factory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

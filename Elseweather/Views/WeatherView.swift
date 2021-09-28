@@ -10,7 +10,7 @@ import SwiftUI
 struct WeatherView: View {
     var body: some View {
         VStack {
-            WeatherDataView(weather: weatherQueue.head!)
+            WeatherDataView(weatherViewModel: factory.construct(from: weatherQueue.head!))
         }
     }
 }

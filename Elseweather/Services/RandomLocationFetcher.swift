@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RandomLocationFetcher {
+final class RandomLocationFetcher {
     
     fileprivate var locations: [Location] = []
     

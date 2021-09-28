@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct WeatherHeadingView: View {
-    var weather: WAWeather
+    var weatherViewModel: WeatherViewModel
     var body: some View {
         Group {
             HStack {
-                Text(weather.condition)
+                Text(weatherViewModel.condition)
                     .kerning(-0.5)
                     .textStyle(LargeTitle())
                 Spacer()
             }
             HStack {
-                Text(weather.locality)
+                Text(weatherViewModel.locality)
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
                 Spacer()
@@ -29,6 +29,6 @@ struct WeatherHeadingView: View {
 
 struct WeatherHeadingView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherHeadingView(weather: weatherQueue.head!).preferredColorScheme(.dark)
+        WeatherHeadingView(weatherViewModel: factory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

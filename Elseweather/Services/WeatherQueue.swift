@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class WeatherQueue: ObservableObject {
+final class WeatherQueue: ObservableObject {
     
     @Published var itemsCount: Int?
     var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }

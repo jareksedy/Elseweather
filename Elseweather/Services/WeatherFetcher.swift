@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WeatherFetcher {
+final class WeatherFetcher {
     
     func fetch(_ location: Location) -> WAWeather? {
         
