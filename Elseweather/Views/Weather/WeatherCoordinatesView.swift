@@ -13,19 +13,19 @@ struct WeatherCoordinatesView: View {
         Group {
             HStack {
                 VStack(alignment: .leading) {
+                    Divider(0)
+                    
                     Text("LAT. \(weatherViewModel.lat)")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
-
-                    Divider(0)
                 }
                 
                 VStack(alignment: .leading) {
+                    Divider(0)
+                    
                     Text("LON. \(weatherViewModel.lon)")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
-
-                    Divider(0)
                 }
             }
         }

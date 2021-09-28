@@ -10,13 +10,14 @@ import SwiftUI
 struct WeatherHeadingView: View {
     var weatherViewModel: WeatherViewModel
     var body: some View {
-        Group {
+        VStack {
             HStack {
                 Text(weatherViewModel.condition)
                     .kerning(-0.5)
                     .textStyle(LargeTitle())
                 Spacer()
-            }
+            }.padding(.bottom, 10)
+            
             HStack {
                 Text(weatherViewModel.locality)
                     .kerning(-0.25)

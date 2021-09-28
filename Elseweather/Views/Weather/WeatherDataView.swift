@@ -12,12 +12,23 @@ struct WeatherDataView: View {
     var body: some View {
         VStack {
             WeatherHeadingView(weatherViewModel: weatherViewModel)
+            
             WeatherCoordinatesView(weatherViewModel: weatherViewModel)
+                .padding(.bottom, 3)
+            
             Divider(2)
+            
             WeatherDetailsView(weatherViewModel: weatherViewModel)
+                .padding(.top, 3)
+            
             WeatherWindView(weatherViewModel: weatherViewModel)
+                .padding(.top, 10)
+                .padding(.bottom, 3)
+            
             Divider(2)
+            
             WeatherDateTimeView(weatherViewModel: weatherViewModel)
+                .padding(.top, 3)
         }
     }
 }
