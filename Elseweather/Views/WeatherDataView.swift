@@ -15,6 +15,7 @@ struct WeatherDataView: View {
             WeatherCoordinatesView(weatherViewModel: weatherViewModel)
             Divider(1)
             WeatherDetailsView(weatherViewModel: weatherViewModel)
+            WeatherWindView(weatherViewModel: weatherViewModel)
         }
     }
 }
