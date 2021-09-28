@@ -8,3 +8,5 @@
 import Foundation
 
 typealias Location = (lat: Double, lon: Double)
+
+let weatherQueue = WeatherQueue(length: 10)

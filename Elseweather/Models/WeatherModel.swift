@@ -126,7 +126,7 @@ extension WAWeather {
         
         var condition = "It’s "
         
-        let temperature = Session.shared.userSettings["Units"] as! Units == .metric ? self.current.tempC : self.current.tempF
+        let temperature = Session.shared.units == .metric ? self.current.tempC : self.current.tempF
         
         condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"       
         condition += "\n"

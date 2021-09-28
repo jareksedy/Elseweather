@@ -17,11 +17,14 @@ final class Session {
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
     let dataFileName = "LocationCoordinates", dataFileExt = "csv"
     
-    var userSettings = [
-        "Units": Units.metric,
-        "AppBackground": AppBackground.minimalist
-    ] as [String : Any]
+    // MARK: - User settings.
+    let units = Units.metric
+    let appBackground = AppBackground.minimalist
+    
+    // MARK: -
 }
+
+// MARK: - User settings enums.
 
 enum Units: Int {
     case metric
