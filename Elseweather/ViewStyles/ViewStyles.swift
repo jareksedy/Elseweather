@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomDivider: View {
+struct Divider: View {
     let color: Color = .primary
     var width: CGFloat
     var body: some View {

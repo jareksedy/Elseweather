@@ -2,7 +2,7 @@
 //  WeatherDataView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 28.09.2021.
+//  Created by Jarek Šedý on 28.09.2021.
 //
 
 import SwiftUI
@@ -12,6 +12,9 @@ struct WeatherDataView: View {
     var body: some View {
         VStack {
             WeatherHeadingView(weather: weather)
+            WeatherCoordinatesView(weather: weather)
+            Divider(1)
+            WeatherDetailsView(weather: weather)
         }
 //        VStack {
 //

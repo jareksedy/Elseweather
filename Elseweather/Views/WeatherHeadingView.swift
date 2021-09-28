@@ -2,7 +2,7 @@
 //  WeatherHeadingView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 28.09.2021.
+//  Created by Jarek Šedý on 28.09.2021.
 //
 
 import SwiftUI
@@ -10,18 +10,20 @@ import SwiftUI
 struct WeatherHeadingView: View {
     var weather: WAWeather
     var body: some View {
-        HStack {
-            Text(weather.condition)
-                .kerning(-0.5)
-                .textStyle(LargeTitle())
-            Spacer()
+        Group {
+            HStack {
+                Text(weather.condition)
+                    .kerning(-0.5)
+                    .textStyle(LargeTitle())
+                Spacer()
+            }
+            HStack {
+                Text(weather.locality)
+                    .kerning(-0.25)
+                    .textStyle(SmallTitle())
+                Spacer()
+            }
         }
-        HStack {
-            Text(weather.locality)
-                .kerning(-0.25)
-                .textStyle(SmallTitle())
-            Spacer()
-        }.padding(.top, 5)
     }
 }
 

@@ -19,6 +19,7 @@
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
 		CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */; };
+		CAC9543527037A270015BBE1 /* WeatherCoordinatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9543427037A270015BBE1 /* WeatherCoordinatesView.swift */; };
 		CAD416E627030B57009516D6 /* ElseweatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD416E527030B57009516D6 /* ElseweatherView.swift */; };
 		CAD416E827030BAB009516D6 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD416E727030BAB009516D6 /* WeatherView.swift */; };
 		CAD416EA27030C5C009516D6 /* WeatherDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD416E927030C5C009516D6 /* WeatherDataView.swift */; };
@@ -41,6 +42,7 @@
 		CAB6233826EDA8C500E85106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAB6233D26EDA8C500E85106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAC9543427037A270015BBE1 /* WeatherCoordinatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinatesView.swift; sourceTree = "<group>"; };
 		CAD416E527030B57009516D6 /* ElseweatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherView.swift; sourceTree = "<group>"; };
 		CAD416E727030BAB009516D6 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		CAD416E927030C5C009516D6 /* WeatherDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				CAD416E727030BAB009516D6 /* WeatherView.swift */,
 				CAD416E927030C5C009516D6 /* WeatherDataView.swift */,
 				CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */,
+				CAC9543427037A270015BBE1 /* WeatherCoordinatesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC9543527037A270015BBE1 /* WeatherCoordinatesView.swift in Sources */,
 				CAD416E827030BAB009516D6 /* WeatherView.swift in Sources */,
 				CAD416EA27030C5C009516D6 /* WeatherDataView.swift in Sources */,
 				CAD416EC270315DD009516D6 /* ViewStyles.swift in Sources */,
