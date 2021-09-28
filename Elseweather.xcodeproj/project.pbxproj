@@ -95,9 +95,9 @@
 		CA83676526EDC95C0098C709 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */,
 				CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */,
 				CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */,
+				CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -132,8 +132,8 @@
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
 				CAD416E427030A69009516D6 /* Views */,
 				CAD416ED270315E5009516D6 /* ViewStyles */,
-				CA83676B26EDCBCA0098C709 /* Models */,
 				CA83676526EDC95C0098C709 /* Services */,
+				CA83676B26EDCBCA0098C709 /* Models */,
 				CA535C8426F2535A00BD48BC /* Extensions */,
 				CA3FC62F26EDB7B2000987C5 /* LocalData */,
 				CA83676226EDC8F90098C709 /* Global */,

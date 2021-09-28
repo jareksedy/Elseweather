@@ -76,9 +76,7 @@ struct WACondition: Codable {
 }
 
 extension WAWeather {
-    
     var condition: String {
-        
         let customWeatherConditions = [
             1030: "and misty",
             1063: "with rain patches",
@@ -136,7 +134,6 @@ extension WAWeather {
     }
     
     var abbreviatedCountry: String? {
-        
         let countriesAbbreviations = [
             "United States of America": "USA",
             "United Kingdom": "UK",
@@ -146,7 +143,6 @@ extension WAWeather {
     }
     
     var region: String? {
-        
         if self.location.region != "" && !self.location.region.contains(self.location.country) && self.location.region != self.location.name && !self.location.region.hasNonAsciiCharacters() {
             
             return self.location.region.replacingOccurrences(of: "'", with: "")
@@ -158,7 +154,6 @@ extension WAWeather {
     }
     
     var locality: String {
-        
         var location = "in "
         let region = self.region != nil ? self.region! + ", " : ""
         
@@ -170,7 +165,6 @@ extension WAWeather {
     }
     
     var localDate: String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, MMM dd yyyy"
         let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: self.location.tzID)!)
@@ -179,7 +173,6 @@ extension WAWeather {
     }
     
     var localTime: String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: self.location.tzID)!)
