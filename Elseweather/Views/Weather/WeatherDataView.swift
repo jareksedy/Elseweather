@@ -13,9 +13,11 @@ struct WeatherDataView: View {
         VStack {
             WeatherHeadingView(weatherViewModel: weatherViewModel)
             WeatherCoordinatesView(weatherViewModel: weatherViewModel)
-            Divider(1)
+            Divider(2)
             WeatherDetailsView(weatherViewModel: weatherViewModel)
             WeatherWindView(weatherViewModel: weatherViewModel)
+            Divider(2)
+            WeatherDateTimeView(weatherViewModel: weatherViewModel)
         }
     }
 }

@@ -136,6 +136,6 @@ final class WeatherViewModelFactory {
                                 windGustUnits: metricUnits ? "KPH" : "MPH",
                                 localDate: localDate.uppercased(),
                                 localTime: localTime,
-                                localTimeZone: weather.location.tzID)
+                                localTimeZone: weather.location.tzID.uppercased())
     }
 }
