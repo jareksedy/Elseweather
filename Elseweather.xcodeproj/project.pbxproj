@@ -15,6 +15,7 @@
 		CA83676126EDC7B70098C709 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676026EDC7B70098C709 /* Global.swift */; };
 		CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */; };
 		CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676926EDCBC00098C709 /* WeatherModel.swift */; };
+		CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */; };
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
 		CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233B26EDA8C500E85106 /* Preview Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		CA83676026EDC7B70098C709 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLocationFetcher.swift; sourceTree = "<group>"; };
 		CA83676926EDCBC00098C709 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeadingView.swift; sourceTree = "<group>"; };
 		CAB6233126EDA8BF00E85106 /* Elseweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elseweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherApp.swift; sourceTree = "<group>"; };
 		CAB6233826EDA8C500E85106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				CAD416E527030B57009516D6 /* ElseweatherView.swift */,
 				CAD416E727030BAB009516D6 /* WeatherView.swift */,
 				CAD416E927030C5C009516D6 /* WeatherDataView.swift */,
+				CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				CA83676126EDC7B70098C709 /* Global.swift in Sources */,
 				CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */,
 				CA11D22026EE4B3B007C7E93 /* WeatherQueue.swift in Sources */,
+				CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */,
 				CA535C8B26F2578E00BD48BC /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
