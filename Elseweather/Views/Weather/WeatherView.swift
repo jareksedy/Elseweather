@@ -10,6 +10,7 @@ import SwiftUI
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
     @State private var viewBusy: Bool = false
+    @State private var viewTouchedDown: Bool = false
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -21,8 +22,13 @@ struct WeatherView: View {
         getWeather()
     }
     
-    private func viewTap() {
+    private func viewTouchDown() {
+        viewTouchedDown = true
+    }
+    
+    private func viewTouchUp() {
         getWeather()
+        viewTouchedDown = false
     }
     
     var body: some View {
@@ -30,6 +36,8 @@ struct WeatherView: View {
             Spacer()
             
             WeatherDataView(weatherViewModel: weatherViewModel)
+                .scaleEffect(viewTouchedDown ? 0.975 : 1.0)
+                .opacity(viewTouchedDown ? 0.75 : 1.0)
         }
         .padding(25)
         .padding(.bottom, 50)
@@ -40,9 +48,11 @@ struct WeatherView: View {
         .onAppear {
             viewAppear()
         }
-        .onTapGesture {
-            viewTap()
-        }
+        .gesture(
+            DragGesture(minimumDistance: 0)
+                    .onChanged { _ in viewTouchDown()}
+                    .onEnded { _ in viewTouchUp()}
+        )
     }
 }
 
