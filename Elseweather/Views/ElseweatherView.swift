@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ElseweatherView: View {
     var body: some View {
-        WeatherView()
+        WeatherView(weatherViewModel: factory.construct(from: weatherQueue.head!))
     }
 }
 
