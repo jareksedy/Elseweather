@@ -10,7 +10,7 @@ import SwiftUI
 
 final class WeatherQueue: ObservableObject {
     
-    @Published var itemsCount: Int?
+//    @Published var itemsCount: Int?
     var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
     
     private lazy var randomLocationFetcher = RandomLocationFetcher()
@@ -31,9 +31,9 @@ final class WeatherQueue: ObservableObject {
             let location = self.randomLocationFetcher.fetch()
             guard let weather = self.weatherFetcher.fetch(location) else { return }
             self.items.append(weather)
-            DispatchQueue.main.async {
-                self.itemsCount = self.count
-            }
+//            DispatchQueue.main.async {
+//                self.itemsCount = self.count
+//            }
         }
     }
     
@@ -43,16 +43,16 @@ final class WeatherQueue: ObservableObject {
                 let location = self.randomLocationFetcher.fetch()
                 guard let weather = self.weatherFetcher.fetch(location) else { return }
                 self.items.append(weather)
-                DispatchQueue.main.async {
-                    self.itemsCount = self.count
-                }
+//                DispatchQueue.main.async {
+//                    self.itemsCount = self.count
+//                }
             }
         }
     }
     
     func dequeue() -> WAWeather? {
         let result = count > 0 ? items.removeFirst() : nil
-        itemsCount = count
+//        itemsCount = count
         return result
     }
 }

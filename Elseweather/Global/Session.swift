@@ -18,7 +18,9 @@ final class Session {
     let dataFileName = "LocationCoordinates", dataFileExt = "csv"
     
     // MARK: - User settings.
-    let units: Units = .imperial
+    
+    let units: Units = .metric
+    let displayTemperatureUnits: DisplayUnits = .no
     let appBackground: AppBackground = .minimalist
 }
 
@@ -27,6 +29,11 @@ final class Session {
 enum Units: Int {
     case metric
     case imperial
+}
+
+enum DisplayUnits: Int {
+    case yes
+    case no
 }
 
 enum AppBackground: Int {

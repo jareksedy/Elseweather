@@ -13,6 +13,10 @@ final class WeatherViewModelFactory {
             return Session.shared.units == .metric
         }
         
+        var displayUnits: Bool {
+            return Session.shared.displayTemperatureUnits == .yes
+        }
+        
         var condition: String {
             let customWeatherConditions = [
                 1030: "and misty",
@@ -62,8 +66,14 @@ final class WeatherViewModelFactory {
             var condition = "It’s "
             
             let temperature = metricUnits ? weather.current.tempC : weather.current.tempF
+            let unitCharacter = metricUnits ? "C" : "F"
             
-            condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"
+            if displayUnits {
+                condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + " °\(unitCharacter) below zero" : String(abs(Int(temperature))) + " °\(unitCharacter)"
+            } else {
+                condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"
+            }
+            
             condition += "\n"
             condition += customWeatherConditions[weather.current.condition.code] ?? "and " + weather.current.condition.text.lowercased()
             
@@ -120,7 +130,7 @@ final class WeatherViewModelFactory {
                                 lat: weather.location.lat.toGeoCoordinate(),
                                 lon: weather.location.lon.toGeoCoordinate(),
                                 precipitation: metricUnits ? weather.current.precipMM : weather.current.precipIN,
-                                precipitationUnits: metricUnits ? "MM" : "″",
+                                precipitationUnits: metricUnits ? "MM" : "IN",//"″",
                                 cloudCover: weather.current.cloud,
                                 cloudCoverUnits: "%",
                                 humidity: weather.current.humidity,

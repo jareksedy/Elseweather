@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
+    @State private var viewBusy: Bool = false
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -27,6 +28,7 @@ struct WeatherView: View {
     var body: some View {
         VStack {
             Spacer()
+            
             WeatherDataView(weatherViewModel: weatherViewModel)
         }
         .padding(25)
