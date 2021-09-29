@@ -16,7 +16,9 @@ final class RandomLocationFetcher {
     }
     
     func fetch() -> Location {
-        return locations[Int.random(in: 0...locations.count - 1)]
+        let count = UInt32(locations.count)
+        let randomIndex = arc4random_uniform(count)
+        return locations[Int(randomIndex)]
     }
     
     fileprivate func load() {

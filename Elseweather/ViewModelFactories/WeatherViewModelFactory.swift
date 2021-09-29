@@ -129,8 +129,8 @@ final class WeatherViewModelFactory {
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
         
-        let reduceFactor = 64.0
-        let blurHashArr = [
+        let reduceFactor = 32.0
+        let _ = [
             "[25X=iIp00~V%1M|Ip-o0JoI?IIU0K%M^+4:NMxuxYIWxZRiM{t8s+RjRlxa%NRkM{%2awa#t8t6",
             "[9B.A,Fy10}a1N=F=YS%1P;|=cAt]#JCElw],JNxt6-8S1$*ogNxK5$*niNd,oJ8baxDS4oLn~R,",
             "[CM=Kb~6t1S_t$tOr@nS9dt5ofo0w1w{SzS_Naovaii~VuoKoxj?sCjbR,bFXQW.sAsDjJazf$k9",
@@ -141,8 +141,17 @@ final class WeatherViewModelFactory {
             "[gIiBvNFIoae?dM{aeWB-=Rjo0WV-=WDWVay-;kCa#oL%Lozj[bHxZogWVazV@j]WEj[Rjs:a~j["
         ]
         
-        let blurHashImage = UIImage(blurHash: blurHashArr[Int.random(in: 0...blurHashArr.count - 1)],
-                                    size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)))!
+        let bh1 = BlurHash(colour: UIColor.random())
+        let bh2 = BlurHash(colour: UIColor.random())
+        let bh3 = BlurHash(colour: UIColor.random())
+        let bh4 = BlurHash(colour: UIColor.random())
+        
+        let bhTop = BlurHash(blendingTop: bh1, bottom: bh2)
+        let bhBottom = BlurHash(blendingTop: bh3, bottom: bh4)
+        
+        let bh = BlurHash(blendingLeft: bhTop, right: bhBottom)
+        
+        let blurHashImage = UIImage(blurHash: bh.string, size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)))!
         
         return WeatherViewModel(condition: condition,
                                 locality: locality,
