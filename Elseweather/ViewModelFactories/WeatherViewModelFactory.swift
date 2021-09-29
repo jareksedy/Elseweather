@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class WeatherViewModelFactory {
     func construct(from weather: WAWeather) -> WeatherViewModel {
@@ -125,6 +126,24 @@ final class WeatherViewModelFactory {
             return dateFormatter.string(from: localDate)
         }
         
+        let screenWidth = UIScreen.main.bounds.size.width
+        let screenHeight = UIScreen.main.bounds.size.height
+        
+        let reduceFactor = 64.0
+        let blurHashArr = [
+            "[25X=iIp00~V%1M|Ip-o0JoI?IIU0K%M^+4:NMxuxYIWxZRiM{t8s+RjRlxa%NRkM{%2awa#t8t6",
+            "[9B.A,Fy10}a1N=F=YS%1P;|=cAt]#JCElw],JNxt6-8S1$*ogNxK5$*niNd,oJ8baxDS4oLn~R,",
+            "[CM=Kb~6t1S_t$tOr@nS9dt5ofo0w1w{SzS_Naovaii~VuoKoxj?sCjbR,bFXQW.sAsDjJazf$k9",
+            "[ABptN^+E2VE~W%#9v9Z5H%gxCE1Tf-U=as8%fOZbbX8^dxuTJspv}rrkq%ME3S#W?o#N1s;xGay",
+            "[MG8.g_NTJNwH=WBafWryrx]Q-ni?ax]x^R*=|%MIoR+-:MxMxj[Wmt7jcRjkrtRaKo}rqV@bvRP",
+            "[36kL-x]^*R+01a0NHt64.?HIVM{~C0KxZNHTK%1X9t6V?~pWCoesT4o%2W;S#IAIoaei__3MyNG",
+            "[OHbh]W;JA$h}Xw^J9fQ13n%s,NdJANww^sn-7oKNcoJW:oKWWS3S3WWsnoKoKa|WWoKj@j@azS3",
+            "[gIiBvNFIoae?dM{aeWB-=Rjo0WV-=WDWVay-;kCa#oL%Lozj[bHxZogWVazV@j]WEj[Rjs:a~j["
+        ]
+        
+        let blurHashImage = UIImage(blurHash: blurHashArr[Int.random(in: 0...blurHashArr.count - 1)],
+                                    size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)))!
+        
         return WeatherViewModel(condition: condition,
                                 locality: locality,
                                 lat: weather.location.lat.toGeoCoordinate(),
@@ -146,6 +165,7 @@ final class WeatherViewModelFactory {
                                 windGustUnits: metricUnits ? "KPH" : "MPH",
                                 localDate: localDate.uppercased(),
                                 localTime: localTime,
-                                localTimeZone: weather.location.tzID.uppercased())
+                                localTimeZone: weather.location.tzID.uppercased(),
+                                blurHashImage: blurHashImage)
     }
 }

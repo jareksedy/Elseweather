@@ -41,7 +41,11 @@ struct WeatherView: View {
         }
         .padding(25)
         .padding(.bottom, 50)
-        .background(Color.blue)
+        .background(
+            Image(uiImage: weatherViewModel.blurHashImage)
+                        .resizable()
+                        .scaledToFill()
+        )
         .ignoresSafeArea(.all)
         .transition(.standard)
         .animation(.standard)

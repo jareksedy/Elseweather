@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct WeatherViewModel {
     let condition: String
@@ -46,5 +47,7 @@ struct WeatherViewModel {
     let localDate: String
     let localTime: String
     let localTimeZone: String
+    
+    let blurHashImage: UIImage
 }
 
