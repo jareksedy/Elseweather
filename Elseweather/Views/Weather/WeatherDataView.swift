@@ -12,23 +12,28 @@ struct WeatherDataView: View {
     var body: some View {
         VStack {
             WeatherHeadingView(weatherViewModel: weatherViewModel)
+                .padding(.bottom, 10)
             
             WeatherCoordinatesView(weatherViewModel: weatherViewModel)
-                .padding(.bottom, 3)
             
             Divider(2)
+                .padding(.bottom, 2 + 5)
             
-            WeatherDetailsView(weatherViewModel: weatherViewModel)
-                .padding(.top, 3)
-            
-            WeatherWindView(weatherViewModel: weatherViewModel)
-                .padding(.top, 10)
-                .padding(.bottom, 3)
+            if weatherViewModel.wind > 0 {
+                WeatherDetailsView(weatherViewModel: weatherViewModel)
+                    .padding(.bottom, 15)
+                
+                WeatherWindView(weatherViewModel: weatherViewModel)
+                    .padding(.bottom, 1 + 5)
+            } else {
+                WeatherDetailsView(weatherViewModel: weatherViewModel)
+                    .padding(.bottom, 1 + 5)
+            }
             
             Divider(2)
+                .padding(.bottom, 2)
             
             WeatherDateTimeView(weatherViewModel: weatherViewModel)
-                .padding(.top, 3)
         }
     }
 }

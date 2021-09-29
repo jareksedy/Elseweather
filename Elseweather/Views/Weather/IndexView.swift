@@ -21,13 +21,14 @@ struct IndexView: View {
                         .lineLimit(1)
                     
                     Divider(1)
+                        .padding(.bottom, 2)
                     
                     Text("\(value) \(units ?? "")")
                         .kerning(-0.25)
                         .textStyle(SmallMonospaced())
                         .lineLimit(1)
+                }
             }
-        }
         }
     }
 }
