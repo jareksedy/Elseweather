@@ -18,10 +18,8 @@ final class Session {
     let dataFileName = "LocationCoordinates", dataFileExt = "csv"
     
     // MARK: - User settings.
-    let units = Units.metric
-    let appBackground = AppBackground.minimalist
-    
-    // MARK: -
+    let units: Units = .imperial
+    let appBackground: AppBackground = .minimalist
 }
 
 // MARK: - User settings enums.
