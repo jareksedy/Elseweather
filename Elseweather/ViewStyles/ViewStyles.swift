@@ -22,7 +22,7 @@ struct Divider: View {
     }
 }
 
-/* Button Styles */
+// MARK: - Button styles.
 
 struct btStyleScaled: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -44,7 +44,7 @@ struct btStyleScaledBigger: ButtonStyle {
     }
 }
 
-/* Text Styles */
+// MARK: - Text styles.
 
 struct LargeTitle: ViewModifier {
     func body(content: Content) -> some View {
@@ -81,5 +81,21 @@ struct LargeMonospaced: ViewModifier {
 extension Text {
     func textStyle<Style: ViewModifier>(_ style: Style) -> some View {
         ModifiedContent(content: self, modifier: style)
+    }
+}
+
+// MARK: - Animations.
+
+extension Animation {
+    static var standard: Animation {
+        .linear(duration: 0.075)
+    }
+}
+
+// MARK: - Transitions.
+
+extension AnyTransition {
+    static var standard: AnyTransition {
+        .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     }
 }

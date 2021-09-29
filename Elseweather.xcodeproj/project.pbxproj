@@ -73,6 +73,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA30C3C327043336005CC7D6 /* ViewModelFactories */ = {
+			isa = PBXGroup;
+			children = (
+				CAC9543A2703854D0015BBE1 /* WeatherViewModelFactory.swift */,
+			);
+			path = ViewModelFactories;
+			sourceTree = "<group>";
+		};
+		CA30C3C42704335A005CC7D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CAC95438270380D20015BBE1 /* WeatherViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		CA3FC62F26EDB7B2000987C5 /* LocalData */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +130,6 @@
 				CA11D21F26EE4B3B007C7E93 /* WeatherQueue.swift */,
 				CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */,
 				CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */,
-				CAC9543A2703854D0015BBE1 /* WeatherViewModelFactory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -123,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				CA83676926EDCBC00098C709 /* WeatherModel.swift */,
-				CAC95438270380D20015BBE1 /* WeatherViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,6 +164,8 @@
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
 				CAD416E427030A69009516D6 /* Views */,
 				CAD416ED270315E5009516D6 /* ViewStyles */,
+				CA30C3C327043336005CC7D6 /* ViewModelFactories */,
+				CA30C3C42704335A005CC7D6 /* ViewModels */,
 				CA83676526EDC95C0098C709 /* Services */,
 				CA83676B26EDCBCA0098C709 /* Models */,
 				CA535C8426F2535A00BD48BC /* Extensions */,

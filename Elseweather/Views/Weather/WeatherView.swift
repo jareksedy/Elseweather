@@ -31,10 +31,10 @@ struct WeatherView: View {
         }
         .padding(25)
         .padding(.bottom, 50)
-        .ignoresSafeArea(.all)
         .background(Color.blue)
-        .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
-        .animation(.linear(duration: 0.10))
+        .ignoresSafeArea(.all)
+        .transition(.standard)
+        .animation(.standard)
         .onAppear {
             viewAppear()
         }

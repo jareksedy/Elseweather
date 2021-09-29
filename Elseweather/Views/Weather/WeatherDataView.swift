@@ -34,6 +34,7 @@ struct WeatherDataView: View {
                 .padding(.bottom, 2)
             
             WeatherDateTimeView(weatherViewModel: weatherViewModel)
+            
         }
     }
 }
