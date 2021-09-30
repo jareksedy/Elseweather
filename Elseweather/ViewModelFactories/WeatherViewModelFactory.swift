@@ -130,26 +130,20 @@ final class WeatherViewModelFactory {
         let screenHeight = UIScreen.main.bounds.size.height
         
         let reduceFactor = 32.0
-        let _ = [
-            "[25X=iIp00~V%1M|Ip-o0JoI?IIU0K%M^+4:NMxuxYIWxZRiM{t8s+RjRlxa%NRkM{%2awa#t8t6",
-            "[9B.A,Fy10}a1N=F=YS%1P;|=cAt]#JCElw],JNxt6-8S1$*ogNxK5$*niNd,oJ8baxDS4oLn~R,",
-            "[CM=Kb~6t1S_t$tOr@nS9dt5ofo0w1w{SzS_Naovaii~VuoKoxj?sCjbR,bFXQW.sAsDjJazf$k9",
-            "[ABptN^+E2VE~W%#9v9Z5H%gxCE1Tf-U=as8%fOZbbX8^dxuTJspv}rrkq%ME3S#W?o#N1s;xGay",
-            "[MG8.g_NTJNwH=WBafWryrx]Q-ni?ax]x^R*=|%MIoR+-:MxMxj[Wmt7jcRjkrtRaKo}rqV@bvRP",
-            "[36kL-x]^*R+01a0NHt64.?HIVM{~C0KxZNHTK%1X9t6V?~pWCoesT4o%2W;S#IAIoaei__3MyNG",
-            "[OHbh]W;JA$h}Xw^J9fQ13n%s,NdJANww^sn-7oKNcoJW:oKWWS3S3WWsnoKoKa|WWoKj@j@azS3",
-            "[gIiBvNFIoae?dM{aeWB-=Rjo0WV-=WDWVay-;kCa#oL%Lozj[bHxZogWVazV@j]WEj[Rjs:a~j["
-        ]
         
-        let bh1 = BlurHash(colour: UIColor.random())
-        let bh2 = BlurHash(colour: UIColor.random())
-        let bh3 = BlurHash(colour: UIColor.random())
-        let bh4 = BlurHash(colour: UIColor.random())
+//        let horizontalBlurHash = BlurHash(blendingLeft: UIColor.random(), right: UIColor.random())
+//        let verticalBlurHash = BlurHash(blendingTop: UIColor.random(), bottom: UIColor.random())
+//        let bh1 = BlurHash(blendingTopLeft: UIColor.random(),
+//                                      topRight: UIColor.random(),
+//                                      bottomLeft: UIColor.random(),
+//                                      bottomRight: UIColor.random())
+//        let bh2 = BlurHash(blendingTopLeft: UIColor.random(),
+//                                             topRight: UIColor.random(),
+//                                             bottomLeft: UIColor.random(),
+//                                             bottomRight: UIColor.random())
         
-        let bhTop = BlurHash(blendingTop: bh1, bottom: bh2)
-        let bhBottom = BlurHash(blendingTop: bh3, bottom: bh4)
         
-        let bh = BlurHash(blendingLeft: bhTop, right: bhBottom)
+        let bh = BlurHash(components: generateBH())
         
         let blurHashImage = UIImage(blurHash: bh.string, size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)))!
         
@@ -176,5 +170,21 @@ final class WeatherViewModelFactory {
                                 localTime: localTime,
                                 localTimeZone: weather.location.tzID.uppercased(),
                                 blurHashImage: blurHashImage)
+    }
+    
+    private func generateRC() -> BlurHashComponent {
+        return (Float.random(in: 0...1), Float.random(in: 0...1), Float.random(in: 0...1))
+    }
+    
+    private func generateBHC() -> BlurHashVector {
+        return [generateRC(), generateRC()]
+    }
+    
+    private func generateBH() -> BlurHashMatrix {
+        var arr: [[(Float, Float, Float)]] = []
+        for _ in 0...3 {
+            arr.append(generateBHC())
+        }
+        return arr
     }
 }

@@ -23,6 +23,7 @@ struct WeatherView: View {
     }
     
     private func viewTouchDown() {
+        guard viewTouchedDown == false else { return }
         viewTouchedDown = true
     }
     

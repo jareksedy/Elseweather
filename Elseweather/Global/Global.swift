@@ -9,5 +9,11 @@ import Foundation
 
 typealias Location = (lat: Double, lon: Double)
 
-let weatherQueue = WeatherQueue(length: 10)
+typealias BlurHashComponent = (Float, Float, Float)
+typealias BlurHashVector = [BlurHashComponent]
+typealias BlurHashMatrix = [BlurHashVector]
+
+let queueLength = 10
+
+let weatherQueue = WeatherQueue(length: queueLength)
 let factory = WeatherViewModelFactory()
