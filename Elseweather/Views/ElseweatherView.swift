@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ElseweatherView: View {
     var body: some View {
-        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!), backgroundImage: Image(systemName: "circle"))
+        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!))
     }
 }
 

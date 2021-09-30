@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 typealias Location = (lat: Double, lon: Double)
 
 typealias BlurHashComponent = (Float, Float, Float)
 typealias BlurHashVector = [BlurHashComponent]
 typealias BlurHashMatrix = [BlurHashVector]
+
+let screenWidth = UIScreen.main.bounds.size.width
+let screenHeight = UIScreen.main.bounds.size.height
 
 let queueLength = 10
 let bhMatrixWidth = 2

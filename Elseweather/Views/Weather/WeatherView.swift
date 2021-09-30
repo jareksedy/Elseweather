@@ -9,26 +9,9 @@ import SwiftUI
 
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
-    @State var backgroundImage: Image
     @State private var viewBusy: Bool = false
     @State private var viewTouchedDown: Bool = false
-    
-    private func generateBackground(rFactor: CGFloat, punch: Float) {
-        
-        let screenWidth = UIScreen.main.bounds.size.width
-        let screenHeight = UIScreen.main.bounds.size.height
-        let size = CGSize(width: Int(screenWidth / rFactor), height: Int(screenHeight / rFactor))
-        
-        let matrix = weatherViewModel.blurHashMatrix
-        let blurHash = BlurHash(components: matrix)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let image = UIImage(blurHash: blurHash.string, size: size, punch: punch) else { return }
-            DispatchQueue.main.async {
-                backgroundImage = Image(uiImage: image)
-            }
-        }
-    }
+    @State private var backgroundImage = Image(systemName: "cross")
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -37,7 +20,9 @@ struct WeatherView: View {
     }
     
     private func viewAppear() {
-        generateBackground(rFactor: 64.0, punch: 0.75)
+        blurHashGenerator.generateImage(components: weatherViewModel.blurHashMatrix, reducedBy: 24.0, punch: 0.75) { image in
+            self.backgroundImage = Image(uiImage: image)
+        }
         getWeather()
     }
     
@@ -48,7 +33,9 @@ struct WeatherView: View {
     
     private func viewTouchUp() {
         getWeather()
-        generateBackground(rFactor: 24.0, punch: 0.75)
+        blurHashGenerator.generateImage(components: weatherViewModel.blurHashMatrix, reducedBy: 24.0, punch: 0.75) { image in
+            self.backgroundImage = Image(uiImage: image)
+        }
         viewTouchedDown = false
     }
     
@@ -64,7 +51,9 @@ struct WeatherView: View {
         .padding(.bottom, 50)
         .background(backgroundImage
                         .resizable()
-                        .scaledToFill())
+                        .scaledToFill()
+                        .transition(.slide)
+                        .animation(.linear(duration: 1.0)))
         .ignoresSafeArea(.all)
         .transition(.standard)
         .animation(.standard)
@@ -81,6 +70,6 @@ struct WeatherView: View {
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!), backgroundImage: Image(systemName: "circle")).preferredColorScheme(.dark)
+        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

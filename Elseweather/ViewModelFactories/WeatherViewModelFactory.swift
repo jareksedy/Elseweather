@@ -125,15 +125,9 @@ final class WeatherViewModelFactory {
             
             return dateFormatter.string(from: localDate)
         }
-        //
-        //        let screenWidth = UIScreen.main.bounds.size.width
-        //        let screenHeight = UIScreen.main.bounds.size.height
         
         let blurHashMatrix = blurHashGenerator.generateFor(code: weather.current.condition.code,
                                                    day: weather.current.isDay == 1 ? true : false)
-        
-        
-        //        let blurHashImage = UIImage(blurHash: bh.string, size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)), punch: 1.0)!
         
         return WeatherViewModel(condition: condition,
                                 locality: locality,
