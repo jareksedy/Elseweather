@@ -14,6 +14,9 @@ typealias BlurHashVector = [BlurHashComponent]
 typealias BlurHashMatrix = [BlurHashVector]
 
 let queueLength = 10
+let bhMatrixWidth = 2
+let bhMatrixHeight = 4
 
 let weatherQueue = WeatherQueue(length: queueLength)
-let factory = WeatherViewModelFactory()
+let weatherViewModelFactory = WeatherViewModelFactory()
+let blurHashGenerator = BlurHashGenerator()

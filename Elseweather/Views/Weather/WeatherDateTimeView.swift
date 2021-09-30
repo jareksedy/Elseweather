@@ -36,6 +36,6 @@ struct WeatherDateTimeView: View {
 
 struct WeatherDateTimeView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherDateTimeView(weatherViewModel: factory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
+        WeatherDateTimeView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

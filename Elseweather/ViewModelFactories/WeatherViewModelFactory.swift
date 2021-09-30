@@ -125,27 +125,15 @@ final class WeatherViewModelFactory {
             
             return dateFormatter.string(from: localDate)
         }
+        //
+        //        let screenWidth = UIScreen.main.bounds.size.width
+        //        let screenHeight = UIScreen.main.bounds.size.height
         
-        let screenWidth = UIScreen.main.bounds.size.width
-        let screenHeight = UIScreen.main.bounds.size.height
-        
-        let reduceFactor = 32.0
-        
-//        let horizontalBlurHash = BlurHash(blendingLeft: UIColor.random(), right: UIColor.random())
-//        let verticalBlurHash = BlurHash(blendingTop: UIColor.random(), bottom: UIColor.random())
-//        let bh1 = BlurHash(blendingTopLeft: UIColor.random(),
-//                                      topRight: UIColor.random(),
-//                                      bottomLeft: UIColor.random(),
-//                                      bottomRight: UIColor.random())
-//        let bh2 = BlurHash(blendingTopLeft: UIColor.random(),
-//                                             topRight: UIColor.random(),
-//                                             bottomLeft: UIColor.random(),
-//                                             bottomRight: UIColor.random())
+        let blurHashMatrix = blurHashGenerator.generateFor(code: weather.current.condition.code,
+                                                   day: weather.current.isDay == 1 ? true : false)
         
         
-        let bh = BlurHash(components: generateBH())
-        
-        let blurHashImage = UIImage(blurHash: bh.string, size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)))!
+        //        let blurHashImage = UIImage(blurHash: bh.string, size: CGSize(width: Int(screenWidth / reduceFactor), height: Int(screenHeight / reduceFactor)), punch: 1.0)!
         
         return WeatherViewModel(condition: condition,
                                 locality: locality,
@@ -169,22 +157,6 @@ final class WeatherViewModelFactory {
                                 localDate: localDate.uppercased(),
                                 localTime: localTime,
                                 localTimeZone: weather.location.tzID.uppercased(),
-                                blurHashImage: blurHashImage)
-    }
-    
-    private func generateRC() -> BlurHashComponent {
-        return (Float.random(in: 0...1), Float.random(in: 0...1), Float.random(in: 0...1))
-    }
-    
-    private func generateBHC() -> BlurHashVector {
-        return [generateRC(), generateRC()]
-    }
-    
-    private func generateBH() -> BlurHashMatrix {
-        var arr: [[(Float, Float, Float)]] = []
-        for _ in 0...3 {
-            arr.append(generateBHC())
-        }
-        return arr
+                                blurHashMatrix: blurHashMatrix!)
     }
 }

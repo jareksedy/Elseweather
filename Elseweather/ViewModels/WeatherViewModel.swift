@@ -48,6 +48,6 @@ struct WeatherViewModel {
     let localTime: String
     let localTimeZone: String
     
-    let blurHashImage: UIImage
+    let blurHashMatrix: BlurHashMatrix
 }
 

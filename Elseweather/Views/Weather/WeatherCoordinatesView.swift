@@ -34,6 +34,6 @@ struct WeatherCoordinatesView: View {
 
 struct WeatherCoordinatesView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherCoordinatesView(weatherViewModel: factory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
+        WeatherCoordinatesView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

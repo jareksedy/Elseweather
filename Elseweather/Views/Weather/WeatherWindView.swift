@@ -31,6 +31,6 @@ struct WeatherWindView: View {
 
 struct WeatherWindView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherWindView(weatherViewModel: factory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
+        WeatherWindView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }
