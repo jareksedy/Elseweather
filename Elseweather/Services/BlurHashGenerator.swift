@@ -36,14 +36,14 @@ class BlurHashGenerator {
         }
     }
     
-    func generateImage(components: BlurHashMatrix, reducedBy: CGFloat, punch: Float, _ completion: @escaping (UIImage) -> ()) {
+    func generateImage(components: BlurHashMatrix, reducedBy: CGFloat, punch: Float, _ completion: @escaping (Image) -> ()) {
         let size = CGSize(width: Int(screenWidth / reducedBy), height: Int(screenHeight / reducedBy))
         let blurHashString = BlurHash(components: components).string
         
         DispatchQueue.global(qos: .userInteractive).async {
             guard let image = UIImage(blurHash: blurHashString, size: size, punch: punch) else { return }
             DispatchQueue.main.async {
-                completion(image)
+                completion(Image(uiImage: image))
             }
         }
     }
