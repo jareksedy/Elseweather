@@ -11,48 +11,25 @@ import SwiftUI
 class BlurHashGenerator {
     
     private let blurHashForWeatherCode = [
-        0: ["FF0000", "00FF00", "0000FF", "FF00FF"],
-        1000: ["8C1822", "F24B78", "3B67BF", "141640"]
+        1000: "dMFiDkF_5+^72|pLw^ROL3-rmjKj8_Eht1jFw|ROozw]", // sunny & clear
+        1003: "dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2", // partly cloudy
+        1006: "dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?", // cloudy
+        1009: "d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_", // overcast
+        1030: "d9FY+7D,00IT-;D%aKRO00M_~Wxv?bM_D%?H~qt89ZM_", // mist
     ]
     
     func generateFor(code: Int, day: Bool) -> BlurHashMatrix? {
-     //   var colors: [String] = []
         
-        //        guard let blurHash = blurHashForWeatherCode[code],
-        //              let blurHashMatrix = BlurHash(string: blurHash[day ? 0 : 1])?.components else { return nil }
-        //        let bhMatrix = BlurHash(string: "SSExX{}=?bt6169^9wHN")!.components
-        //        var result: BlurHashMatrix = []
-        //        bhMatrix.forEach { vector in
-        //            result.append(vector.shuffled())
-        //        }
+       // let dayIndex = day ? 0 : 1
         
-        //let matrix = generateRandomMatrix(width: bhMatrixWidth, height: bhMatrixHeight, top: 0.35, bottom: 0.20)
+        guard let bhString = blurHashForWeatherCode[code] else {
+            return BlurHash(string: "00DGE0")?.components
+        }
         
-//        if blurHashForWeatherCode[code] != nil {
-//            colors = blurHashForWeatherCode[code]!
-//        } else {
-//            colors = blurHashForWeatherCode[0]!
-//        }
-        
-      //  let matrix = BlurHash(blendingTopLeft: hexToUIColor(colors[0]),
-//                              topRight: hexToUIColor(colors[1]),
-//                              bottomLeft: hexToUIColor(colors[2]),
-//                              bottomRight: hexToUIColor(colors[3])).components
-        
-            let colors = ["004488", "444400"]
-               let matrix = generateMatrix(width: 2, height: 3, from: colors)
-        //
-        //        print(BlurHash(components: matrix).string)
-        
-        //        let bh = BlurHash(string: "S~M#.g~l~m~l~p~p}K~o")
-        //        var matrix: BlurHashMatrix = []
-        //        bh!.components.forEach { vector in
-        //            matrix.append(vector.shuffled())
-        //        }
-        
+        let matrix = BlurHash(string: bhString)?.components
         return matrix
     }
-    
+
     func generateMatrix(width: Int, height: Int, from: [String]) -> BlurHashMatrix {
         return (0..<height).map { _ in (0..<width).map{ _ in hexToBHC(from.randomElement()!) }}
     }
@@ -123,4 +100,12 @@ class BlurHashGenerator {
         
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
+}
+
+extension MutableCollection {
+  mutating func updateEach(_ update: (inout Element) -> Void) {
+    for i in indices {
+      update(&self[i])
+    }
+  }
 }
