@@ -11,25 +11,34 @@ import SwiftUI
 class BlurHashGenerator {
     
     private let blurHashForWeatherCode = [
-        1000: "dMFiDkF_5+^72|pLw^ROL3-rmjKj8_Eht1jFw|ROozw]", // sunny & clear
-        1003: "dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2", // partly cloudy
-        1006: "dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?", // cloudy
-        1009: "d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_", // overcast
-        1030: "d9FY+7D,00IT-;D%aKRO00M_~Wxv?bM_D%?H~qt89ZM_", // mist
+        0000: ["dvEzGyRoIot6lCNHRjs:a9W9NHs:k6WAs:t4xUWCWYs,"], // reserved
+        1000: ["d@Lq,[t7oeWVUHf6j]oeR*aejFa|nMj[WVayWYbIofj@"], // sunny & clear
+        1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2"], // partly cloudy
+        1006: ["dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?"], // cloudy
+        1009: ["d4BgVx0100~W00_4%M4nHX%NEM%19ar;_4D+^*00o#_4"], // overcast
+        1030: ["dlGSfTWBWBof~pofayf6$*ofayayWCj[ayfkWVWCfkfQ"], // mist
     ]
     
     func generateFor(code: Int, day: Bool) -> BlurHashMatrix? {
         
-       // let dayIndex = day ? 0 : 1
+        let dayIndex = day ? 0 : 1
         
-        guard let bhString = blurHashForWeatherCode[code] else {
-            return BlurHash(string: "00DGE0")?.components
+        if blurHashForWeatherCode[code]?.isEmpty == false {
+            if blurHashForWeatherCode[code]!.count > 1 {
+                let bhString = blurHashForWeatherCode[code]![dayIndex]
+                let matrix = BlurHash(string: bhString)?.components
+                return matrix
+            } else {
+                let bhString = blurHashForWeatherCode[code]![0]
+                let matrix = BlurHash(string: bhString)?.components
+                return matrix
+            }
+        } else {
+            let matrix = BlurHash(string: "00DGE0")?.components
+            return matrix
         }
-        
-        let matrix = BlurHash(string: bhString)?.components
-        return matrix
     }
-
+    
     func generateMatrix(width: Int, height: Int, from: [String]) -> BlurHashMatrix {
         return (0..<height).map { _ in (0..<width).map{ _ in hexToBHC(from.randomElement()!) }}
     }
@@ -103,9 +112,9 @@ class BlurHashGenerator {
 }
 
 extension MutableCollection {
-  mutating func updateEach(_ update: (inout Element) -> Void) {
-    for i in indices {
-      update(&self[i])
+    mutating func updateEach(_ update: (inout Element) -> Void) {
+        for i in indices {
+            update(&self[i])
+        }
     }
-  }
 }
