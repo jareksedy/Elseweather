@@ -19,4 +19,4 @@ let bhMatrixHeight = 4
 
 let weatherQueue = WeatherQueue(length: queueLength)
 let weatherViewModelFactory = WeatherViewModelFactory()
-let blurHashGenerator = BlurHashGenerator()
+let blurHashImageGenerator = BlurHashImageGenerator()

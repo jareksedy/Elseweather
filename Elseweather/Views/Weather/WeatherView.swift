@@ -20,7 +20,7 @@ struct WeatherView: View {
     }
     
     private func viewAppear() {
-        blurHashGenerator.generateImage(string: weatherViewModel.blurHash, reducedBy: 24.0, punch: 0.85) { image in
+        blurHashImageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: 24.0, punch: 0.85) { image in
             self.backgroundImage = image
         }
         getWeather()
@@ -33,7 +33,7 @@ struct WeatherView: View {
     
     private func viewTouchUp() {
         getWeather()
-        blurHashGenerator.generateImage(string: weatherViewModel.blurHash, reducedBy: 24.0, punch: 0.85) { image in
+        blurHashImageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: 24.0, punch: 0.85) { image in
             self.backgroundImage = image
         }
         viewTouchedDown = false
