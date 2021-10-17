@@ -28,12 +28,12 @@ final class WeatherViewModelFactory {
                 1117: "and blizzard condition",
                 1135: "and foggy",
                 1147: "with freezing fog",
-                1150: "with a light drizzle",
-                1153: "with a light drizzle",
+                1150: "with light drizzle",
+                1153: "with light drizzle",
                 1168: "with freezing drizzle",
                 1171: "with freezing drizzle",
                 1180: "with rain patches",
-                1183: "and a light rain",
+                1183: "with light rain",
                 1186: "with rain at times",
                 1189: "and raining",
                 1192: "with heavy rain at times",
@@ -43,7 +43,7 @@ final class WeatherViewModelFactory {
                 1204: "with sleet",
                 1207: "with heavy sleet",
                 1210: "with snow patches",
-                1213: "and a light snow",
+                1213: "with light snow",
                 1216: "with snow patches",
                 1219: "and snowing",
                 1222: "and snowing heavily",
@@ -126,8 +126,75 @@ final class WeatherViewModelFactory {
             return dateFormatter.string(from: localDate)
         }
         
-        let blurHashMatrix = blurHashGenerator.generateFor(code: weather.current.condition.code,
-                                                   day: weather.current.isDay == 1 ? true : false)
+        let blurHashForWeatherCode = [
+            0000: ["dFMakn$xx]xa0[PB%2WX4TD%o#NGpexZV@WBVqtSW=xa"], // default
+            1000: ["dvN^h?5TR%j]CmoasAj[MxjbkDaxt7jbaxbHX9bFayj[",  // sunny
+                   "dWL4]W=@WDs._Nxtj]j[9$R-aeWVE3R*axayROjYjsfQ"], // clear
+            1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2"], // partly cloudy
+            1006: ["dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?"], // cloudy
+            1009: ["d4BgVx0100~W00_4%M4nHX%NEM%19ar;_4D+^*00o#_4"], // overcast
+            1030: ["dXHCWVr=IAX7_N~UIBNG^+e.t7RkM{xaozWVkCWBofof"], // mist
+            1063: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // rain patches
+            1066: ["d*F?U[V@j[j[_NWBfQj@%gWXWBj[W;a#ayj[R*ayj[fR"], // snow patches
+            1069: ["d9DA15_N_4%Mf5RiRjWB%MRjM{t7axj[RPayM_MxMxoz"], // sleet patches
+            1072: ["diKd_Et7IUWBofxuRjaz~qj[RkayM{j[axj[t7WBofj["], // freezing drizzle patches
+            1087: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // thundery outbreaks possible
+            1114: ["daL5RX~pIUoz-:M{R*WB?bM_WEax%Lj[t7WBxZfRt6s:"], // blowing snow
+            1117: ["d9HVPL?bs;ofa#M{M{Rj~qxukCWBxvInofM{4nWBM{t7"], // blizzard
+            1135: ["dmDKW7kCkXWA.TfQaxj]x]ayV@kCaxfQa#ayWAj[azay"], // fog
+            1147: ["dxLOTit7oej[~Vjuf6j[s9j[WVa|X9fPazaybHfQj@j["], // freezing fog
+            1150: ["dXKn-vt7t7kC~qayWBf6WVoff6aejZayfkkCWBayj[fk"], // patchy light drizzle
+            1153: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // light drizzle
+            1168: ["dAEMOITJRpMy-@a0RPJU-UxvIobv.TS2D$rqS~.9RP-V"], // freezing drizzle
+            1171: ["d7AAm*004-%300-r%LRj00Rj?bRkS@-rNEIU_MIUM{%4"], // heavy freezing drizzle !REPLACE!
+            1180: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // patchy light rain
+            1183: ["d4A-u63Z1O?vc[T0-pnh00-UHqMd-8V@I[XT00r=_3s:"], // light rain
+            1186: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain at times
+            1189: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain
+            1192: ["d65j8t?8p0IV*0yFo#Vr4TEVjDxr4TD4VryF%%sQROMx"], // heavy rain at times
+            1195: ["d65j8t?8p0IV*0yFo#Vr4TEVjDxr4TD4VryF%%sQROMx"], // heavy rain
+            1198: ["d84.#vlVD#ZgzpVXNYs;QRR4cZt-PpcFnOicbungibVX"], // light freezing rain
+            1201: ["d84.#vlVD#ZgzpVXNYs;QRR4cZt-PpcFnOicbungibVX"], // moderate or heavy freezing rain
+            1204: ["dFM%[@%ME0RQ_NM_xut7D%t7M{of-=bF%gRPkWWBRjtR"], // light sleet
+            1207: ["d8K23J00_4-p00.7-pxu00%f00V[004oozV@00~qxuV?"], // moderate or heavy sleet
+            1210: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // patchy light snow
+            1213: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // light snow
+            1216: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // patchy moderate snow
+            1219: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate snow
+            1222: ["dEKUm900ITbd00E2$%V?00~UV@ad-.MxbvxvD*%2R*Io"], // patchy heavy snow
+            1225: ["dEKUm900ITbd00E2$%V?00~UV@ad-.MxbvxvD*%2R*Io"], // heavy snow
+            1237: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // ice pellets
+            1240: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // light rain shower
+            1243: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // moderate or heavy rain shower
+            1246: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // torrential rain shower
+            1249: ["dFM%[@%ME0RQ_NM_xut7D%t7M{of-=bF%gRPkWWBRjtR"], // light sleet showers
+            1252: ["d8K23J00_4-p00.7-pxu00%f00V[004oozV@00~qxuV?"], // moderate or heavy sleet showers
+            1255: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // light snow showers
+            1258: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate or heavy snow showers
+            1261: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // light showers of ice pellets
+            1264: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // moderate or heavy showers of ice pellets
+            1273: ["dBD[YN9s00}^=h-WJ5EK0J=}}]5PEdI.-W-CSdI.sp$+"], // patchy rain with thunder
+            1276: ["dBD[YN9s00}^=h-WJ5EK0J=}}]5PEdI.-W-CSdI.sp$+"], // moderate or heavy rain with thunder
+            1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder
+            1282: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // moderate or heavy snow with thunder
+        ]
+        
+        let code = weather.current.condition.code
+        let day: Bool = weather.current.isDay == 1 ? true : false
+        let dayIndex = day ? 0 : 1
+        
+        var bhString = ""
+        
+        if blurHashForWeatherCode[weather.current.condition.code]?.isEmpty == false {
+            if blurHashForWeatherCode[code]!.count > 1 {
+                bhString = blurHashForWeatherCode[code]![dayIndex]
+            } else {
+                bhString = blurHashForWeatherCode[code]![0]
+            }
+        } else {
+            bhString =  blurHashForWeatherCode[0]![0]
+        }
+        
         
         return WeatherViewModel(condition: condition,
                                 locality: locality,
@@ -151,6 +218,6 @@ final class WeatherViewModelFactory {
                                 localDate: localDate.uppercased(),
                                 localTime: localTime,
                                 localTimeZone: weather.location.tzID.uppercased(),
-                                blurHashMatrix: blurHashMatrix!)
+                                blurHash: bhString)
     }
 }

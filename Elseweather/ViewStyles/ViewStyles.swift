@@ -13,6 +13,7 @@ struct Divider: View {
     var body: some View {
         Rectangle()
             .fill(color)
+            .opacity(0.5)
             .frame(height: width)
             .edgesIgnoringSafeArea(.horizontal)
     }
@@ -49,7 +50,7 @@ struct btStyleScaledBigger: ButtonStyle {
 struct LargeTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 28, weight: .bold))
+            .font(.system(size: 36, weight: .regular))
             .lineSpacing(0)
     }
 }
@@ -57,7 +58,7 @@ struct LargeTitle: ViewModifier {
 struct SmallTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 14, weight: .bold))
+            .font(.system(size: 18, weight: .semibold))
             .lineSpacing(5)
     }
 }
@@ -99,3 +100,20 @@ extension AnyTransition {
         .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     }
 }
+
+
+//struct LargeTitle: ViewModifier {
+//    func body(content: Content) -> some View {
+//        content
+//            .font(.system(size: 28, weight: .bold))
+//            .lineSpacing(0)
+//    }
+//}
+//
+//struct SmallTitle: ViewModifier {
+//    func body(content: Content) -> some View {
+//        content
+//            .font(.system(size: 14, weight: .bold))
+//            .lineSpacing(5)
+//    }
+//}
