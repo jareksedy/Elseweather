@@ -10,7 +10,7 @@ import SwiftUI
 
 final class WeatherQueue: ObservableObject {
     
-    var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
+    public var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
     
     private var randomLocationFetcher: RandomLocationFetcher
     private var weatherFetcher: WeatherFetcher
