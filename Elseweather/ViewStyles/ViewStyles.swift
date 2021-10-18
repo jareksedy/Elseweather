@@ -13,7 +13,7 @@ struct Divider: View {
     var body: some View {
         Rectangle()
             .fill(color)
-            .opacity(0.5)
+            .opacity(dividerOpacity)
             .frame(height: width)
             .edgesIgnoringSafeArea(.horizontal)
     }
@@ -100,20 +100,3 @@ extension AnyTransition {
         .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     }
 }
-
-
-//struct LargeTitle: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.system(size: 28, weight: .bold))
-//            .lineSpacing(0)
-//    }
-//}
-//
-//struct SmallTitle: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.system(size: 14, weight: .bold))
-//            .lineSpacing(5)
-//    }
-//}
