@@ -50,7 +50,7 @@ struct btStyleScaledBigger: ButtonStyle {
 struct LargeTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 36, weight: .regular))
+            .font(.system(size: 36, weight: .light))
             .lineSpacing(0)
     }
 }
@@ -58,7 +58,7 @@ struct LargeTitle: ViewModifier {
 struct SmallTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 18, weight: .semibold))
+            .font(.system(size: 18, weight: .regular))
             .lineSpacing(5)
     }
 }
@@ -66,7 +66,7 @@ struct SmallTitle: ViewModifier {
 struct SmallMonospaced: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 10, weight: .bold, design: .monospaced))
+            .font(.system(size: 10, weight: .semibold, design: .monospaced))
             .lineSpacing(5)
     }
 }
