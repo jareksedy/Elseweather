@@ -10,6 +10,7 @@ import SwiftUI
 
 final class WeatherViewModelFactory {
     func construct(from weather: WAWeather) -> WeatherViewModel {
+        
         var metricUnits: Bool {
             return Session.shared.units == .metric
         }
