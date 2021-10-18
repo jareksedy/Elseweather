@@ -69,10 +69,12 @@ final class WeatherViewModelFactory {
             let temperature = metricUnits ? weather.current.tempC : weather.current.tempF
             let unitCharacter = metricUnits ? "C" : "F"
             
+            condition += Int(temperature) < 0 ? "−" : ""
+            
             if displayUnits {
-                condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + " °\(unitCharacter) below zero" : String(abs(Int(temperature))) + " °\(unitCharacter)"
+                condition += String(abs(Int(temperature))) + " °\(unitCharacter)"
             } else {
-                condition += Int(temperature) < 0 ? String(abs(Int(temperature))) + "° below zero" : String(abs(Int(temperature))) + "°"
+                condition += String(abs(Int(temperature))) + "°"
             }
             
             condition += "\n"
