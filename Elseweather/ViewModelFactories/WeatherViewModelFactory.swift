@@ -148,7 +148,7 @@ final class WeatherViewModelFactory {
             1168: ["dAEMOITJRpMy-@a0RPJU-UxvIobv.TS2D$rqS~.9RP-V"], // freezing drizzle
             1171: ["d7AAm*004-%300-r%LRj00Rj?bRkS@-rNEIU_MIUM{%4"], // heavy freezing drizzle !REPLACE!
             1180: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // patchy light rain
-            1183: ["d4A-u63Z1O?vc[T0-pnh00-UHqMd-8V@I[XT00r=_3s:"], // light rain
+            1183: ["dwG[.xRjS2oL~pWBRjj[-;ayV@bHxbj[oLazR+j[offQ"], // light rain
             1186: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain at times
             1189: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain
             1192: ["d65j8t?8p0IV*0yFo#Vr4TEVjDxr4TD4VryF%%sQROMx"], // heavy rain at times
@@ -157,7 +157,7 @@ final class WeatherViewModelFactory {
             1201: ["d84.#vlVD#ZgzpVXNYs;QRR4cZt-PpcFnOicbungibVX"], // moderate or heavy freezing rain
             1204: ["dFM%[@%ME0RQ_NM_xut7D%t7M{of-=bF%gRPkWWBRjtR"], // light sleet
             1207: ["d8K23J00_4-p00.7-pxu00%f00V[004oozV@00~qxuV?"], // moderate or heavy sleet
-            1210: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // patchy light snow
+            1210: ["d-M%G]o#tlRjw0WBbcaK~AWBR*n%Rkf+f+ofXTozWWkC"], // patchy light snow
             1213: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // light snow
             1216: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // patchy moderate snow
             1219: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate snow
@@ -173,8 +173,8 @@ final class WeatherViewModelFactory {
             1258: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate or heavy snow showers
             1261: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // light showers of ice pellets
             1264: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // moderate or heavy showers of ice pellets
-            1273: ["dBD[YN9s00}^=h-WJ5EK0J=}}]5PEdI.-W-CSdI.sp$+"], // patchy rain with thunder
-            1276: ["dBD[YN9s00}^=h-WJ5EK0J=}}]5PEdI.-W-CSdI.sp$+"], // moderate or heavy rain with thunder
+            1273: ["dC8z$cM_p1t7pL-@WVR$J;fm%ORib{M_t8xvR:W9R%sp"], // patchy rain with thunder
+            1276: ["dC8z$cM_p1t7pL-@WVR$J;fm%ORib{M_t8xvR:W9R%sp"], // moderate or heavy rain with thunder
             1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder
             1282: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // moderate or heavy snow with thunder
         ]
