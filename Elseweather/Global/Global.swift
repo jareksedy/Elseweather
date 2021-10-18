@@ -15,6 +15,9 @@ let screenHeight = UIScreen.main.bounds.size.height
 
 let queueLength = 10
 
-let weatherQueue = WeatherQueue(length: queueLength)
+let locationFetcher = RandomLocationFetcher()
+let weatherFetcher = WeatherFetcher()
+
+let weatherQueue = WeatherQueue(length: queueLength, locationFetcher: locationFetcher, weatherFetcher: weatherFetcher)
 let weatherViewModelFactory = WeatherViewModelFactory()
 let imageGenerator = ImageGenerator()
