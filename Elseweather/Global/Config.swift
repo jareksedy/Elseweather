@@ -12,8 +12,8 @@ let screenHeight = UIScreen.main.bounds.size.height
 
 let queueLength = 10
 
-let backgroundOpacity: CGFloat = 0.85
-let dividerOpacity: CGFloat = 0.50
+let backgroundOpacity: CGFloat = 0.75
+let dividerOpacity: CGFloat = 0.75
 
 let viewDownScale: CGFloat = 0.975
 let viewDownOpacity: CGFloat = 0.75
