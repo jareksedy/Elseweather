@@ -46,12 +46,22 @@ struct WeatherView: View {
         VStack {
             Spacer()
             
-            WeatherDataView(weatherViewModel: weatherViewModel)
-                .scaleEffect(viewTouchedDown ? viewDownScale : 1.0)
-                .opacity(viewTouchedDown ? viewDownOpacity : 1.0)
+            HStack {
+                WeatherDataView(weatherViewModel: weatherViewModel)
+                    .scaleEffect(viewTouchedDown ? viewDownScale : 1.0)
+                    .opacity(viewTouchedDown ? viewDownOpacity : 1.0)
+            }
+            
+            HStack {
+                Spacer()
+                
+                Button(action: { print("hey") },
+                       label: { Image("icon-pin") })
+                    .buttonStyle(defaultControlButton())
+            }
         }
         .padding(25)
-        .padding(.bottom, 50)
+        .padding(.bottom, 25)
         .background(BackgroundView(backgroundImage: backgroundImage))
         .ignoresSafeArea(.all)
         .transition(.standard)

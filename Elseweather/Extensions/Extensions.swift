@@ -42,11 +42,11 @@ extension CGFloat {
 
 extension Color {
     
-    static let customDarkPrimary = Color(UIColor(red: 0.95, green: 0.77, blue: 0.73, alpha: 1.00))
-    static let customDarkBackground = Color(UIColor(red: 0.08, green: 0.15, blue: 0.25, alpha: 1.00))
+    static let customDarkPrimary = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
+    static let customDarkBackground = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))
     
-    static let customLightPrimary = Color(UIColor(red: 0.95, green: 0.47, blue: 0.36, alpha: 1.00))
-    static let customLightBackground = Color(UIColor(red: 0.95, green: 0.77, blue: 0.73, alpha: 1.00))
+    static let customLightPrimary = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))
+    static let customLightBackground = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
     
     static func customPrimary(for scheme: ColorScheme) -> Color {
         if scheme == .dark {

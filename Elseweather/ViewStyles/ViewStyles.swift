@@ -10,6 +10,7 @@ import SwiftUI
 struct Divider: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     var width: CGFloat
+    
     var body: some View {
         Rectangle()
             .fill(Color.customPrimary(for: colorScheme))
@@ -25,13 +26,15 @@ struct Divider: View {
 
 // MARK: - Button styles.
 
-struct btStyleScaled: ButtonStyle {
+struct defaultControlButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.system(size: 16, weight: .bold))
-            .foregroundColor(Color.primary)
+            .foregroundColor(Color.customPrimary(for: colorScheme))
+            .opacity(dividerOpacity)
             .animation(.spring(response: 0.4, dampingFraction: 0.6))
-            .scaleEffect(configuration.isPressed ? 0.5 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.75 : 1.0)
     }
 }
 
