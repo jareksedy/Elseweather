@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Divider: View {
-    let color: Color = .primary
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     var width: CGFloat
     var body: some View {
         Rectangle()
-            .fill(color)
+            .fill(Color.customPrimary(for: colorScheme))
             .opacity(dividerOpacity)
             .frame(height: width)
             .edgesIgnoringSafeArea(.horizontal)
@@ -48,34 +48,32 @@ struct btStyleScaledBigger: ButtonStyle {
 // MARK: - Text styles.
 
 struct LargeTitle: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
         content
             .font(.system(size: 36, weight: .light))
             .lineSpacing(0)
+            .foregroundColor(Color.customPrimary(for: colorScheme))
     }
 }
 
 struct SmallTitle: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
         content
             .font(.system(size: 18, weight: .regular))
             .lineSpacing(5)
+            .foregroundColor(Color.customPrimary(for: colorScheme))
     }
 }
 
 struct SmallMonospaced: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
         content
             .font(.system(size: 10, weight: .semibold, design: .monospaced))
             .lineSpacing(5)
-    }
-}
-
-struct LargeMonospaced: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.system(size: 14, weight: .regular, design: .monospaced))
-            .lineSpacing(5)
+            .foregroundColor(Color.customPrimary(for: colorScheme))
     }
 }
 

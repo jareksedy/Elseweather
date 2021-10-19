@@ -21,7 +21,7 @@ final class Session {
     
     let units: Units = .metric
     let displayTemperatureUnits: DisplayUnits = .no
-    let appearance: Appearance = .minimalist
+    let appearance: Appearance = .standard
 }
 
 // MARK: - User settings enums.
@@ -37,6 +37,6 @@ enum DisplayUnits: Int {
 }
 
 enum Appearance: Int {
-    case minimalist
-    case colorblur
+    case minimal
+    case standard
 }

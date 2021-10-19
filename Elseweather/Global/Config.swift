@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-let screenWidth = UIScreen.main.bounds.size.width
-let screenHeight = UIScreen.main.bounds.size.height
-
 let queueLength = 10
 
 let backgroundOpacity: CGFloat = 0.75

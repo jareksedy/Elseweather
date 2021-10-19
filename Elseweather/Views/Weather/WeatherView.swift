@@ -11,7 +11,7 @@ struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
     @State private var viewBusy: Bool = false
     @State private var viewTouchedDown: Bool = false
-    @State private var backgroundImage = Image(systemName: "cross")
+    @State private var backgroundImage: Image?
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -19,10 +19,15 @@ struct WeatherView: View {
         weatherQueue.enqueueAsync(1)
     }
     
-    private func viewAppear() {
+    private func generateImage() {
+        guard Session.shared.appearance == .standard else { return }
         imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
             self.backgroundImage = image
         }
+    }
+    
+    private func viewAppear() {
+        generateImage()
         getWeather()
     }
     
@@ -33,9 +38,7 @@ struct WeatherView: View {
     
     private func viewTouchUp() {
         getWeather()
-        imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
-            self.backgroundImage = image
-        }
+        generateImage()
         viewTouchedDown = false
     }
     
@@ -49,10 +52,7 @@ struct WeatherView: View {
         }
         .padding(25)
         .padding(.bottom, 50)
-        .background(backgroundImage
-                        .resizable()
-                        .scaledToFill()
-                        .opacity(backgroundOpacity))
+        .background(BackgroundView(backgroundImage: backgroundImage))
         .ignoresSafeArea(.all)
         .transition(.standard)
         .animation(.standard)
