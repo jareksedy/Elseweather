@@ -9,8 +9,9 @@ import SwiftUI
 
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
-    @State private var viewBusy: Bool = false
-    @State private var viewTouchedDown: Bool = false
+    @State private var displayingLocalWeather: Bool = false
+    @State private var busyFetchingLocalWeather: Bool = false
+    @State private var busyTouchedDown: Bool = false
     @State private var backgroundImage: Image?
     
     private func getWeather() {
@@ -20,21 +21,27 @@ struct WeatherView: View {
     }
     
     private func getWeatherForCurrentLocation() {
-        viewBusy = true
+        busyFetchingLocalWeather = true
+        locationFetcher.start()
         
-        guard let location = locationFetcher.lastKnownLocation else {
-            viewBusy = false
-            return
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let location = locationFetcher.lastKnownLocation else {
+                busyFetchingLocalWeather = false
+                return
+            }
+            
+            guard let weather = weatherFetcher.fetch(location) else {
+                busyFetchingLocalWeather = false
+                return
+            }
+            
+            DispatchQueue.main.async {
+                weatherViewModel = weatherViewModelFactory.construct(from: weather)
+                generateImage()
+                busyFetchingLocalWeather = false
+                displayingLocalWeather = true
+            }
         }
-        
-        guard let weather = weatherFetcher.fetch(location) else {
-            viewBusy = false
-            return
-        }
-        
-        weatherViewModel = weatherViewModelFactory.construct(from: weather)
-        
-        viewBusy = false
     }
     
     private func generateImage() {
@@ -51,14 +58,15 @@ struct WeatherView: View {
     }
     
     private func viewTouchDown() {
-        guard viewTouchedDown == false else { return }
-        viewTouchedDown = true
+        guard busyTouchedDown == false else { return }
+        busyTouchedDown = true
     }
     
     private func viewTouchUp() {
         getWeather()
         generateImage()
-        viewTouchedDown = false
+        busyTouchedDown = false
+        displayingLocalWeather = false
     }
     
     var body: some View {
@@ -67,8 +75,8 @@ struct WeatherView: View {
             
             HStack {
                 WeatherDataView(weatherViewModel: weatherViewModel)
-                    .scaleEffect(viewTouchedDown ? viewDownScale : 1.0)
-                    .opacity(viewTouchedDown || viewBusy ? viewDownOpacity : 1.0)
+                    .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
+                    .opacity(busyTouchedDown || busyFetchingLocalWeather ? viewDownOpacity : 1.0)
             }
             
             HStack {
@@ -76,8 +84,8 @@ struct WeatherView: View {
                 
                 Button(action: { getWeatherForCurrentLocation() }, label: { Image("icon-pin") })
                     .buttonStyle(defaultControlButton())
-                    .disabled(viewTouchedDown || viewBusy)
-                    .opacity(viewTouchedDown || viewBusy ? viewDownOpacity : 1.0)
+                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
+                    .opacity(displayingLocalWeather ? disabledButtonOpacity : 1.0)
             }
         }
         .padding(25)
