@@ -58,6 +58,8 @@ struct WeatherView: View {
                 Button(action: { print("hey") },
                        label: { Image("icon-pin") })
                     .buttonStyle(defaultControlButton())
+                    .disabled(viewTouchedDown ? true : false)
+                    .opacity(viewTouchedDown ? 0.5 : 1.0)
             }
         }
         .padding(25)
