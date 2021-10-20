@@ -45,8 +45,8 @@ extension Color {
     static let customDarkPrimary = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
     static let customDarkBackground = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))
     
-    static let customLightPrimary = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))
-    static let customLightBackground = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
+    static let customLightPrimary = customDarkBackground
+    static let customLightBackground = customDarkPrimary
     
     static func customPrimary(for scheme: ColorScheme) -> Color {
         if scheme == .dark {

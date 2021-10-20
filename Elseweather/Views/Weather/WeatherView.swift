@@ -19,6 +19,24 @@ struct WeatherView: View {
         weatherQueue.enqueueAsync(1)
     }
     
+    private func getWeatherForCurrentLocation() {
+        viewBusy = true
+        
+        guard let location = locationFetcher.lastKnownLocation else {
+            viewBusy = false
+            return
+        }
+        
+        guard let weather = weatherFetcher.fetch(location) else {
+            viewBusy = false
+            return
+        }
+        
+        weatherViewModel = weatherViewModelFactory.construct(from: weather)
+        
+        viewBusy = false
+    }
+    
     private func generateImage() {
         guard Session.shared.appearance == .standard else { return }
         imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
@@ -27,6 +45,7 @@ struct WeatherView: View {
     }
     
     private func viewAppear() {
+        locationFetcher.start()
         generateImage()
         getWeather()
     }
@@ -49,17 +68,16 @@ struct WeatherView: View {
             HStack {
                 WeatherDataView(weatherViewModel: weatherViewModel)
                     .scaleEffect(viewTouchedDown ? viewDownScale : 1.0)
-                    .opacity(viewTouchedDown ? viewDownOpacity : 1.0)
+                    .opacity(viewTouchedDown || viewBusy ? viewDownOpacity : 1.0)
             }
             
             HStack {
                 Spacer()
                 
-                Button(action: { print("hey") },
-                       label: { Image("icon-pin") })
+                Button(action: { getWeatherForCurrentLocation() }, label: { Image("icon-pin") })
                     .buttonStyle(defaultControlButton())
-                    .disabled(viewTouchedDown ? true : false)
-                    .opacity(viewTouchedDown ? 0.5 : 1.0)
+                    .disabled(viewTouchedDown || viewBusy)
+                    .opacity(viewTouchedDown || viewBusy ? viewDownOpacity : 1.0)
             }
         }
         .padding(25)
@@ -73,8 +91,8 @@ struct WeatherView: View {
         }
         .gesture(
             DragGesture(minimumDistance: 0)
-                    .onChanged { _ in viewTouchDown()}
-                    .onEnded { _ in viewTouchUp()}
+                .onChanged { _ in viewTouchDown()}
+                .onEnded { _ in viewTouchUp()}
         )
     }
 }
