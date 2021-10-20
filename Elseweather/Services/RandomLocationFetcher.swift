@@ -9,7 +9,7 @@ import Foundation
 
 final class RandomLocationFetcher {
     
-    fileprivate var locations: [Location] = []
+    private var locations: [Location] = []
     
     init() {
         load()
@@ -21,7 +21,7 @@ final class RandomLocationFetcher {
         return locations[Int(randomIndex)]
     }
     
-    fileprivate func load() {
+    private func load() {
         guard let url = Bundle.main.url(forResource: Session.shared.dataFileName, withExtension: Session.shared.dataFileExt) else {
             fatalError("Could not locate \(Session.shared.dataFileName).\(Session.shared.dataFileExt). Terminating.")
         }
@@ -33,7 +33,7 @@ final class RandomLocationFetcher {
         parse(data)
     }
     
-    fileprivate func parse(_ data: Data) {
+    private func parse(_ data: Data) {
         locations = String(decoding: data, as: UTF8.self).components(separatedBy: "\n").map {
             
             let coordinates = $0.components(separatedBy: ",")
