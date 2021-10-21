@@ -49,5 +49,8 @@ struct WeatherViewModel {
     let localTimeZone: String
     
     let blurHash: String
+    
+    let location: Location
+    let name: String
 }
 

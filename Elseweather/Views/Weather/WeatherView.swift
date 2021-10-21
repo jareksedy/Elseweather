@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
@@ -13,6 +14,22 @@ struct WeatherView: View {
     @State private var busyFetchingLocalWeather: Bool = false
     @State private var busyTouchedDown: Bool = false
     @State private var backgroundImage: Image?
+    
+    private func openInMaps() {
+        let latitude: CLLocationDegrees = weatherViewModel.location.lat
+        let longitude: CLLocationDegrees = weatherViewModel.location.lon
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = weatherViewModel.name
+        mapItem.openInMaps(launchOptions: options)
+    }
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -80,6 +97,10 @@ struct WeatherView: View {
             }
             
             HStack {
+                Button(action: { openInMaps() }, label: { Image("icon-maps") })
+                    .buttonStyle(defaultControlButton())
+                    .disabled(busyTouchedDown || busyFetchingLocalWeather)
+                
                 Spacer()
                 
                 Button(action: { getWeatherForCurrentLocation() }, label: { Image("icon-pin") })

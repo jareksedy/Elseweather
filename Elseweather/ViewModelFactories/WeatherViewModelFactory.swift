@@ -221,6 +221,8 @@ final class WeatherViewModelFactory {
                                 localDate: localDate.uppercased(),
                                 localTime: localTime,
                                 localTimeZone: weather.location.tzID.uppercased(),
-                                blurHash: bhString)
+                                blurHash: bhString,
+                                location: (lat: weather.location.lat, lon: weather.location.lon),
+                                name: weather.location.name)
     }
 }
