@@ -97,9 +97,9 @@ struct WeatherView: View {
             }
             
             HStack {
-                Button(action: { openInMaps() }, label: { Image("icon-maps") })
-                    .buttonStyle(defaultControlButton())
-                    .disabled(busyTouchedDown || busyFetchingLocalWeather)
+//                Button(action: { openInMaps() }, label: { Image("icon-maps") })
+//                    .buttonStyle(defaultControlButton())
+//                    .disabled(busyTouchedDown || busyFetchingLocalWeather)
                 
                 Spacer()
                 
