@@ -100,4 +100,8 @@ extension AnyTransition {
     static var standard: AnyTransition {
         .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
     }
+    
+    static var standardBackground: AnyTransition {
+        .opacity.animation(.easeOut(duration: 0.75))
+    }
 }

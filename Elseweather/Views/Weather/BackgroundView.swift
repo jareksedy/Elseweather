@@ -21,7 +21,7 @@ struct BackgroundView: View {
                 .resizable()
                 .scaledToFill()
                 .opacity(backgroundOpacity)
-                .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.75)))
+                .transition(.standardBackground)
                 .id(UUID())
         }
     }
