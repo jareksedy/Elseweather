@@ -90,7 +90,7 @@ extension Text {
 
 extension Animation {
     static var standard: Animation {
-        .linear(duration: 0.10)
+        .easeOut(duration: 0.15)
     }
 }
 

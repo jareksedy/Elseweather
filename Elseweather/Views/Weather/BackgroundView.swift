@@ -20,7 +20,7 @@ struct BackgroundView: View {
             backgroundImage?
                 .resizable()
                 .scaledToFill()
-                .opacity(backgroundOpacity)
+                .opacity(colorScheme == .dark ? backgroundOpacityDark : backgroundOpacityLight)
                 .transition(.standardBackground)
                 .id(UUID())
         }
