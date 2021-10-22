@@ -223,6 +223,7 @@ final class WeatherViewModelFactory {
                                 localTimeZone: weather.location.tzID.uppercased(),
                                 blurHash: bhString,
                                 location: (lat: weather.location.lat, lon: weather.location.lon),
-                                name: weather.location.name)
+                                name: weather.location.name,
+                                conditionCode: weather.current.condition.code)
     }
 }

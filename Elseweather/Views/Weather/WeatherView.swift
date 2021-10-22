@@ -14,6 +14,7 @@ struct WeatherView: View {
     @State private var busyFetchingLocalWeather: Bool = false
     @State private var busyTouchedDown: Bool = false
     @State private var backgroundImage: Image?
+    @State private var currentConditionCode: Int = 0
     
     private func openInMaps() {
         let latitude: CLLocationDegrees = weatherViewModel.location.lat
@@ -63,8 +64,11 @@ struct WeatherView: View {
     
     private func generateImage() {
         guard Session.shared.appearance == .standard else { return }
+        guard weatherViewModel.conditionCode != currentConditionCode else { return }
+        
         imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
             self.backgroundImage = image
+            self.currentConditionCode = weatherViewModel.conditionCode
         }
     }
     

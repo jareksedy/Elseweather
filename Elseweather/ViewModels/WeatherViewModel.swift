@@ -52,5 +52,7 @@ struct WeatherViewModel {
     
     let location: Location
     let name: String
+    
+    let conditionCode: Int
 }
 
