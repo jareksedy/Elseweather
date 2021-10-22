@@ -17,7 +17,12 @@ struct BackgroundView: View {
         if Session.shared.appearance == Appearance.minimal {
             Color.customBackground(for: colorScheme)
         } else {
-            backgroundImage?.resizable().scaledToFill().opacity(backgroundOpacity)
+            backgroundImage?
+                .resizable()
+                .scaledToFill()
+                .opacity(backgroundOpacity)
+                .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.75)))
+                .id(UUID())
         }
     }
 }

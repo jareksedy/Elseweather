@@ -9,7 +9,7 @@ import SwiftUI
 
 let queueLength = 10
 
-let backgroundOpacity: CGFloat = 0.75
+let backgroundOpacity: CGFloat = 0.80
 let dividerOpacity: CGFloat = 0.75
 
 let viewDownScale: CGFloat = 0.975
