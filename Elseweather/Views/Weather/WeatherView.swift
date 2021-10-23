@@ -16,22 +16,6 @@ struct WeatherView: View {
     @State private var backgroundImage: Image?
     @State private var currentConditionCode: Int = 0
     
-    private func openInMaps() {
-        let latitude: CLLocationDegrees = weatherViewModel.location.lat
-        let longitude: CLLocationDegrees = weatherViewModel.location.lon
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = weatherViewModel.name
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
         weatherViewModel = weatherViewModelFactory.construct(from: weather)
@@ -101,9 +85,6 @@ struct WeatherView: View {
             }
             
             HStack {
-//                Button(action: { openInMaps() }, label: { Image("icon-maps") })
-//                    .buttonStyle(defaultControlButton())
-//                    .disabled(busyTouchedDown || busyFetchingLocalWeather)
                 
                 Spacer()
                 
