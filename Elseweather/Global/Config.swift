@@ -12,7 +12,7 @@ let queueLength = 10
 let backgroundOpacityDark: CGFloat = 0.75
 let backgroundOpacityLight: CGFloat = 0.90
 
-let dividerOpacity: CGFloat = 0.5
+let dividerOpacity: CGFloat = 0.75
 
 let viewDownScale: CGFloat = 0.985
 let viewDownOpacity: CGFloat = 1.0
