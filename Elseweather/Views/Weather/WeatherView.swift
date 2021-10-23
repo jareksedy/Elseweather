@@ -81,7 +81,8 @@ struct WeatherView: View {
             HStack {
                 WeatherDataView(weatherViewModel: weatherViewModel)
                     .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
-                    .opacity(busyTouchedDown || busyFetchingLocalWeather ? viewDownOpacity : 1.0)
+                    .opacity(busyTouchedDown ? viewDownOpacity : 1.0)
+                    .opacity(/*busyTouchedDown || */busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
             }
             
             HStack {

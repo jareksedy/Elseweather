@@ -32,7 +32,7 @@ struct defaultControlButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(Color.customPrimary(for: colorScheme))
-            .opacity(dividerOpacity)
+            //.opacity(dividerOpacity)
             .animation(.spring(response: 0.4, dampingFraction: 0.6))
             .scaleEffect(configuration.isPressed ? 0.75 : 1.0)
     }
@@ -90,7 +90,7 @@ extension Text {
 
 extension Animation {
     static var standard: Animation {
-        .easeOut(duration: 0.15)
+        .easeOut(duration: 0.13)
     }
 }
 
@@ -103,5 +103,10 @@ extension AnyTransition {
     
     static var standardBackground: AnyTransition {
         .opacity.animation(.easeOut(duration: 0.75))
+    }
+    
+    static var standardHeadingText: AnyTransition {
+        .asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity),
+                    removal: .move(edge: .top).combined(with: .opacity)).animation(.easeOut(duration: 0.15))
     }
 }

@@ -15,6 +15,9 @@ struct WeatherHeadingView: View {
                 Text(weatherViewModel.condition)
                     .kerning(-0.5)
                     .textStyle(LargeTitle())
+                    //.transition(.standardHeadingText)
+                    //.id(UUID())
+
                 Spacer()
             }.padding(.bottom, 10)
             
@@ -22,6 +25,9 @@ struct WeatherHeadingView: View {
                 Text(weatherViewModel.locality)
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
+                    //.transition(.standardHeadingText)
+                    //.id(UUID())
+                
                 Spacer()
             }
         }
