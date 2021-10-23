@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please grant access to your location to view local weather as well.</string>
+	<string>Elseweather uses your location to show current weather in your area.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

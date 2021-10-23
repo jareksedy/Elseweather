@@ -2,7 +2,7 @@
 //  WeatherDateTimeView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 29.09.2021.
+//  Created by Jarek Šedý on 29.09.2021.
 //
 
 import SwiftUI

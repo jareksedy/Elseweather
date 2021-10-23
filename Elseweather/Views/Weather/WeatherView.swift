@@ -15,6 +15,18 @@ struct WeatherView: View {
     @State private var busyTouchedDown: Bool = false
     @State private var backgroundImage: Image?
     @State private var currentConditionCode: Int = 0
+    @State private var isLocationAlertPresented: Bool = false
+    
+    private func presentLocationAlert() -> Alert {
+        return Alert(
+            title: Text("Location is not available"),
+            message: Text("Please grant us access to your location to show current weather in your area."),
+            primaryButton: .default(Text("Settings"), action: {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+            }),
+            secondaryButton: .default(Text("No, thanks!"))
+        )
+    }
     
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
@@ -23,8 +35,14 @@ struct WeatherView: View {
     }
     
     private func getWeatherForCurrentLocation() {
-        busyFetchingLocalWeather = true
         locationFetcher.start()
+        
+        guard locationFetcher.hasAccess() else {
+            isLocationAlertPresented = true
+            return
+        }
+        
+        busyFetchingLocalWeather = true
         
         DispatchQueue.global(qos: .userInitiated).async {
             guard let location = locationFetcher.lastKnownLocation else {
@@ -82,17 +100,17 @@ struct WeatherView: View {
                 WeatherDataView(weatherViewModel: weatherViewModel)
                     .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
                     .opacity(busyTouchedDown ? viewDownOpacity : 1.0)
-                    .opacity(/*busyTouchedDown || */busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
+                    .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
             }
             
             HStack {
-                
                 Spacer()
                 
                 Button(action: { getWeatherForCurrentLocation() }, label: { Image("icon-pin") })
                     .buttonStyle(defaultControlButton())
                     .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
                     .opacity(displayingLocalWeather ? disabledButtonOpacity : 1.0)
+                    .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
             }
         }
         .padding(25)

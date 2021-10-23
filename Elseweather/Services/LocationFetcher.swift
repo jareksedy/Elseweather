@@ -15,6 +15,22 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         super.init()
         manager.delegate = self
     }
+    
+    func hasAccess() -> Bool {
+        if CLLocationManager.locationServicesEnabled() {
+            switch manager.authorizationStatus {
+                case .notDetermined, .restricted, .denied:
+                return false
+                case .authorizedAlways, .authorizedWhenInUse:
+                return true
+                @unknown default:
+                break
+            }
+            } else {
+                return false
+        }
+        return false
+    }
 
     func start() {
         manager.requestWhenInUseAuthorization()

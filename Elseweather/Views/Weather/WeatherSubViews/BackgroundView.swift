@@ -2,7 +2,7 @@
 //  BackgroundView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 19.10.2021.
+//  Created by Jarek Šedý on 19.10.2021.
 //
 
 import SwiftUI
