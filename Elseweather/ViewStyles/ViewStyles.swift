@@ -48,6 +48,18 @@ struct btStyleScaledBigger: ButtonStyle {
     }
 }
 
+// MARK: - Logo.
+
+struct LogoImage: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(Color.customPrimary(for: colorScheme))
+            .padding(.trailing, -5)
+            .padding(.top, 1)
+    }
+}
+
 // MARK: - Text styles.
 
 struct LargeTitle: ViewModifier {
@@ -90,7 +102,7 @@ extension Text {
 
 extension Animation {
     static var standard: Animation {
-        .easeOut(duration: 0.13)
+        .easeOut(duration: 0.12)
     }
 }
 
@@ -102,7 +114,7 @@ extension AnyTransition {
     }
     
     static var standardBackground: AnyTransition {
-        .opacity.animation(.easeOut(duration: 0.95))
+        .opacity.animation(.easeOut(duration: 1.0))
     }
     
     static var standardHeadingText: AnyTransition {

@@ -94,6 +94,18 @@ struct WeatherView: View {
     
     var body: some View {
         VStack {
+            HStack(alignment: .center) {
+                Button(action: {}, label: { Image("icon-settings") })
+                    .buttonStyle(defaultControlButton())
+                    .padding(.top, -2)
+                
+                Spacer()
+                
+                Image("logo")
+                    .modifier(LogoImage())
+            }.padding(.top, 20)
+
+            
             Spacer()
             
             HStack {
@@ -114,7 +126,7 @@ struct WeatherView: View {
             }
         }
         .padding(25)
-        .padding(.bottom, 25)
+        .padding(.bottom, 15)
         .background(BackgroundView(backgroundImage: backgroundImage))
         .ignoresSafeArea(.all)
         .transition(.standard)
