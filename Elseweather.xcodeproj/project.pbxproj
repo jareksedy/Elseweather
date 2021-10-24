@@ -125,6 +125,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CA593A9D2725CCFA000264B0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CA9DA310272594BE00AF717D /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		CA71A06826EDB1AF00831014 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +222,6 @@
 			children = (
 				CAD3631027248B9E009FF2DC /* WeatherSubViews */,
 				CAD416E727030BAB009516D6 /* WeatherView.swift */,
-				CA9DA310272594BE00AF717D /* SettingsView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 		CAD416E427030A69009516D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA593A9D2725CCFA000264B0 /* Settings */,
 				CAC954442703A2EC0015BBE1 /* Weather */,
 				CAD416E527030B57009516D6 /* ElseweatherView.swift */,
 			);
