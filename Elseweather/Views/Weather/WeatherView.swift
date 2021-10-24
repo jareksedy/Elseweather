@@ -92,18 +92,21 @@ struct WeatherView: View {
         displayingLocalWeather = false
     }
     
+    private func changeSettings() {
+    }
+    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Button(action: {}, label: { Image("icon-settings") })
+                Button(action: { changeSettings() }, label: { Image("icon-settings") })
                     .buttonStyle(defaultControlButton())
                     .padding(.top, -7)
                 
                 Spacer()
                 
-                Image("logo")
+                Image("logo-small")
                     .modifier(LogoImage())
-            }.padding(.top, 20)
+            }.padding(.top, 30)
 
             
             Spacer()
@@ -126,7 +129,7 @@ struct WeatherView: View {
             }
         }
         .padding(25)
-        .padding(.bottom, 15)
+        .padding(.bottom, 10)
         .background(BackgroundView(backgroundImage: backgroundImage))
         .ignoresSafeArea(.all)
         .transition(.standard)

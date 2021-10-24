@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-final class Session {
+final class Session: ObservableObject {
     
     static let shared = Session()
     
@@ -19,9 +20,9 @@ final class Session {
     
     // MARK: - User settings.
     
-    let units: Units = .metric
-    let displayTemperatureUnits: DisplayUnits = .no
-    let appearance: Appearance = .standard
+    var units: Units = .metric
+    var displayTemperatureUnits: DisplayUnits = .no
+    var appearance: Appearance = .standard
 }
 
 // MARK: - User settings enums.

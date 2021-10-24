@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BackgroundView: View {
-    
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     var backgroundImage: Image?
     

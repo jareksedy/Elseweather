@@ -144,7 +144,7 @@ final class WeatherViewModelFactory {
             1087: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // thundery outbreaks possible
             1114: ["daL5RX~pIUoz-:M{R*WB?bM_WEax%Lj[t7WBxZfRt6s:"], // blowing snow
             1117: ["d9HVPL?bs;ofa#M{M{Rj~qxukCWBxvInofM{4nWBM{t7"], // blizzard
-            1135: ["dmDKW7kCkXWA.TfQaxj]x]ayV@kCaxfQa#ayWAj[azay"], // fog
+            1135: ["dCC?$69G00~p-;t6M{IV00xu~WD*xtM{WB-:xuRjRjt7"], // fog
             1147: ["dxLOTit7oej[~Vjuf6j[s9j[WVa|X9fPazaybHfQj@j["], // freezing fog
             1150: ["dXKn-vt7t7kC~qayWBf6WVoff6aejZayfkkCWBayj[fk"], // patchy light drizzle
             1153: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // light drizzle
