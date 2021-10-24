@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    @State private var imperialUnits = false
+    @State private var imperialUnits = true
     @State private var showUnits = false
     @State private var minimalisticAppearance = false
     
