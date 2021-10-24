@@ -18,11 +18,11 @@ final class Session: ObservableObject {
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
     let dataFileName = "LocationCoordinates", dataFileExt = "csv"
     
-    // MARK: - User settings.
+    // MARK: - Default user settings.
     
-    var units: Units = .metric
-    var displayTemperatureUnits: DisplayUnits = .no
-    var appearance: Appearance = .standard
+    @Published var units: Units = .metric
+    @Published var displayTemperatureUnits: DisplayUnits = .no
+    @Published var appearance: Appearance = .standard
 }
 
 // MARK: - User settings enums.

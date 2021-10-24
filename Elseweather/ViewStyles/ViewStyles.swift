@@ -48,6 +48,24 @@ struct btStyleScaledBigger: ButtonStyle {
     }
 }
 
+// MARK: - Switch toggle style.
+
+struct CustomToggleStyle: ToggleStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        return HStack {
+            configuration.label
+                .font(.system(size: 18, weight: .regular))
+                .lineSpacing(5)
+                .foregroundColor(Color.customPrimary(for: colorScheme))
+            
+            Spacer()
+            
+        }
+    }
+}
+
 // MARK: - Logo.
 
 struct LogoImage: ViewModifier {
@@ -120,5 +138,32 @@ extension AnyTransition {
     static var standardHeadingText: AnyTransition {
         .asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity),
                     removal: .move(edge: .top).combined(with: .opacity)).animation(.easeOut(duration: 0.15))
+    }
+}
+
+// MARK: - Sheet view styles.
+
+struct CustomBackgroundView: UIViewRepresentable {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    func makeUIView(context: Context) -> some UIView {
+        let view = UIView()
+        DispatchQueue.main.async {
+            view.superview?.superview?.backgroundColor = UIColor(Color.customBackground(for: colorScheme))
+        }
+        return view
+    }
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
+}
+
+struct SheetCustomBackgroundViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(CustomBackgroundView())
+    }
+}
+
+extension View {
+    func SheetCustomBackground()->some View {
+        self.modifier(SheetCustomBackgroundViewModifier())
     }
 }

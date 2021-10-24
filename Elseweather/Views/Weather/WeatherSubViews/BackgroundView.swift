@@ -9,11 +9,12 @@ import SwiftUI
 
 struct BackgroundView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var session = Session.shared
     var backgroundImage: Image?
     
     var body: some View {
         
-        if Session.shared.appearance == Appearance.minimal {
+        if session.appearance == Appearance.minimal {
             Color.customBackground(for: colorScheme)
         } else {
             backgroundImage?

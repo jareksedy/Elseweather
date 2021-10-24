@@ -16,6 +16,7 @@ struct WeatherView: View {
     @State private var backgroundImage: Image?
     @State private var currentConditionCode: Int = 0
     @State private var isLocationAlertPresented: Bool = false
+    @State private var isSettingsPresented: Bool = false
     
     private func presentLocationAlert() -> Alert {
         return Alert(
@@ -93,20 +94,25 @@ struct WeatherView: View {
     }
     
     private func changeSettings() {
+        let appearance = Session.shared.appearance
+        Session.shared.appearance = appearance == .standard ? .minimal : .standard
     }
     
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Button(action: { changeSettings() }, label: { Image("icon-settings") })
+                Button(action: { isSettingsPresented.toggle() }, label: { Image("icon-settings") })
                     .buttonStyle(defaultControlButton())
                     .padding(.top, -7)
+                    .sheet(isPresented: $isSettingsPresented) {
+                        SettingsView()
+                    }
                 
                 Spacer()
                 
                 Image("logo-small")
                     .modifier(LogoImage())
-            }.padding(.top, 30)
+            }.padding(.top, 35)
 
             
             Spacer()
