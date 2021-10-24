@@ -56,7 +56,7 @@ struct LogoImage: ViewModifier {
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
             .padding(.trailing, -5)
-            .padding(.top, 1)
+            .padding(.top, -1)
     }
 }
 

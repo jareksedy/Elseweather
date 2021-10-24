@@ -97,7 +97,7 @@ struct WeatherView: View {
             HStack(alignment: .center) {
                 Button(action: {}, label: { Image("icon-settings") })
                     .buttonStyle(defaultControlButton())
-                    .padding(.top, -2)
+                    .padding(.top, -7)
                 
                 Spacer()
                 
