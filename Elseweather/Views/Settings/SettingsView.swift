@@ -36,7 +36,7 @@ struct SettingsView: View {
             
             Group {
                 Toggle("", isOn: $showUnits)
-                    .toggleStyle(CustomToggleStyle(label: "Display Temperature Units",
+                    .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))
