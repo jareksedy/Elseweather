@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    @State private var imperialUnits = true
+    @State private var metricSystem = true
     @State private var showUnits = false
     @State private var minimalisticAppearance = false
     
@@ -27,30 +27,44 @@ struct SettingsView: View {
             Divider(2).opacity(settingsDividerOpacity)
             
             Group {
-                Toggle("", isOn: $imperialUnits).toggleStyle(CustomToggleStyle(label: "Imperial units"))
-            }.padding(.top, 25).padding(.bottom, 25)
-            
-            Divider(1).opacity(0.25)
-            
-            Group {
-                Toggle("", isOn: $showUnits).toggleStyle(CustomToggleStyle(label: "Show temperature units"))
-            }.padding(.top, 25).padding(.bottom, 25)
-            
-            Divider(1).opacity(0.25)
+                Toggle("", isOn: $metricSystem)
+                    .toggleStyle(CustomToggleStyle(label: "Metric System",
+                                                   onColor: .customSecondary(for: colorScheme),
+                                                   offColor: .customBackground(for: colorScheme),
+                                                   thumbColor: .customPrimary(for: colorScheme)))
+            }.padding(.top, 25).padding(.bottom, 10)
             
             Group {
-                Toggle("", isOn: $minimalisticAppearance).toggleStyle(CustomToggleStyle(label: "Minimalistic appearance"))
-            }.padding(.top, 25).padding(.bottom, 50)
+                Toggle("", isOn: $showUnits)
+                    .toggleStyle(CustomToggleStyle(label: "Display Temperature Units",
+                                                   onColor: .customSecondary(for: colorScheme),
+                                                   offColor: .customBackground(for: colorScheme),
+                                                   thumbColor: .customPrimary(for: colorScheme)))
+            }.padding(.top, 10).padding(.bottom, 10)
             
-            HStack {
-                Text("About Elseweather")
-                    .kerning(-0.5)
-                    .textStyle(LargeTitle())
-                
-                Spacer()
-            }
+            Group {
+                Toggle("", isOn: $minimalisticAppearance)
+                    .toggleStyle(CustomToggleStyle(label: "Minimalistic Appearance",
+                                                   onColor: .customSecondary(for: colorScheme),
+                                                   offColor: .customBackground(for: colorScheme),
+                                                   thumbColor: .customPrimary(for: colorScheme)))
+            }.padding(.top, 10).padding(.bottom, 25)
             
             Divider(2).opacity(settingsDividerOpacity)
+            
+            HStack {
+                Text("""
+                     Elseweather v.\(Session.shared.version).
+                     Jarek Šedý <jareksedy@icloud.com>
+                     GitHub: github.com/jareksedy
+                     """.uppercased())
+                    .kerning(-0.25)
+                    .textStyle(SmallMonospaced())
+                    .opacity(0.5)
+                
+                Spacer()
+            }.padding(.top, 10)
+            
             
             Spacer()
         }

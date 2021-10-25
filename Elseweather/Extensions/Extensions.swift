@@ -48,11 +48,22 @@ extension Color {
     static let customLightPrimary = customDarkBackground
     static let customLightBackground = customDarkPrimary
     
+    static let customDarkSecondary = Color(UIColor(red: 0.56, green: 0.55, blue: 0.51, alpha: 1.00))
+    static let customLightSecondary = Color(UIColor(red: 0.55, green: 0.55, blue: 0.51, alpha: 1.00))
+    
     static func customPrimary(for scheme: ColorScheme) -> Color {
         if scheme == .dark {
             return customDarkPrimary
         } else {
             return customLightPrimary
+        }
+    }
+    
+    static func customSecondary(for scheme: ColorScheme) -> Color {
+        if scheme == .dark {
+            return customDarkSecondary
+        } else {
+            return customLightSecondary
         }
     }
     

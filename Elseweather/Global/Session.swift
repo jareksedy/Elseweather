@@ -18,6 +18,8 @@ final class Session: ObservableObject {
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
     let dataFileName = "LocationCoordinates", dataFileExt = "csv"
     
+    let version = "1.0.0"
+    
     // MARK: - Default user settings.
     
     @Published var units: Units = .metric

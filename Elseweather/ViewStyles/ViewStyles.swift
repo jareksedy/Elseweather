@@ -51,30 +51,34 @@ struct btStyleScaledBigger: ButtonStyle {
 // MARK: - Switch toggle style.
 
 struct CustomToggleStyle: ToggleStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     var label = ""
-    var onColor = Color.customDarkPrimary.opacity(settingsDividerOpacity)
-    var offColor = Color(UIColor.systemGray5)
+    var onColor = Color.customDarkSecondary
+    var offColor = Color.customDarkBackground
     var thumbColor = Color.customDarkPrimary
     
     func makeBody(configuration: Self.Configuration) -> some View {
         HStack {
             Text(label)
+                .kerning(-0.25)
                 .textStyle(SmallTitle())
                 .padding(.top, -2)
             Spacer()
             Button(action: { configuration.isOn.toggle() } )
             {
                 RoundedRectangle(cornerRadius: 26, style: .circular)
-//                    .strokeBorder(Color.customDarkPrimary, lineWidth: 1)
-//                    .background(RoundedRectangle(cornerSize: CGSize(width: 26.0, height: 26.0)).fill(configuration.isOn ? onColor : offColor))
-                    .fill(configuration.isOn ? onColor : offColor)
+                    .strokeBorder(onColor, lineWidth: 2)
+                    .background(RoundedRectangle(cornerSize: CGSize(width: 26.0, height: 26.0))
+                                    .fill(configuration.isOn ? onColor : offColor))
+                    //.fill(configuration.isOn ? onColor : offColor)
                     .frame(width: 50, height: 30)
                     .overlay(
                         Circle()
-                            .fill(thumbColor)
+                            .fill(configuration.isOn ? thumbColor : onColor)
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
-                            .animation(.spring(response: 0.4, dampingFraction: 0.6)))
+                            .animation(.spring(response: 0.4, dampingFraction: 0.4)))
                     
             }
         }
