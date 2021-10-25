@@ -28,7 +28,7 @@ struct SettingsView: View {
             
             Group {
                 Toggle("", isOn: $metricSystem)
-                    .toggleStyle(CustomToggleStyle(label: "Metric System",
+                    .toggleStyle(CustomToggleStyle(label: "Use Metric System",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))

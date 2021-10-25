@@ -182,7 +182,7 @@ struct SheetCustomBackgroundViewModifier: ViewModifier {
 }
 
 extension View {
-    func SheetCustomBackground()->some View {
+    func SheetCustomBackground() -> some View {
         self.modifier(SheetCustomBackgroundViewModifier())
     }
 }
