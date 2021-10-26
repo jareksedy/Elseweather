@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct WeatherWindView: View {
+    @ObservedObject var session = Session.shared
     var weatherViewModel: WeatherViewModel
     var body: some View {
         Group {
             HStack {
                 IndexView(caption: weatherViewModel.windCaption,
-                          value: String(weatherViewModel.wind),
-                          units: weatherViewModel.windUnits)
+                          value: session.useMetric ? String(weatherViewModel.windMetric) : String(weatherViewModel.windImperial),
+                          units: session.useMetric ? weatherViewModel.windUnitsMetric : weatherViewModel.windUnitsImperial)
                 
                 IndexView(caption: weatherViewModel.windDirectionCaption,
                           value: weatherViewModel.windDirection)
                 
-                if weatherViewModel.windGust > 10.0 {
+                if weatherViewModel.windGustMetric > 15.0 {
                     IndexView(caption: weatherViewModel.windGustCaption,
-                              value: String(weatherViewModel.windGust),
-                              units: weatherViewModel.windGustUnits)
+                              value: session.useMetric ? String(weatherViewModel.windGustMetric) : String(weatherViewModel.windGustImperial),
+                              units: session.useMetric ? weatherViewModel.windGustUnitsMetric : weatherViewModel.windUnitsImperial)
                 }
             }
         }

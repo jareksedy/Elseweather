@@ -19,7 +19,7 @@ struct WeatherDataView: View {
             Divider(2)
                 .padding(.bottom, 2 + 5)
             
-            if weatherViewModel.wind > 0 {
+            if weatherViewModel.windMetric > 0 {
                 WeatherDetailsView(weatherViewModel: weatherViewModel)
                     .padding(.bottom, 15)
                 

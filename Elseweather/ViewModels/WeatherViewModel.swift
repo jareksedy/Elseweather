@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct WeatherViewModel {
+    let conditionCode: Int
+    let location: Location
+    
     let conditionCelsius: String
     let conditionFahrenheit: String
     let conditionCelsiusWithUnits: String
@@ -19,33 +22,41 @@ struct WeatherViewModel {
     let lat: String
     let lon: String
     
-    let precipitation: Double
-    let precipitationUnits: String
+    let precipitationMetric: Double
+    let precipitationImperial: Double
+    let precipitationUnitsMetric = "MM"
+    let precipitationUnitsImperial = "″"
     let precipitationCaption = "PRECIPITATION"
     
     let cloudCover: Int
-    let cloudCoverUnits: String
+    let cloudCoverUnits = "%"
     let cloudCoverCaption = "CLOUD COVER"
     
     let humidity: Int
-    let humidityUnits: String
+    let humidityUnits = "%"
     let humidityCaption = "HUMIDITY"
     
-    let pressure: Int
-    let pressureUnits: String
+    let pressureMetric: Int
+    let pressureImperial: Double
+    let pressureUnitsMetric = "MBAR"
+    let pressureUnitsImperial = "″"
     let pressureCaption = "PRESSURE"
     
     let uv: Int
     let uvCaption = "UV"
     
-    let wind: Double
-    let windUnits: String
+    let windMetric: Double
+    let windImperial: Double
+    let windUnitsMetric = "KPH"
+    let windUnitsImperial = "MPH"
     let windCaption = "WIND SPEED"
-    let windDegree: Double
+    let windDegree: Int
     let windDirection: String
     let windDirectionCaption = "DIRECTION"
-    let windGust: Double
-    let windGustUnits: String
+    let windGustMetric: Double
+    let windGustImperial: Double
+    let windGustUnitsMetric = "KPH"
+    let windGustUnitsImperial = "MPH"
     let windGustCaption = "GUST"
     
     let localDate: String
@@ -53,10 +64,5 @@ struct WeatherViewModel {
     let localTimeZone: String
     
     let blurHash: String
-    
-    let location: Location
-    let name: String
-    
-    let conditionCode: Int
 }
 
