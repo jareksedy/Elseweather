@@ -76,6 +76,7 @@ struct WeatherView: View {
     }
     
     private func viewAppear() {
+        appSettingsService.loadSettings()
         locationFetcher.start()
         generateImage()
         getWeather()
@@ -99,7 +100,8 @@ struct WeatherView: View {
                 Button(action: { isSettingsPresented.toggle() }, label: { Image("icon-settings") })
                     .buttonStyle(defaultControlButton())
                     .padding(.top, -7)
-                    .sheet(isPresented: $isSettingsPresented) {
+                    .sheet(isPresented: $isSettingsPresented,
+                           onDismiss: { appSettingsService.storeSettings() }) {
                         SettingsView()
                     }
                 
