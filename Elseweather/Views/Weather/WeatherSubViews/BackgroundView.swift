@@ -14,7 +14,7 @@ struct BackgroundView: View {
     
     var body: some View {
         
-        if session.appearance == Appearance.minimal {
+        if session.minimalisticAppearance {
             Color.customBackground(for: colorScheme)
         } else {
             backgroundImage?

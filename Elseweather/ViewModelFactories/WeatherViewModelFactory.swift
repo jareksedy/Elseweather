@@ -12,11 +12,11 @@ final class WeatherViewModelFactory {
     func construct(from weather: WAWeather) -> WeatherViewModel {
         
         var metricUnits: Bool {
-            return Session.shared.units == .metric
+            return Session.shared.useMetric
         }
         
         var displayUnits: Bool {
-            return Session.shared.displayTemperatureUnits == .yes
+            return Session.shared.showUnits
         }
         
         var condition: String {

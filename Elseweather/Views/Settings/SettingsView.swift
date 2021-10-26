@@ -9,10 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
-    @State private var metricSystem = true
-    @State private var showUnits = false
-    @State private var minimalisticAppearance = false
+    @ObservedObject var session = Session.shared
     
     var body: some View {
         VStack {
@@ -27,7 +24,7 @@ struct SettingsView: View {
             Divider(2).opacity(settingsDividerOpacity)
             
             Group {
-                Toggle("", isOn: $metricSystem)
+                Toggle("", isOn: $session.useMetric)
                     .toggleStyle(CustomToggleStyle(label: "Use Metric System",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
@@ -35,7 +32,7 @@ struct SettingsView: View {
             }.padding(.top, 25).padding(.bottom, 10)
             
             Group {
-                Toggle("", isOn: $showUnits)
+                Toggle("", isOn: $session.showUnits)
                     .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
@@ -43,7 +40,7 @@ struct SettingsView: View {
             }.padding(.top, 10).padding(.bottom, 10)
             
             Group {
-                Toggle("", isOn: $minimalisticAppearance)
+                Toggle("", isOn: $session.minimalisticAppearance)
                     .toggleStyle(CustomToggleStyle(label: "Minimalistic Appearance",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),

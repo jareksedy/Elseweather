@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WeatherHeadingView: View {
+    @ObservedObject var session = Session.shared
     var weatherViewModel: WeatherViewModel
     var body: some View {
         VStack {

@@ -22,24 +22,7 @@ final class Session: ObservableObject {
     
     // MARK: - Default user settings.
     
-    @Published var units: Units = .metric
-    @Published var displayTemperatureUnits: DisplayUnits = .no
-    @Published var appearance: Appearance = .standard
-}
-
-// MARK: - User settings enums.
-
-enum Units: Int {
-    case metric
-    case imperial
-}
-
-enum DisplayUnits: Int {
-    case yes
-    case no
-}
-
-enum Appearance: Int {
-    case minimal
-    case standard
+    @Published var useMetric = true
+    @Published var showUnits = false
+    @Published var minimalisticAppearance = false
 }

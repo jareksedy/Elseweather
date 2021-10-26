@@ -66,7 +66,7 @@ struct WeatherView: View {
     }
     
     private func generateImage() {
-        guard Session.shared.appearance == .standard else { return }
+        //guard Session.shared.minimalisticAppearance == false else { return }
         guard weatherViewModel.conditionCode != currentConditionCode else { return }
         
         imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
@@ -91,11 +91,6 @@ struct WeatherView: View {
         generateImage()
         busyTouchedDown = false
         displayingLocalWeather = false
-    }
-    
-    private func changeSettings() {
-        let appearance = Session.shared.appearance
-        Session.shared.appearance = appearance == .standard ? .minimal : .standard
     }
     
     var body: some View {
