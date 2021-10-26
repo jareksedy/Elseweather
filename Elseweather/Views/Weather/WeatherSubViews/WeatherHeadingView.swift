@@ -13,11 +13,27 @@ struct WeatherHeadingView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(weatherViewModel.condition)
-                    .kerning(-0.5)
-                    .textStyle(LargeTitle())
-                    //.transition(.standardHeadingText)
-                    //.id(UUID())
+                if session.useMetric {
+                    if session.showUnits {
+                        Text(weatherViewModel.conditionCelsiusWithUnits)
+                            .kerning(-0.5)
+                            .textStyle(LargeTitle())
+                    } else {
+                        Text(weatherViewModel.conditionCelsius)
+                            .kerning(-0.5)
+                            .textStyle(LargeTitle())
+                    }
+                } else {
+                    if session.showUnits {
+                        Text(weatherViewModel.conditionFahrenheitWithUnits)
+                            .kerning(-0.5)
+                            .textStyle(LargeTitle())
+                    } else {
+                        Text(weatherViewModel.conditionFahrenheit)
+                            .kerning(-0.5)
+                            .textStyle(LargeTitle())
+                    }
+                }
 
                 Spacer()
             }.padding(.bottom, 10)
@@ -26,8 +42,6 @@ struct WeatherHeadingView: View {
                 Text(weatherViewModel.locality)
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
-                    //.transition(.standardHeadingText)
-                    //.id(UUID())
                 
                 Spacer()
             }

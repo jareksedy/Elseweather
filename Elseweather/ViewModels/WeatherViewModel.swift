@@ -9,7 +9,11 @@ import Foundation
 import SwiftUI
 
 struct WeatherViewModel {
-    let condition: String
+    let conditionCelsius: String
+    let conditionFahrenheit: String
+    let conditionCelsiusWithUnits: String
+    let conditionFahrenheitWithUnits: String
+    
     let locality: String
     
     let lat: String
