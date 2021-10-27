@@ -85,7 +85,7 @@ struct CustomToggleStyle: ToggleStyle {
                             .fill(configuration.isOn ? thumbColor : onColor)
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
-                            .animation(.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.10)))
+                            .animation(.spring(response: 0.2, dampingFraction: 0.5)))
                     
             }.buttonStyle(toggleButton())
         }

@@ -84,6 +84,7 @@ struct WeatherView: View {
     
     private func viewTouchDown() {
         guard busyTouchedDown == false else { return }
+        guard busyFetchingLocalWeather == false else { return }
         busyTouchedDown = true
     }
     
@@ -116,7 +117,7 @@ struct WeatherView: View {
             HStack {
                 WeatherDataView(weatherViewModel: weatherViewModel)
                     .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
-                    .opacity(busyTouchedDown ? viewDownOpacity : 1.0)
+                    //.opacity(busyTouchedDown ? viewDownOpacity : 1.0)
                     .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
             }
             
