@@ -25,7 +25,7 @@ struct WeatherViewModel {
     let precipitationMetric: Double
     let precipitationImperial: Double
     let precipitationUnitsMetric = "MM"
-    let precipitationUnitsImperial = "″"
+    let precipitationUnitsImperial = "IN"
     let precipitationCaption = "PRECIPITATION"
     
     let cloudCover: Int
@@ -39,7 +39,7 @@ struct WeatherViewModel {
     let pressureMetric: Int
     let pressureImperial: Double
     let pressureUnitsMetric = "MBAR"
-    let pressureUnitsImperial = "″"
+    let pressureUnitsImperial = "INHG"
     let pressureCaption = "PRESSURE"
     
     let uv: Int
