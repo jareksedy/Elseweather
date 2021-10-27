@@ -21,7 +21,7 @@ struct SettingsView: View {
                 Spacer()
             }
             
-            Divider(1).opacity(settingsDividerOpacity)
+            Divider(2).opacity(settingsDividerOpacity)
             
             Group {
                 Toggle("", isOn: $session.useMetric)
@@ -56,7 +56,7 @@ struct SettingsView: View {
                                                    thumbColor: .customPrimary(for: colorScheme)))
             }.padding(.top, 10).padding(.bottom, 25)
             
-            Divider(1).opacity(settingsDividerOpacity)
+            Divider(2).opacity(settingsDividerOpacity)
             
             HStack {
                 Text("""
