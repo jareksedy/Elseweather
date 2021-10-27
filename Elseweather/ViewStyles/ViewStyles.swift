@@ -38,6 +38,13 @@ struct defaultControlButton: ButtonStyle {
     }
 }
 
+struct toggleButton: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .opacity(1.0)
+    }
+}
+
 struct btStyleScaledBigger: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -80,7 +87,7 @@ struct CustomToggleStyle: ToggleStyle {
                             .offset(x: configuration.isOn ? 10 : -10)
                             .animation(.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.10)))
                     
-            }
+            }.buttonStyle(toggleButton())
         }
     }
 }
