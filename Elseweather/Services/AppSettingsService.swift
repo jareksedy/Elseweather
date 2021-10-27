@@ -11,6 +11,10 @@ class AppSettingsService {
     @ObservedObject var session = Session.shared
     private let defaults = UserDefaults.standard
     
+    private func isKeyPresent(key: String) -> Bool {
+        return defaults.object(forKey: key) != nil
+    }
+    
     func storeSettings() {
         defaults.set(session.useMetric, forKey: "useMetric")
         defaults.set(session.showUnits, forKey: "showUnits")
@@ -18,8 +22,8 @@ class AppSettingsService {
     }
     
     func loadSettings() {
-        session.useMetric = defaults.bool(forKey: "useMetric")
-        session.showUnits = defaults.bool(forKey: "showUnits")
-        session.minimalisticAppearance = defaults.bool(forKey: "minimalisticAppearance")
+        session.useMetric = isKeyPresent(key: "useMetric") ? defaults.bool(forKey: "useMetric") : true
+        session.showUnits = isKeyPresent(key: "showUnits") ? defaults.bool(forKey: "showUnits") : false
+        session.minimalisticAppearance = isKeyPresent(key: "minimalisticAppearance") ? defaults.bool(forKey: "minimalisticAppearance") : false
     }
 }

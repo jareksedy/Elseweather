@@ -100,8 +100,7 @@ struct WeatherView: View {
                 Button(action: { isSettingsPresented.toggle() }, label: { Image("icon-settings") })
                     .buttonStyle(defaultControlButton())
                     .padding(.top, -7)
-                    .sheet(isPresented: $isSettingsPresented,
-                           onDismiss: { appSettingsService.storeSettings() }) {
+                    .sheet(isPresented: $isSettingsPresented) {
                         SettingsView()
                     }
                 

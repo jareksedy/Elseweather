@@ -21,10 +21,13 @@ struct SettingsView: View {
                 Spacer()
             }
             
-            Divider(2).opacity(settingsDividerOpacity)
+            Divider(1).opacity(settingsDividerOpacity)
             
             Group {
                 Toggle("", isOn: $session.useMetric)
+                    .onChange(of: session.useMetric) { value in
+                        appSettingsService.storeSettings()
+                    }
                     .toggleStyle(CustomToggleStyle(label: "Use Metric System",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
@@ -33,6 +36,9 @@ struct SettingsView: View {
             
             Group {
                 Toggle("", isOn: $session.showUnits)
+                    .onChange(of: session.showUnits) { value in
+                        appSettingsService.storeSettings()
+                    }
                     .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
@@ -41,13 +47,16 @@ struct SettingsView: View {
             
             Group {
                 Toggle("", isOn: $session.minimalisticAppearance)
+                    .onChange(of: session.minimalisticAppearance) { value in
+                        appSettingsService.storeSettings()
+                    }
                     .toggleStyle(CustomToggleStyle(label: "Minimalistic Appearance",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))
             }.padding(.top, 10).padding(.bottom, 25)
             
-            Divider(2).opacity(settingsDividerOpacity)
+            Divider(1).opacity(settingsDividerOpacity)
             
             HStack {
                 Text("""
