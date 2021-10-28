@@ -39,7 +39,7 @@ struct WeatherHeadingView: View {
             }.padding(.bottom, 10)
             
             HStack {
-                Text(weatherViewModel.locality)
+                Text("in \(weatherViewModel.locality)")
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
                 

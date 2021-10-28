@@ -18,6 +18,8 @@ struct WeatherView: View {
     @State private var isLocationAlertPresented: Bool = false
     @State private var isSettingsPresented: Bool = false
     
+    @State private var inContinuousMode: Bool = false
+    
     private func presentLocationAlert() -> Alert {
         return Alert(
             title: Text("Location is not available"),
@@ -29,6 +31,26 @@ struct WeatherView: View {
         )
     }
     
+    private func openInMaps() {
+        let latitude: CLLocationDegrees = weatherViewModel.location.lat
+        let longitude: CLLocationDegrees = weatherViewModel.location.lon
+        let regionDistance:CLLocationDistance = 10_000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates,
+                                            latitudinalMeters: regionDistance,
+                                            longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        
+        mapItem.name = weatherViewModel.locality
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
         weatherViewModel = weatherViewModelFactory.construct(from: weather)
@@ -36,6 +58,7 @@ struct WeatherView: View {
     }
     
     private func getWeatherForCurrentLocation() {
+        inContinuousMode = false
         locationFetcher.start()
         
         guard locationFetcher.hasAccess() else {
@@ -83,12 +106,16 @@ struct WeatherView: View {
     }
     
     private func viewTouchDown() {
+        guard inContinuousMode == false else { return }
         guard busyTouchedDown == false else { return }
         guard busyFetchingLocalWeather == false else { return }
         busyTouchedDown = true
     }
     
     private func viewTouchUp() {
+        guard inContinuousMode == false else { return }
+        guard busyFetchingLocalWeather == false else { return }
+        
         getWeather()
         generateImage()
         busyTouchedDown = false
@@ -99,7 +126,7 @@ struct WeatherView: View {
         VStack {
             HStack(alignment: .center) {
                 Button(action: { isSettingsPresented.toggle() }, label: { Image("icon-settings") })
-                    .buttonStyle(defaultControlButton())
+                    .buttonStyle(DefaultControlButton())
                     .padding(.top, -7)
                     .sheet(isPresented: $isSettingsPresented) {
                         SettingsView()
@@ -107,39 +134,67 @@ struct WeatherView: View {
                 
                 Spacer()
                 
-                Image("logo-small")
-                    .modifier(LogoImage())
+                //                Image("logo-small")
+                //                    .modifier(LogoImage())
             }.padding(.top, 35)
-
+            
             
             Spacer()
             
-            HStack {
-                WeatherDataView(weatherViewModel: weatherViewModel)
-                    .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
-                    //.opacity(busyTouchedDown ? viewDownOpacity : 1.0)
-                    .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
-            }
+            WeatherDataView(weatherViewModel: weatherViewModel)
+                .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
+                .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
+                .padding(.bottom, 15)
             
             HStack {
+                Button(action: {
+                    openInMaps()
+                }, label: {
+                    Image("button-maps")
+                })
+                    .buttonStyle(MapsButton())
+                
                 Spacer()
                 
-                Button(action: { getWeatherForCurrentLocation() }, label: { Image("icon-pin") })
-                    .buttonStyle(defaultControlButton())
-                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
-                    .opacity(displayingLocalWeather ? disabledButtonOpacity : 1.0)
-                    .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
+                HStack {
+                    Button(action: {
+                        getWeatherForCurrentLocation()
+                    }, label: {
+                        Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
+                    })
+                        .buttonStyle(LocationButton())
+                        .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
+                        .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
+                    
+                    Button(action: {
+                        inContinuousMode.toggle()
+                    }, label: {
+                        Image(inContinuousMode ? "button-pause" : "button-play")
+                    })
+                        .buttonStyle(PlayButton())
+                    
+                    Button(action: {
+                        inContinuousMode = false
+                        getWeather()
+                        generateImage()
+                        busyTouchedDown = false
+                        displayingLocalWeather = false
+                    }, label: {
+                        Image("button-next")
+                    })
+                        .buttonStyle(NextButton())
+                }.padding(.leading, -24)
+                
+                Spacer()
             }
         }
         .padding(25)
-        .padding(.bottom, 10)
+        .padding(.bottom, 15)
         .background(BackgroundView(backgroundImage: backgroundImage))
         .ignoresSafeArea(.all)
         .transition(.standard)
         .animation(.standard)
-        .onAppear {
-            viewAppear()
-        }
+        .onAppear { viewAppear() }
         .gesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { _ in viewTouchDown()}

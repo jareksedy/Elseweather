@@ -209,7 +209,7 @@ final class WeatherViewModelFactory {
         }
         
         var locality: String {
-            var location = "in "
+            var location = ""
             let localRegion = region != nil ? region! + ", " : ""
             
             location += "\(weather.location.name), "

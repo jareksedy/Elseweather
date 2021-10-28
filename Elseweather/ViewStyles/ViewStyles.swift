@@ -26,7 +26,57 @@ struct Divider: View {
 
 // MARK: - Button styles.
 
-struct defaultControlButton: ButtonStyle {
+struct PlayButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(.customPrimary(for: colorScheme))
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .frame(width: 88.0)
+    }
+}
+
+struct NextButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        Image(configuration.isPressed ? "button-next-pressed" : "button-next")
+            .foregroundColor(.customPrimary(for: colorScheme))
+    }
+}
+
+struct MapsButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        Image(configuration.isPressed ? "button-maps-pressed" : "button-maps")
+            .foregroundColor(.customPrimary(for: colorScheme))
+    }
+}
+
+struct LocationButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(.customPrimary(for: colorScheme))
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+    }
+}
+
+struct PauseButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        Image(configuration.isPressed ? "button-pause-pressed" : "button-pause")
+            .foregroundColor(.customPrimary(for: colorScheme))
+    }
+}
+
+struct DefaultControlButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -38,14 +88,14 @@ struct defaultControlButton: ButtonStyle {
     }
 }
 
-struct toggleButton: ButtonStyle {
+struct ToggleButton: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .opacity(1.0)
     }
 }
 
-struct btStyleScaledBigger: ButtonStyle {
+struct BtStyleScaledBigger: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.system(size: 24))
@@ -78,7 +128,7 @@ struct CustomToggleStyle: ToggleStyle {
                     .strokeBorder(onColor, lineWidth: 2)
                     .background(RoundedRectangle(cornerSize: CGSize(width: 26.0, height: 26.0))
                                     .fill(configuration.isOn ? onColor : offColor))
-                    //.fill(configuration.isOn ? onColor : offColor)
+                //.fill(configuration.isOn ? onColor : offColor)
                     .frame(width: 50, height: 30)
                     .overlay(
                         Circle()
@@ -86,8 +136,8 @@ struct CustomToggleStyle: ToggleStyle {
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
                             .animation(.spring(response: 0.2, dampingFraction: 0.5)))
-                    
-            }.buttonStyle(toggleButton())
+                
+            }.buttonStyle(ToggleButton())
         }
     }
 }
