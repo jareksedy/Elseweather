@@ -23,7 +23,7 @@ struct WeatherView: View {
     private func presentLocationAlert() -> Alert {
         return Alert(
             title: Text("Location is not available"),
-            message: Text("Please grant us access to your location to show current weather in your area."),
+            message: Text("Please grant access to your location to show current weather in your area."),
             primaryButton: .default(Text("Settings"), action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
             }),
@@ -128,7 +128,7 @@ struct WeatherView: View {
                 Button(action: {
                     isSettingsPresented.toggle()
                 }, label: {
-                    Image("button-settings")
+                        isSettingsPresented ? Image("button-settings-pressed") : Image("button-settings")
                 })
                     .buttonStyle(SettingsButton())
                     .sheet(isPresented: $isSettingsPresented) { SettingsView() }
@@ -136,7 +136,7 @@ struct WeatherView: View {
                 Divider(2)
                 
                 Image("logo-tiny").modifier(LogoImage())
-            }.padding(.top, 45)
+            }.padding(.top, 35)
             
             
             Spacer()
@@ -197,8 +197,9 @@ struct WeatherView: View {
     }
 }
 
-struct WeatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
-    }
-}
+//
+//struct WeatherView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
+//    }
+//}
