@@ -10,15 +10,19 @@ import MapKit
 
 struct WeatherView: View {
     @State var weatherViewModel: WeatherViewModel
+    @State private var backgroundImage: Image?
+    
     @State private var displayingLocalWeather: Bool = false
+    @State private var inContinuousMode: Bool = false
+    
     @State private var busyFetchingLocalWeather: Bool = false
     @State private var busyTouchedDown: Bool = false
-    @State private var backgroundImage: Image?
+    
     @State private var currentConditionCode: Int = 0
+    
     @State private var isLocationAlertPresented: Bool = false
     @State private var isSettingsPresented: Bool = false
     
-    @State private var inContinuousMode: Bool = false
     private let timer = Timer.publish(every: continuousModeInterval, on: .main, in: .common).autoconnect()
     
     private func presentLocationAlert() -> Alert {
@@ -100,7 +104,10 @@ struct WeatherView: View {
     }
     
     private func runContinuousMode() {
-        guard inContinuousMode == true else { return }
+        guard inContinuousMode == true else {
+            UIApplication.shared.isIdleTimerDisabled = false
+            return
+        }
         getWeather()
         generateImage()
         displayingLocalWeather = false
@@ -134,7 +141,7 @@ struct WeatherView: View {
         VStack {
             HStack(alignment: .center) {
                 Button(action: {
-                    isSettingsPresented.toggle()
+                    isSettingsPresented = true
                 }, label: {
                         isSettingsPresented ? Image("button-settings-pressed") : Image("button-settings")
                 })
@@ -161,18 +168,13 @@ struct WeatherView: View {
                     Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
                 })
                     .buttonStyle(LocationButton())
-                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
+                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather || inContinuousMode)
+                    .opacity(inContinuousMode ? disabledButtonOpacity : 1.0)
                     .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
                 
                 Button(action: {
                     inContinuousMode.toggle()
-                    
-                    if inContinuousMode {
-                        UIApplication.shared.isIdleTimerDisabled = true
-                    } else {
-                        UIApplication.shared.isIdleTimerDisabled = false
-                    }
-                    
+                    UIApplication.shared.isIdleTimerDisabled = true
                 }, label: {
                     Image(inContinuousMode ? "button-pause" : "button-play")
                 })
@@ -195,6 +197,8 @@ struct WeatherView: View {
                     Image("button-maps")
                 })
                     .buttonStyle(MapsButton())
+                    .disabled(inContinuousMode)
+                    .opacity(inContinuousMode ? disabledButtonOpacity : 1.0)
             }
         }
         .padding(25)
