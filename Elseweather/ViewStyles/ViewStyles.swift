@@ -70,6 +70,18 @@ struct LocationButton: ButtonStyle {
     }
 }
 
+struct SettingsButton: ButtonStyle {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .foregroundColor(.customPrimary(for: colorScheme))
+            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            //.frame(maxWidth: .infinity)
+    }
+}
+
 struct DefaultControlButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -129,7 +141,7 @@ struct CustomToggleStyle: ToggleStyle {
                             .fill(configuration.isOn ? thumbColor : onColor)
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
-                            .animation(.spring(response: 0.35, dampingFraction: 0.45)))
+                            .animation(.spring(response: 0.2, dampingFraction: 0.5)))
                 
             }.buttonStyle(ToggleButton())
         }
@@ -143,8 +155,6 @@ struct LogoImage: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
-            .padding(.trailing, -5)
-            .padding(.top, -1)
     }
 }
 

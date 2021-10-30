@@ -125,18 +125,18 @@ struct WeatherView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Button(action: { isSettingsPresented.toggle() }, label: { Image("icon-settings") })
-                    .buttonStyle(DefaultControlButton())
-                    .padding(.top, -7)
-                    .sheet(isPresented: $isSettingsPresented) {
-                        SettingsView()
-                    }
+                Button(action: {
+                    isSettingsPresented.toggle()
+                }, label: {
+                    Image("button-settings")
+                })
+                    .buttonStyle(SettingsButton())
+                    .sheet(isPresented: $isSettingsPresented) { SettingsView() }
                 
-                Spacer()
+                Divider(2)
                 
-                //                Image("logo-small")
-                //                    .modifier(LogoImage())
-            }.padding(.top, 35)
+                Image("logo-tiny").modifier(LogoImage())
+            }.padding(.top, 45)
             
             
             Spacer()
@@ -147,13 +147,6 @@ struct WeatherView: View {
                 .padding(.bottom, 15)
             
             HStack {
-                Button(action: {
-                    openInMaps()
-                }, label: {
-                    Image("button-maps")
-                })
-                    .buttonStyle(MapsButton())
-                
                 Button(action: {
                     getWeatherForCurrentLocation()
                 }, label: {
@@ -180,6 +173,13 @@ struct WeatherView: View {
                     Image("button-next")
                 })
                     .buttonStyle(NextButton())
+                
+                Button(action: {
+                    openInMaps()
+                }, label: {
+                    Image("button-maps")
+                })
+                    .buttonStyle(MapsButton())
             }
         }
         .padding(25)
