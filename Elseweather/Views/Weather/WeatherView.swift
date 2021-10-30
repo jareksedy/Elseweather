@@ -154,38 +154,32 @@ struct WeatherView: View {
                 })
                     .buttonStyle(MapsButton())
                 
-                Spacer()
+                Button(action: {
+                    getWeatherForCurrentLocation()
+                }, label: {
+                    Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
+                })
+                    .buttonStyle(LocationButton())
+                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
+                    .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
                 
-                HStack {
-                    Button(action: {
-                        getWeatherForCurrentLocation()
-                    }, label: {
-                        Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
-                    })
-                        .buttonStyle(LocationButton())
-                        .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather)
-                        .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
-                    
-                    Button(action: {
-                        inContinuousMode.toggle()
-                    }, label: {
-                        Image(inContinuousMode ? "button-pause" : "button-play")
-                    })
-                        .buttonStyle(PlayButton())
-                    
-                    Button(action: {
-                        inContinuousMode = false
-                        getWeather()
-                        generateImage()
-                        busyTouchedDown = false
-                        displayingLocalWeather = false
-                    }, label: {
-                        Image("button-next")
-                    })
-                        .buttonStyle(NextButton())
-                }.padding(.leading, -24)
+                Button(action: {
+                    inContinuousMode.toggle()
+                }, label: {
+                    Image(inContinuousMode ? "button-pause" : "button-play")
+                })
+                    .buttonStyle(PlayButton())
                 
-                Spacer()
+                Button(action: {
+                    inContinuousMode = false
+                    getWeather()
+                    generateImage()
+                    busyTouchedDown = false
+                    displayingLocalWeather = false
+                }, label: {
+                    Image("button-next")
+                })
+                    .buttonStyle(NextButton())
             }
         }
         .padding(25)

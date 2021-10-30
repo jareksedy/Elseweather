@@ -28,7 +28,7 @@ struct SettingsView: View {
                     .onChange(of: session.useMetric) { value in
                         appSettingsService.storeSettings()
                     }
-                    .toggleStyle(CustomToggleStyle(label: "Use Metric System",
+                    .toggleStyle(CustomToggleStyle(label: "Metric System",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))
@@ -39,7 +39,7 @@ struct SettingsView: View {
                     .onChange(of: session.showUnits) { value in
                         appSettingsService.storeSettings()
                     }
-                    .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
+                    .toggleStyle(CustomToggleStyle(label: "Display Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))

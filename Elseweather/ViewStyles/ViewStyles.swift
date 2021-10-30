@@ -34,7 +34,7 @@ struct PlayButton: ButtonStyle {
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-            //.frame(width: 66.0)
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -44,6 +44,7 @@ struct NextButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         Image(configuration.isPressed ? "button-next-pressed" : "button-next")
             .foregroundColor(.customPrimary(for: colorScheme))
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -53,6 +54,7 @@ struct MapsButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         Image(configuration.isPressed ? "button-maps-pressed" : "button-maps")
             .foregroundColor(.customPrimary(for: colorScheme))
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -64,15 +66,7 @@ struct LocationButton: ButtonStyle {
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-    }
-}
-
-struct PauseButton: ButtonStyle {
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
-    func makeBody(configuration: Configuration) -> some View {
-        Image(configuration.isPressed ? "button-pause-pressed" : "button-pause")
-            .foregroundColor(.customPrimary(for: colorScheme))
+            .frame(maxWidth: .infinity)
     }
 }
 
@@ -126,16 +120,16 @@ struct CustomToggleStyle: ToggleStyle {
             {
                 RoundedRectangle(cornerRadius: 26, style: .circular)
                     .strokeBorder(onColor, lineWidth: 2)
-                    .background(RoundedRectangle(cornerSize: CGSize(width: 26.0, height: 26.0))
-                                    .fill(configuration.isOn ? onColor : offColor))
-                //.fill(configuration.isOn ? onColor : offColor)
+                    .background(RoundedRectangle(cornerSize: CGSize(width: 26.0, height: 26.0)).fill(configuration.isOn ? onColor : offColor))
                     .frame(width: 50, height: 30)
+                    .transition(.opacity)
+                    .animation(.easeInOut(duration: 0.35))
                     .overlay(
                         Circle()
                             .fill(configuration.isOn ? thumbColor : onColor)
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
-                            .animation(.spring(response: 0.2, dampingFraction: 0.5)))
+                            .animation(.spring(response: 0.35, dampingFraction: 0.45)))
                 
             }.buttonStyle(ToggleButton())
         }
