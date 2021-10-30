@@ -58,7 +58,6 @@ struct WeatherView: View {
     }
     
     private func getWeatherForCurrentLocation() {
-        inContinuousMode = false
         locationFetcher.start()
         
         guard locationFetcher.hasAccess() else {
@@ -84,6 +83,7 @@ struct WeatherView: View {
                 generateImage()
                 busyFetchingLocalWeather = false
                 displayingLocalWeather = true
+                inContinuousMode = false
             }
         }
     }

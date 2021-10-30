@@ -34,7 +34,7 @@ struct PlayButton: ButtonStyle {
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-            .frame(width: 88.0)
+            //.frame(width: 66.0)
     }
 }
 
