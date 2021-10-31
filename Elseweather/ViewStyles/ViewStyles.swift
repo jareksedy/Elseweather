@@ -35,6 +35,14 @@ struct PlayButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
+//            .overlay(configuration.isPressed ? Circle()
+//                        .trim(from: 0.0, to: 0.45)
+//                        .stroke(lineWidth: 1.0)
+//                        .frame(width: 54, height: 54)
+//                        .opacity(0.5)
+//                        .transition(.opacity)
+//                        .animation(.easeInOut(duration: 0.25)) : nil
+//            )
     }
 }
 
@@ -60,6 +68,12 @@ struct MapsButton: ButtonStyle {
 
 struct LocationButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State var animate: Bool = false
+    var displayingLocalWeather: Bool = false
+    
+    init(_ displayingLocalWeather: Bool) {
+        self.displayingLocalWeather = displayingLocalWeather
+    }
     
     func makeBody(configuration: Configuration) -> some View {
         configuration
@@ -67,6 +81,16 @@ struct LocationButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
+            .overlay(displayingLocalWeather ? Circle()
+                        .stroke(lineWidth: 10.0)
+                        .foregroundColor(.customPrimary(for: colorScheme))
+                        .scaleEffect(animate ? 3.0 : 1.0)
+                        .opacity(animate ? 0.0 : 0.25)
+                        .frame(width: 24.0, height: 24.0)
+                        .animation(.easeInOut(duration: 0.9).repeatCount(1, autoreverses: false))
+                        .onAppear { self.animate = true }
+                        .onDisappear { self.animate = false } : nil
+            )
     }
 }
 
@@ -140,7 +164,6 @@ struct CustomToggleStyle: ToggleStyle {
                             .padding(configuration.isOn ? 5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
                             .animation(.spring(response: 0.35, dampingFraction: 0.65)))
-                
             }.buttonStyle(ToggleButton())
         }
     }
@@ -163,7 +186,6 @@ struct SettingsToggleStyle: ToggleStyle {
                             .padding(6)
                             .offset(x: configuration.isOn ? 10 : -10)
                             .animation(.spring(response: 0.35, dampingFraction: 0.65)))
-                
             }//.buttonStyle(ToggleButton())
         }
     }

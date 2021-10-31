@@ -165,9 +165,9 @@ struct WeatherView: View {
                 }, label: {
                     Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
                 })
-                    .buttonStyle(LocationButton())
+                    .buttonStyle(LocationButton(displayingLocalWeather))
                     .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather || inContinuousMode)
-                    .opacity(inContinuousMode ? disabledButtonOpacity : 1.0)
+                    .opacity(inContinuousMode || busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                     .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
                 
                 Button(action: {
