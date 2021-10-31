@@ -85,7 +85,7 @@ struct LocationButton: ButtonStyle {
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
                         .scaleEffect(animate ? 3.0 : 1.0)
-                        .opacity(animate ? 0.0 : 0.25)
+                        .opacity(animate ? 0.0 : 0.15)
                         .frame(width: 24.0, height: 24.0)
                         .animation(.easeInOut(duration: 0.9).repeatCount(1, autoreverses: false))
                         .onAppear { self.animate = true }

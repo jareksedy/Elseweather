@@ -177,6 +177,8 @@ struct WeatherView: View {
                     Image(inContinuousMode ? "button-pause" : "button-play")
                 })
                     .buttonStyle(PlayButton())
+                    .disabled(busyFetchingLocalWeather)
+                    .opacity(busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                 
                 Button(action: {
                     inContinuousMode = false
@@ -188,6 +190,8 @@ struct WeatherView: View {
                     Image("button-next")
                 })
                     .buttonStyle(NextButton())
+                    .disabled(busyFetchingLocalWeather)
+                    .opacity(busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                 
                 Button(action: {
                     openInMaps()
