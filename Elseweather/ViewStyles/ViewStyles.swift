@@ -114,8 +114,6 @@ struct BtStyleScaledBigger: ButtonStyle {
 // MARK: - Switch toggle style.
 
 struct CustomToggleStyle: ToggleStyle {
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
     var label = ""
     var onColor = Color.customDarkSecondary
     var offColor = Color.customDarkBackground
@@ -144,6 +142,29 @@ struct CustomToggleStyle: ToggleStyle {
                             .animation(.spring(response: 0.35, dampingFraction: 0.65)))
                 
             }.buttonStyle(ToggleButton())
+        }
+    }
+}
+
+struct SettingsToggleStyle: ToggleStyle {
+    var onColor = Color.customDarkSecondary
+    var offColor = Color.customDarkBackground
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        HStack {
+            Button(action: { configuration.isOn.toggle() } )
+            {
+                RoundedRectangle(cornerRadius: 26, style: .circular)
+                    .strokeBorder(onColor, lineWidth: 2)
+                    .frame(width: 45, height: 25)
+                    .overlay(
+                        Circle()
+                            .fill(onColor)
+                            .padding(6)
+                            .offset(x: configuration.isOn ? 10 : -10)
+                            .animation(.spring(response: 0.35, dampingFraction: 0.65)))
+                
+            }//.buttonStyle(ToggleButton())
         }
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct WeatherView: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @State var weatherViewModel: WeatherViewModel
     @State private var backgroundImage: Image?
     
@@ -140,12 +142,8 @@ struct WeatherView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Button(action: {
-                    isSettingsPresented = true
-                }, label: {
-                        isSettingsPresented ? Image("button-settings-pressed") : Image("button-settings")
-                })
-                    .buttonStyle(SettingsButton())
+                Toggle("", isOn: $isSettingsPresented)
+                    .toggleStyle(SettingsToggleStyle(onColor: .customPrimary(for: colorScheme), offColor: Color.clear))
                     .sheet(isPresented: $isSettingsPresented) { SettingsView() }
                 
                 Divider(2)
