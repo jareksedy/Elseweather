@@ -25,7 +25,7 @@ struct WeatherView: View {
     @State private var isLocationAlertPresented: Bool = false
     @State private var isSettingsPresented: Bool = false
     
-    private let timer = Timer.publish(every: continuousModeInterval, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: continuousModeInterval, tolerance: 0.25, on: .main, in: .common).autoconnect()
     
     private func presentLocationAlert() -> Alert {
         return Alert(
@@ -108,8 +108,10 @@ struct WeatherView: View {
     private func runContinuousMode() {
         guard inContinuousMode == true else {
             UIApplication.shared.isIdleTimerDisabled = false
+            timer.upstream.connect().cancel()
             return
         }
+        
         getWeather()
         generateImage()
         displayingLocalWeather = false
@@ -172,7 +174,17 @@ struct WeatherView: View {
                 
                 Button(action: {
                     inContinuousMode.toggle()
-                    UIApplication.shared.isIdleTimerDisabled = true
+                    
+                    if inContinuousMode {
+                        UIApplication.shared.isIdleTimerDisabled = true
+                        timer = Timer.publish(every: continuousModeInterval,
+                                              tolerance: 0.25,
+                                              on: .main,
+                                              in: .common).autoconnect()
+                    } else {
+                        UIApplication.shared.isIdleTimerDisabled = false
+                        timer.upstream.connect().cancel()
+                    }
                 }, label: {
                     Image(inContinuousMode ? "button-pause" : "button-play")
                 })

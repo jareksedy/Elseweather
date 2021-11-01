@@ -26,6 +26,35 @@ struct Divider: View {
 
 // MARK: - Button styles.
 
+//struct PlayButton: ButtonStyle {
+//    @Environment(\.colorScheme) var colorScheme: ColorScheme
+//    @Binding var progress: Float
+//
+//    private var inContinuousMode: Bool = false
+//
+//    init(_ inContinuousMode: Bool, progress: Binding<Float>) {
+//        self.inContinuousMode = inContinuousMode
+//        self._progress = progress
+//    }
+//
+//    func makeBody(configuration: Configuration) -> some View {
+//        configuration
+//            .label
+//            .foregroundColor(.customPrimary(for: colorScheme))
+//            .opacity(configuration.isPressed ? 0.5 : 1.0)
+//            .frame(maxWidth: .infinity)
+//            .overlay(inContinuousMode ?
+//                     Circle()
+//                        .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+//                        .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
+//                        .foregroundColor(.customPrimary(for: colorScheme))
+//                        .rotationEffect(Angle(degrees: 270.0))
+//                        .frame(width: 54, height: 54)
+//                     : nil
+//            )
+//    }
+//}
+
 struct PlayButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -35,14 +64,6 @@ struct PlayButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
-//            .overlay(configuration.isPressed ? Circle()
-//                        .trim(from: 0.0, to: 0.45)
-//                        .stroke(lineWidth: 1.0)
-//                        .frame(width: 54, height: 54)
-//                        .opacity(0.5)
-//                        .transition(.opacity)
-//                        .animation(.easeInOut(duration: 0.25)) : nil
-//            )
     }
 }
 
@@ -68,8 +89,8 @@ struct MapsButton: ButtonStyle {
 
 struct LocationButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    @State var animate: Bool = false
-    var displayingLocalWeather: Bool = false
+    @State private var animate: Bool = false
+    private var displayingLocalWeather: Bool = false
     
     init(_ displayingLocalWeather: Bool) {
         self.displayingLocalWeather = displayingLocalWeather
@@ -81,7 +102,8 @@ struct LocationButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
-            .overlay(displayingLocalWeather ? Circle()
+            .overlay(displayingLocalWeather ?
+                     Circle()
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
                         .scaleEffect(animate ? 3.0 : 1.0)
@@ -89,7 +111,8 @@ struct LocationButton: ButtonStyle {
                         .frame(width: 24.0, height: 24.0)
                         .animation(.easeInOut(duration: 0.9).repeatCount(1, autoreverses: false))
                         .onAppear { self.animate = true }
-                        .onDisappear { self.animate = false } : nil
+                        .onDisappear { self.animate = false }
+                     : nil
             )
     }
 }
