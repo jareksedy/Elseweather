@@ -11,7 +11,6 @@
 		CA207290271C9FEA00710EC5 /* BlurHashDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20728F271C9FEA00710EC5 /* BlurHashDecode.swift */; };
 		CA2DC32227017EA50093FB36 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */; };
 		CA32FC002705A1E90008D3D9 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32FBFF2705A1E90008D3D9 /* ImageGenerator.swift */; };
-		CA46F3922732F94C00D22EB3 /* Locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CA46F3912732F94C00D22EB3 /* Locations.sqlite */; };
 		CA535C8326F2535100BD48BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8226F2535100BD48BC /* Extensions.swift */; };
 		CA535C8B26F2578E00BD48BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8A26F2578E00BD48BC /* Session.swift */; };
 		CA5EF3492728680500476DD3 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EF3482728680500476DD3 /* AppSettingsService.swift */; };
@@ -45,7 +44,6 @@
 		CA20728F271C9FEA00710EC5 /* BlurHashDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurHashDecode.swift; sourceTree = "<group>"; };
 		CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		CA32FBFF2705A1E90008D3D9 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
-		CA46F3912732F94C00D22EB3 /* Locations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Locations.sqlite; sourceTree = "<group>"; };
 		CA535C8226F2535100BD48BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA535C8A26F2578E00BD48BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CA5EF3482728680500476DD3 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		CA3FC62F26EDB7B2000987C5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CA46F3912732F94C00D22EB3 /* Locations.sqlite */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 			files = (
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
-				CA46F3922732F94C00D22EB3 /* Locations.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
