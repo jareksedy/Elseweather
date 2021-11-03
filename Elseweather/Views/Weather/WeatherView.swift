@@ -18,7 +18,6 @@ struct WeatherView: View {
     @State private var inContinuousMode: Bool = false
     
     @State private var busyFetchingLocalWeather: Bool = false
-    @State private var busyTouchedDown: Bool = false
     
     @State private var currentConditionCode: Int = 0
     
@@ -26,6 +25,8 @@ struct WeatherView: View {
     @State private var isSettingsPresented: Bool = false
     
     @State private var timer = Timer.publish(every: continuousModeInterval, tolerance: 0.25, on: .main, in: .common).autoconnect()
+    
+    // MARK: - Private methods.
     
     private func presentLocationAlert() -> Alert {
         return Alert(
@@ -124,22 +125,16 @@ struct WeatherView: View {
         getWeather()
     }
     
-    private func viewTouchDown() {
-        guard inContinuousMode == false else { return }
-        guard busyTouchedDown == false else { return }
-        guard busyFetchingLocalWeather == false else { return }
-        busyTouchedDown = true
-    }
-    
-    private func viewTouchUp() {
+    private func viewTap() {
         guard inContinuousMode == false else { return }
         guard busyFetchingLocalWeather == false else { return }
         
         getWeather()
         generateImage()
-        busyTouchedDown = false
         displayingLocalWeather = false
     }
+    
+    // MARK: - View body.
     
     var body: some View {
         VStack {
@@ -157,7 +152,6 @@ struct WeatherView: View {
             Spacer()
             
             WeatherDataView(weatherViewModel: weatherViewModel)
-                .scaleEffect(busyTouchedDown ? viewDownScale : 1.0)
                 .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
                 .padding(.bottom, 15)
             
@@ -168,7 +162,7 @@ struct WeatherView: View {
                     Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
                 })
                     .buttonStyle(LocationButton(displayingLocalWeather))
-                    .disabled(busyTouchedDown || busyFetchingLocalWeather || displayingLocalWeather || inContinuousMode)
+                    .disabled(busyFetchingLocalWeather || displayingLocalWeather || inContinuousMode)
                     .opacity(inContinuousMode || busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                     .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
                 
@@ -196,7 +190,6 @@ struct WeatherView: View {
                     inContinuousMode = false
                     getWeather()
                     generateImage()
-                    busyTouchedDown = false
                     displayingLocalWeather = false
                 }, label: {
                     Image("button-next")
@@ -223,17 +216,8 @@ struct WeatherView: View {
         .animation(.standard)
         .onAppear { viewAppear() }
         .onReceive(timer) { _ in runContinuousMode() }
-        .gesture(
-            DragGesture(minimumDistance: 0)
-                .onChanged { _ in viewTouchDown()}
-                .onEnded { _ in viewTouchUp()}
-        )
+        .onTapGesture {
+            viewTap()
+        }
     }
 }
-
-//
-//struct WeatherView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
-//    }
-//}

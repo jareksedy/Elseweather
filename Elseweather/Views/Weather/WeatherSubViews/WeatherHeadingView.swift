@@ -42,8 +42,9 @@ struct WeatherHeadingView: View {
                 Text("in \(weatherViewModel.locality)")
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Spacer()
+                //Spacer()
             }
         }
     }
