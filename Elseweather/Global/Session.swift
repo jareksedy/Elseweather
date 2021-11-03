@@ -18,8 +18,7 @@ final class Session: ObservableObject {
     
     let apiKey = "f9979cbf228a4fa2a0e180440212605"
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
-    let dataFileName = "LocationCoordinates", dataFileExt = "csv"
-    let dbFileName = "Locations", dbFileExt = "sqlite"
+    let dataFileName = "Locations", dataFileExt = "sqlite"
     
     let version = "1.0.0"
     

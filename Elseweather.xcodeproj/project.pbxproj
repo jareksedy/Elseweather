@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,15 +11,13 @@
 		CA207290271C9FEA00710EC5 /* BlurHashDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20728F271C9FEA00710EC5 /* BlurHashDecode.swift */; };
 		CA2DC32227017EA50093FB36 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */; };
 		CA32FC002705A1E90008D3D9 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32FBFF2705A1E90008D3D9 /* ImageGenerator.swift */; };
+		CA46F3922732F94C00D22EB3 /* Locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CA46F3912732F94C00D22EB3 /* Locations.sqlite */; };
 		CA535C8326F2535100BD48BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8226F2535100BD48BC /* Extensions.swift */; };
-		CA535C8926F2557A00BD48BC /* LocationCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = CA535C8826F2557A00BD48BC /* LocationCoordinates.csv */; };
 		CA535C8B26F2578E00BD48BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8A26F2578E00BD48BC /* Session.swift */; };
 		CA5EF3492728680500476DD3 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EF3482728680500476DD3 /* AppSettingsService.swift */; };
 		CA83676126EDC7B70098C709 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676026EDC7B70098C709 /* Global.swift */; };
 		CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */; };
 		CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676926EDCBC00098C709 /* WeatherModel.swift */; };
-		CA8B666F273060A80012AD0D /* Locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CA8B666E273060A80012AD0D /* Locations.sqlite */; };
-		CA8B6672273062E00012AD0D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = CA8B6671273062E00012AD0D /* SQLite */; };
 		CA935949271F0FF000F168F3 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA935948271F0FF000F168F3 /* BackgroundView.swift */; };
 		CA9DA311272594BE00AF717D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9DA310272594BE00AF717D /* SettingsView.swift */; };
 		CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */; };
@@ -47,14 +45,13 @@
 		CA20728F271C9FEA00710EC5 /* BlurHashDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurHashDecode.swift; sourceTree = "<group>"; };
 		CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		CA32FBFF2705A1E90008D3D9 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		CA46F3912732F94C00D22EB3 /* Locations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Locations.sqlite; sourceTree = "<group>"; };
 		CA535C8226F2535100BD48BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CA535C8826F2557A00BD48BC /* LocationCoordinates.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocationCoordinates.csv; sourceTree = "<group>"; };
 		CA535C8A26F2578E00BD48BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CA5EF3482728680500476DD3 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
 		CA83676026EDC7B70098C709 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLocationFetcher.swift; sourceTree = "<group>"; };
 		CA83676926EDCBC00098C709 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
-		CA8B666E273060A80012AD0D /* Locations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Locations.sqlite; sourceTree = "<group>"; };
 		CA935948271F0FF000F168F3 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		CA9DA310272594BE00AF717D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeadingView.swift; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8B6672273062E00012AD0D /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,8 +114,7 @@
 		CA3FC62F26EDB7B2000987C5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CA8B666E273060A80012AD0D /* Locations.sqlite */,
-				CA535C8826F2557A00BD48BC /* LocationCoordinates.csv */,
+				CA46F3912732F94C00D22EB3 /* Locations.sqlite */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -292,7 +287,6 @@
 			);
 			name = Elseweather;
 			packageProductDependencies = (
-				CA8B6671273062E00012AD0D /* SQLite */,
 			);
 			productName = Elseweather;
 			productReference = CAB6233126EDA8BF00E85106 /* Elseweather.app */;
@@ -322,7 +316,6 @@
 			);
 			mainGroup = CAB6232826EDA8BE00E85106;
 			packageReferences = (
-				CA8B6670273062DF0012AD0D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = CAB6233226EDA8BF00E85106 /* Products */;
 			projectDirPath = "";
@@ -338,10 +331,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8B666F273060A80012AD0D /* Locations.sqlite in Resources */,
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
-				CA535C8926F2557A00BD48BC /* LocationCoordinates.csv in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
+				CA46F3922732F94C00D22EB3 /* Locations.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,25 +560,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CA8B6670273062DF0012AD0D /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CA8B6671273062E00012AD0D /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CA8B6670273062DF0012AD0D /* XCRemoteSwiftPackageReference "SQLite.swift" */;
-			productName = SQLite;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAB6232926EDA8BE00E85106 /* Project object */;
 }
