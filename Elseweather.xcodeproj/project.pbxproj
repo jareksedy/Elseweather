@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		CA2DC32227017EA50093FB36 /* ThreadSafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2DC32127017EA50093FB36 /* ThreadSafeArray.swift */; };
 		CA32FC002705A1E90008D3D9 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32FBFF2705A1E90008D3D9 /* ImageGenerator.swift */; };
 		CA46F3942733045200D22EB3 /* Locations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CA46F3932733045200D22EB3 /* Locations.sqlite */; };
+		CA46F3972733051D00D22EB3 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = CA46F3962733051D00D22EB3 /* SQLite */; };
 		CA535C8326F2535100BD48BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8226F2535100BD48BC /* Extensions.swift */; };
 		CA535C8B26F2578E00BD48BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8A26F2578E00BD48BC /* Session.swift */; };
 		CA5EF3492728680500476DD3 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EF3482728680500476DD3 /* AppSettingsService.swift */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA46F3972733051D00D22EB3 /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +289,7 @@
 			);
 			name = Elseweather;
 			packageProductDependencies = (
+				CA46F3962733051D00D22EB3 /* SQLite */,
 			);
 			productName = Elseweather;
 			productReference = CAB6233126EDA8BF00E85106 /* Elseweather.app */;
@@ -316,6 +319,7 @@
 			);
 			mainGroup = CAB6232826EDA8BE00E85106;
 			packageReferences = (
+				CA46F3952733051D00D22EB3 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = CAB6233226EDA8BF00E85106 /* Products */;
 			projectDirPath = "";
@@ -560,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CA46F3952733051D00D22EB3 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CA46F3962733051D00D22EB3 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA46F3952733051D00D22EB3 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAB6232926EDA8BE00E85106 /* Project object */;
 }
