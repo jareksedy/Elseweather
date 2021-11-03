@@ -57,6 +57,8 @@ struct Divider: View {
 
 struct PlayButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State var animate: Bool = false
+    @Binding var inContinuousMode: Bool
     
     func makeBody(configuration: Configuration) -> some View {
         configuration
@@ -64,6 +66,19 @@ struct PlayButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
+            .background(inContinuousMode ?
+                     Circle()
+                        .trim(from: 0.0, to: animate ? 1.0 : 0.0)
+                        .stroke(style: StrokeStyle(lineWidth: 6.0, lineCap: .round, lineJoin: .round))
+                        .rotationEffect(.degrees(animate ? 360.0 : 0.0))
+                        .foregroundColor(.customPrimary(for: colorScheme))
+                        .opacity(animate ? 0.15 : 0.55)
+                        .frame(width: 54, height: 54)
+                        .animation(.linear(duration: continuousModeInterval).repeatForever(autoreverses: false))
+                        .onAppear { self.animate = true }
+                        .onDisappear { self.animate = false }
+                     : nil
+            )
     }
 }
 

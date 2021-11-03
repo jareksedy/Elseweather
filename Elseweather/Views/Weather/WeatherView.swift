@@ -182,7 +182,7 @@ struct WeatherView: View {
                 }, label: {
                     Image(inContinuousMode ? "button-pause" : "button-play")
                 })
-                    .buttonStyle(PlayButton())
+                    .buttonStyle(PlayButton(inContinuousMode: $inContinuousMode))
                     .disabled(busyFetchingLocalWeather)
                     .opacity(busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                 
