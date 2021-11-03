@@ -8,7 +8,6 @@
 import Foundation
 
 final class WeatherQueue {
-    
     public var head: WAWeather? { return count > 0 ? items.valueArray.first : nil }
     
     private var randomLocationFetcher: RandomLocationFetcher

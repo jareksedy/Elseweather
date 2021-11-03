@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class ImageGenerator {
-    
     func generate(string: String, reducedBy: CGFloat, punch: Float, _ completion: @escaping (Image) -> ()) {
         let size = CGSize(width: Int(screenWidth / reducedBy), height: Int(screenHeight / reducedBy))
         

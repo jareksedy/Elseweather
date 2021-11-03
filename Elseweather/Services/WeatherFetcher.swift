@@ -10,7 +10,6 @@ import Foundation
 final class WeatherFetcher {
     
     func fetch(_ location: Location) -> WAWeather? {
-        
         var weather: WAWeather?
         
         guard let url = URL(string: Session.shared.baseUrl +

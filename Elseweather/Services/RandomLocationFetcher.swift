@@ -6,19 +6,35 @@
 //
 
 import Foundation
+import SQLite
 
 final class RandomLocationFetcher {
-    
     private var locations: [Location] = []
+    private var db: Connection?
     
     init() {
-        load()
+        guard let url = Bundle.main.url(forResource: Session.shared.dbFileName, withExtension: Session.shared.dbFileExt) else {
+            fatalError("Could not locate \(Session.shared.dbFileName).\(Session.shared.dbFileExt). Terminating.")
+        }
+        
+        do { db = try Connection(url.absoluteString, readonly: true) }
+        catch { fatalError(error.localizedDescription) }
     }
     
     func fetch() -> Location {
-        let count = UInt32(locations.count)
-        let randomIndex = arc4random_uniform(count)
-        return locations[Int(randomIndex)]
+        let lat = Expression<Double?>("lat")
+        let lon = Expression<Double?>("lon")
+        
+        let table = Table("locations")
+        let query = table.order(Expression<Int>.random()).limit(1)
+        
+        var location: Location?
+        
+        for row in try! db!.prepare(query) {
+            location = Location(lat: row[lat]!, lon: row[lon]!)
+        }
+        
+        return location!
     }
     
     private func load() {
