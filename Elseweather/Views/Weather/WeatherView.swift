@@ -143,10 +143,10 @@ struct WeatherView: View {
                     .toggleStyle(SettingsToggleStyle(onColor: .customPrimary(for: colorScheme), offColor: Color.clear))
                     .sheet(isPresented: $isSettingsPresented) { SettingsView() }
                 
-                Divider(2)
-                
-                Image("logo-tiny").modifier(LogoImage())
-            }.padding(.top, 35)
+                Spacer()
+//                Divider(2)
+//                Image("logo-tiny").modifier(LogoImage())
+            }.padding(.top, 25)
             
             
             Spacer()

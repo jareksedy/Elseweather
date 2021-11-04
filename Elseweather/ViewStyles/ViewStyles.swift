@@ -188,14 +188,14 @@ struct SettingsToggleStyle: ToggleStyle {
             {
                 RoundedRectangle(cornerRadius: 26, style: .circular)
                     .strokeBorder(onColor, lineWidth: 2)
-                    .frame(width: 45, height: 25)
+                    .frame(width: 50, height: 30)
                     .overlay(
                         Circle()
                             .fill(onColor)
-                            .padding(6)
+                            .padding(configuration.isOn ? 6.5 : 10)
                             .offset(x: configuration.isOn ? 10 : -10)
                             .animation(.spring(response: 0.35, dampingFraction: 0.65)))
-            }//.buttonStyle(ToggleButton())
+            }
         }
     }
 }
