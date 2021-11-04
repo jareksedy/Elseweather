@@ -26,35 +26,6 @@ struct Divider: View {
 
 // MARK: - Button styles.
 
-//struct PlayButton: ButtonStyle {
-//    @Environment(\.colorScheme) var colorScheme: ColorScheme
-//    @Binding var progress: Float
-//
-//    private var inContinuousMode: Bool = false
-//
-//    init(_ inContinuousMode: Bool, progress: Binding<Float>) {
-//        self.inContinuousMode = inContinuousMode
-//        self._progress = progress
-//    }
-//
-//    func makeBody(configuration: Configuration) -> some View {
-//        configuration
-//            .label
-//            .foregroundColor(.customPrimary(for: colorScheme))
-//            .opacity(configuration.isPressed ? 0.5 : 1.0)
-//            .frame(maxWidth: .infinity)
-//            .overlay(inContinuousMode ?
-//                     Circle()
-//                        .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-//                        .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
-//                        .foregroundColor(.customPrimary(for: colorScheme))
-//                        .rotationEffect(Angle(degrees: 270.0))
-//                        .frame(width: 54, height: 54)
-//                     : nil
-//            )
-//    }
-//}
-
 struct PlayButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State var animate: Bool = false
@@ -72,7 +43,7 @@ struct PlayButton: ButtonStyle {
                         .stroke(style: StrokeStyle(lineWidth: 6.0, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(animate ? 360.0 : 0.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .opacity(animate ? 0.15 : 0.55)
+                        .opacity(animate ? 0.0 : 0.40)
                         .frame(width: 54, height: 54)
                         .animation(.linear(duration: continuousModeInterval).repeatForever(autoreverses: false))
                         .onAppear { self.animate = true }

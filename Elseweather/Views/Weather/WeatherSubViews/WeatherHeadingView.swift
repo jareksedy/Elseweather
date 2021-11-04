@@ -43,15 +43,7 @@ struct WeatherHeadingView: View {
                     .kerning(-0.25)
                     .textStyle(SmallTitle())
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
-                //Spacer()
             }
         }
-    }
-}
-
-struct WeatherHeadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherHeadingView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

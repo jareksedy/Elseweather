@@ -9,38 +9,24 @@ import SwiftUI
 
 struct WeatherDataView: View {
     var weatherViewModel: WeatherViewModel
+    
     var body: some View {
         VStack {
-            WeatherHeadingView(weatherViewModel: weatherViewModel)
-                .padding(.bottom, 10)
-            
+            WeatherHeadingView(weatherViewModel: weatherViewModel).padding(.bottom, 10)
             WeatherCoordinatesView(weatherViewModel: weatherViewModel)
             
-            Divider(2)
-                .padding(.bottom, 2 + 5)
+            Divider(2).padding(.bottom, 7)
             
             if weatherViewModel.windMetric > 0 {
-                WeatherDetailsView(weatherViewModel: weatherViewModel)
-                    .padding(.bottom, 15)
-                
-                WeatherWindView(weatherViewModel: weatherViewModel)
-                    .padding(.bottom, 1 + 5)
+                WeatherDetailsView(weatherViewModel: weatherViewModel).padding(.bottom, 15)
+                WeatherWindView(weatherViewModel: weatherViewModel).padding(.bottom, 6)
             } else {
-                WeatherDetailsView(weatherViewModel: weatherViewModel)
-                    .padding(.bottom, 1 + 5)
+                WeatherDetailsView(weatherViewModel: weatherViewModel).padding(.bottom, 6)
             }
             
-            Divider(2)
-                .padding(.bottom, 2)
+            Divider(2).padding(.bottom, 2)
             
             WeatherDateTimeView(weatherViewModel: weatherViewModel)
-            
         }
-    }
-}
-
-struct WeatherDataView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherDataView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
     }
 }

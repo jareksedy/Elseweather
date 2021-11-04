@@ -32,11 +32,3 @@ struct IndexView: View {
         }
     }
 }
-
-struct IndexView_Previews: PreviewProvider {
-    static var previews: some View {
-        IndexView(caption: "CLOUD COVER",
-                  value: "30",
-                  units: "%").preferredColorScheme(.dark)
-    }
-}

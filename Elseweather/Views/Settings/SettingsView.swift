@@ -79,9 +79,3 @@ struct SettingsView: View {
         .padding(.top, 25)
     }
 }
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView().preferredColorScheme(.dark)
-    }
-}

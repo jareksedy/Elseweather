@@ -12,9 +12,3 @@ struct ElseweatherView: View {
         WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!))
     }
 }
-
-struct ElseweatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        ElseweatherView().preferredColorScheme(.dark)
-    }
-}

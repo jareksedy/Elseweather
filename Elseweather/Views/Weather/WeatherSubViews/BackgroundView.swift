@@ -26,9 +26,3 @@ struct BackgroundView: View {
         }
     }
 }
-
-struct BackgroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        BackgroundView().preferredColorScheme(.dark)
-    }
-}

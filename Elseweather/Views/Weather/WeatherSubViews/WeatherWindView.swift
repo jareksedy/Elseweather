@@ -29,9 +29,3 @@ struct WeatherWindView: View {
         }
     }
 }
-
-struct WeatherWindView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherWindView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!)).preferredColorScheme(.dark)
-    }
-}
