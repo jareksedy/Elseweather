@@ -37,15 +37,24 @@ struct PlayButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
-            .background(inContinuousMode ?
+//            .background(inContinuousMode ?
+//                        Circle()
+//                            .stroke(lineWidth: animate ? 80.0 : 0.0)
+//                            .foregroundColor(.customPrimary(for: colorScheme))
+//                            .opacity(animate ? 0.0 : 0.05)
+//                            .frame(width: animate ? 128 : 44, height: animate ? 128 : 44)
+//                            .animation(.easeInOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
+//                        : nil
+//            )
+            .overlay(inContinuousMode ?
                      Circle()
                         .trim(from: 0.0, to: animate ? 1.0 : 0.0)
-                        .stroke(style: StrokeStyle(lineWidth: 6.0, lineCap: .round, lineJoin: .round))
-                        .rotationEffect(.degrees(animate ? 360.0 : 0.0))
+                        .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
+                        .rotationEffect(.degrees(animate ? 270.0 : 0.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .opacity(animate ? 0.0 : 0.40)
-                        .frame(width: 54, height: 54)
-                        .animation(.linear(duration: continuousModeInterval).repeatForever(autoreverses: false))
+                        //.opacity(animate ? 0.01 : 1.0)
+                        .frame(width: 44, height: 44)
+                        .animation(.easeInOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil
@@ -111,7 +120,7 @@ struct SettingsButton: ButtonStyle {
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-            //.frame(maxWidth: .infinity)
+        //.frame(maxWidth: .infinity)
     }
 }
 

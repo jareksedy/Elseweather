@@ -180,7 +180,7 @@ struct WeatherView: View {
                         timer.upstream.connect().cancel()
                     }
                 }, label: {
-                    Image(inContinuousMode ? "button-pause" : "button-play")
+                    Image(inContinuousMode ? "button-stop" : "button-play")
                 })
                     .buttonStyle(PlayButton(inContinuousMode: $inContinuousMode))
                     .disabled(busyFetchingLocalWeather)
