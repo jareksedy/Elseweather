@@ -20,3 +20,4 @@ let weatherQueue = WeatherQueue(length: queueLength, locationFetcher: randomLoca
 let weatherViewModelFactory = WeatherViewModelFactory()
 let imageGenerator = ImageGenerator()
 let appSettingsService = AppSettingsService()
+let mapService = MapService()

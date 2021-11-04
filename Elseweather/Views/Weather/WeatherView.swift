@@ -39,26 +39,6 @@ struct WeatherView: View {
         )
     }
     
-    private func openInMaps() {
-        let latitude: CLLocationDegrees = weatherViewModel.location.lat
-        let longitude: CLLocationDegrees = weatherViewModel.location.lon
-        let regionDistance:CLLocationDistance = 10_000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        let regionSpan = MKCoordinateRegion(center: coordinates,
-                                            latitudinalMeters: regionDistance,
-                                            longitudinalMeters: regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        
-        mapItem.name = weatherViewModel.locality
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
     private func getWeather() {
         guard let weather = weatherQueue.dequeue() else { return }
         weatherViewModel = weatherViewModelFactory.construct(from: weather)
@@ -199,7 +179,8 @@ struct WeatherView: View {
                     .opacity(busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                 
                 Button(action: {
-                    openInMaps()
+                    mapService.openInMaps(location: weatherViewModel.location,
+                                          locality: weatherViewModel.locality)
                 }, label: {
                     Image("button-maps")
                 })
