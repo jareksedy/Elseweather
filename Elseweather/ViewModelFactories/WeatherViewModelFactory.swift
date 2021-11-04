@@ -251,8 +251,7 @@ final class WeatherViewModelFactory {
             bhString =  blurHashForWeatherCode[0]![0]
         }
         
-        return WeatherViewModel(conditionCode: weather.current.condition.code,
-                                location: (lat: weather.location.lat, lon: weather.location.lon),
+        return WeatherViewModel(location: (lat: weather.location.lat, lon: weather.location.lon),
                                 conditionCelsius: conditionCelsius,
                                 conditionFahrenheit: conditionFahrenheit,
                                 conditionCelsiusWithUnits: conditionCelsiusWithUnits,

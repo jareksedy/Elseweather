@@ -19,7 +19,7 @@ struct WeatherView: View {
     
     @State private var busyFetchingLocalWeather: Bool = false
     
-    @State private var currentConditionCode: Int = 0
+    @State private var currentBlurHash: String = ""
     
     @State private var isLocationAlertPresented: Bool = false
     @State private var isSettingsPresented: Bool = false
@@ -77,12 +77,11 @@ struct WeatherView: View {
     }
     
     private func generateImage() {
-        //guard Session.shared.minimalisticAppearance == false else { return }
-        guard weatherViewModel.conditionCode != currentConditionCode else { return }
+        guard weatherViewModel.blurHash != currentBlurHash else { return }
         
         imageGenerator.generate(string: weatherViewModel.blurHash, reducedBy: reducedByValue, punch: punchValue) { image in
             self.backgroundImage = image
-            self.currentConditionCode = weatherViewModel.conditionCode
+            self.currentBlurHash = weatherViewModel.blurHash
         }
     }
     
@@ -124,8 +123,8 @@ struct WeatherView: View {
                     .sheet(isPresented: $isSettingsPresented) { SettingsView() }
                 
                 Spacer()
-//                Divider(2)
-//                Image("logo-tiny").modifier(LogoImage())
+                //Divider(2)
+                //Image("logo-tiny").modifier(LogoImage())
             }.padding(.top, 25)
             
             
