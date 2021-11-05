@@ -37,24 +37,23 @@ struct PlayButton: ButtonStyle {
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
-//            .background(inContinuousMode ?
-//                        Circle()
-//                            .stroke(lineWidth: animate ? 80.0 : 0.0)
-//                            .foregroundColor(.customPrimary(for: colorScheme))
-//                            .opacity(animate ? 0.0 : 0.05)
-//                            .frame(width: animate ? 128 : 44, height: animate ? 128 : 44)
-//                            .animation(.easeInOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
-//                        : nil
-//            )
+            .background(inContinuousMode ?
+                        Circle()
+                           .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
+                           .foregroundColor(.customPrimary(for: colorScheme))
+                           .opacity(disabledButtonOpacity)
+                           .frame(width: 44, height: 44)
+                        : nil
+            )
             .overlay(inContinuousMode ?
                      Circle()
                         .trim(from: 0.0, to: animate ? 1.0 : 0.0)
                         .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
-                        .rotationEffect(.degrees(animate ? 270.0 : 0.0))
+                        .rotationEffect(.degrees(animate ? 270.0 : 180.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        //.opacity(animate ? 0.01 : 1.0)
+                        .opacity(animate ? 1.0 : 0.0)
                         .frame(width: 44, height: 44)
-                        .animation(.easeInOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
+                        .animation(.easeOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil
@@ -197,12 +196,12 @@ struct SettingsToggleStyle: ToggleStyle {
             {
                 RoundedRectangle(cornerRadius: 26, style: .circular)
                     .strokeBorder(onColor, lineWidth: 2)
-                    .frame(width: 50, height: 30)
+                    .frame(width: 42, height: 26)
                     .overlay(
                         Circle()
                             .fill(onColor)
-                            .padding(configuration.isOn ? 6.5 : 10)
-                            .offset(x: configuration.isOn ? 10 : -10)
+                            .padding(configuration.isOn ? 6 : 8)
+                            .offset(x: configuration.isOn ? 8 : -8)
                             .animation(.spring(response: 0.35, dampingFraction: 0.65)))
             }
         }
@@ -214,12 +213,27 @@ struct SettingsToggleStyle: ToggleStyle {
 struct LogoImage: ViewModifier {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
+        Spacer()
+            .frame(width: 12)
+        
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
+        
+        Spacer()
     }
 }
 
 // MARK: - Text styles.
+
+struct LogoText: ViewModifier {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 18, weight: .semibold))
+            .lineSpacing(5)
+            .foregroundColor(Color.customPrimary(for: colorScheme))
+    }
+}
 
 struct LargeTitle: ViewModifier {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -273,7 +287,7 @@ extension AnyTransition {
     }
     
     static var standardBackground: AnyTransition {
-        .opacity.animation(.easeOut(duration: 1.0))
+        .opacity.animation(.easeOut(duration: 1.25))
     }
     
     static var standardHeadingText: AnyTransition {

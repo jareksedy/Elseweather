@@ -23,4 +23,4 @@ let disabledButtonOpacity: CGFloat = 0.25
 let reducedByValue: CGFloat = 24.0
 let punchValue: Float = 0.85
 
-let continuousModeInterval: TimeInterval = 3.0
+let continuousModeInterval: TimeInterval = 2.50

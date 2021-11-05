@@ -55,13 +55,17 @@ final class WeatherViewModelFactory {
         1282: "with heavy snow and thunder",
     ]
     
+    //dBF7-x4o?Gof?^0Ms,WB?a-.bF-o?GWBR,WVRkIpofRk cloudy
+    
     private let blurHashForWeatherCode = [
         0000: ["dFMakn$xx]xa0[PB%2WX4TD%o#NGpexZV@WBVqtSW=xa"], // default
-        1000: ["dvN^h?5TR%j]CmoasAj[MxjbkDaxt7jbaxbHX9bFayj[",  // sunny
-               "dWL4]W=@WDs._Nxtj]j[9$R-aeWVE3R*axayROjYjsfQ"], // clear
-        1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2"], // partly cloudy
+        1000: ["dxOC1{n+IpW;ysW=s9j[5@ofbaj@xDsmWCWVbXRkn%a#",  // sunny
+               "dkDnX}={jFt7.T$%n%ayJBNde.R*XTR*R,bb$2r=W=ay"], // clear
+        1003: ["dLJSkVD%8{V@~VfPNHWB~U%Lx[bIR.s:%1WC%1xaWBoe",  // partly cloudy
+               "dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2"], // partly cloudy (night)
         1006: ["dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?"], // cloudy
-        1009: ["d4BgVx0100~W00_4%M4nHX%NEM%19ar;_4D+^*00o#_4"], // overcast
+        1009: ["d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_",  // overcast
+               "d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_"], // overcast (night)
         1030: ["dXHCWVr=IAX7_N~UIBNG^+e.t7RkM{xaozWVkCWBofof"], // mist
         1063: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // rain patches
         1066: ["d*F?U[V@j[j[_NWBfQj@%gWXWBj[W;a#ayj[R*ayj[fR"], // snow patches
@@ -70,7 +74,7 @@ final class WeatherViewModelFactory {
         1087: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // thundery outbreaks possible
         1114: ["daL5RX~pIUoz-:M{R*WB?bM_WEax%Lj[t7WBxZfRt6s:"], // blowing snow
         1117: ["d9HVPL?bs;ofa#M{M{Rj~qxukCWBxvInofM{4nWBM{t7"], // blizzard
-        1135: ["dCC?$69G00~p-;t6M{IV00xu~WD*xtM{WB-:xuRjRjt7"], // fog
+        1135: ["dfK23P-;IARk~pIUa}ay-oWBxut6-oofM{WCbFoKWBof"], // fog
         1147: ["dxLOTit7oej[~Vjuf6j[s9j[WVa|X9fPazaybHfQj@j["], // freezing fog
         1150: ["dXKn-vt7t7kC~qayWBf6WVoff6aejZayfkkCWBayj[fk"], // patchy light drizzle
         1153: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // light drizzle
@@ -102,8 +106,8 @@ final class WeatherViewModelFactory {
         1258: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate or heavy snow showers
         1261: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // light showers of ice pellets
         1264: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // moderate or heavy showers of ice pellets
-        1273: ["dC8z$cM_p1t7pL-@WVR$J;fm%ORib{M_t8xvR:W9R%sp"], // patchy rain with thunder
-        1276: ["dC8z$cM_p1t7pL-@WVR$J;fm%ORib{M_t8xvR:W9R%sp"], // moderate or heavy rain with thunder
+        1273: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // patchy rain with thunder
+        1276: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // moderate or heavy rain with thunder
         1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder
         1282: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // moderate or heavy snow with thunder
     ]
