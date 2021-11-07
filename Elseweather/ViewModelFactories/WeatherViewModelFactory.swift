@@ -75,8 +75,7 @@ final class WeatherViewModelFactory {
         1009: ["d3B|gJ4:00_300_3xu4.8w%MNHxu9Znh_3Ip-.00t8?v",  // overcast
                "d2Cj00~qfQfQt7~q000e8w?bRjt79FACrr~q?X00t7?^"], // overcast
         
-        1030: ["dQH2TLIURjNG_4D%M{ayV@a#Rjay%M%Lj[Rjt7Rjf6ay",  // mist
-               "dTH2ccfQfQfQ_4ayM{IURjaKaya#%Mj[Rj%Lt7Rjayf6"], // mist
+        1030: ["dxJICPM|a#of_4a}WCj[t6f6ayayRjayofayj[fkofay"], // mist
         
         1063: ["dpKdxe4:ozoL*0xDe:kCMybvocs.R*WBs:oJxaoJWVfj"], // rain patches
         1066: ["d9DA15_N_4%Mf5RiRjWB%MRjM{t7axj[RPayM_MxMxoz"], // snow patches
