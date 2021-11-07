@@ -68,7 +68,7 @@ final class WeatherViewModelFactory {
                "VUH2yXT04;s.n#3ZM{-QNdRjver=OFfioeR.kDaxsAj]"], // clear
         
         1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2",  // partly cloudy
-               "dEGl|_pI?^%MYR00ofJ700IXJn=|Wn?Z?b0eWBIXn~9t"], // partly cloudy
+               "dEGl|_?^%MpI00J7YRofJn00IX=|Wn0e?b?ZWBn~IX9t"], // partly cloudy
         
         1006: ["dDJSFZ1n59WY0DDh-moJ02^g=^WXQ-?F9zI=xtIqRjxY"], // cloudy
         
@@ -130,11 +130,11 @@ final class WeatherViewModelFactory {
         1261: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // light showers of ice pellets
         1264: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // moderate or heavy showers of ice pellets
         
-        1273: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // patchy rain with thunder [R]
+        1273: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // patchy rain with thunder
         1276: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // moderate or heavy rain with thunder
         
-        1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder [R]
-        1282: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // moderate or heavy snow with thunder
+        1279: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // patchy snow with thunder
+        1282: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // moderate or heavy snow with thunder
     ]
     
     func construct(from weather: WAWeather) -> WeatherViewModel {
@@ -279,8 +279,6 @@ final class WeatherViewModelFactory {
         } else {
             bhString =  blurHashForWeatherCode[0]![0]
         }
-        
-//        bhString = blurHashForWeatherCode[1195]![0]
         
         return WeatherViewModel(location: (lat: weather.location.lat, lon: weather.location.lon),
                                 conditionCelsius: conditionCelsius,
