@@ -38,9 +38,9 @@ struct PlayButton: ButtonStyle {
             .opacity(configuration.isPressed ? 0.5 : 1.0)
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
-                        Circle()
+                        LinearGradient(gradient: Gradient(colors: [.clear, .customPrimary(for: colorScheme)]), startPoint: .top, endPoint: .bottom)
                             .frame(width: 38, height: 38)
-                            .foregroundColor(.customPrimary(for: colorScheme))
+                            .clipShape(Circle())
                             .opacity(disabledButtonOpacity)
                         : nil
             )
@@ -107,10 +107,10 @@ struct LocationButton: ButtonStyle {
                      Circle()
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .scaleEffect(animate ? 2.8 : 1.0)
-                        .opacity(animate ? 0.0 : 0.25)
+                        .scaleEffect(animate ? 2.75 : 1.0)
+                        .opacity(animate ? 0.0 : 0.15)
                         .frame(width: 24.0, height: 24.0)
-                        .animation(.easeOut(duration: 1.05).repeatCount(1, autoreverses: false))
+                        .animation(.easeInOut(duration: 1.25).repeatCount(1, autoreverses: false))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil

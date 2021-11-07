@@ -128,7 +128,7 @@ struct WeatherView: View {
             Spacer()
             
             WeatherDataView(weatherViewModel: weatherViewModel)
-                //.opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
+                .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
                 .padding(.bottom, 15)
             
             HStack {
