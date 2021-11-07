@@ -107,10 +107,10 @@ struct LocationButton: ButtonStyle {
                      Circle()
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .scaleEffect(animate ? 3.0 : 1.0)
-                        .opacity(animate ? 0.0 : 0.15)
+                        .scaleEffect(animate ? 2.8 : 1.0)
+                        .opacity(animate ? 0.0 : 0.25)
                         .frame(width: 24.0, height: 24.0)
-                        .animation(.easeInOut(duration: 1.5).repeatCount(1, autoreverses: false))
+                        .animation(.easeOut(duration: 1.05).repeatCount(1, autoreverses: false))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil

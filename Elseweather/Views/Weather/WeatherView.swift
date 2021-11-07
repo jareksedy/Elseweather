@@ -66,7 +66,7 @@ struct WeatherView: View {
                 return
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                 weatherViewModel = weatherViewModelFactory.construct(from: weather)
                 generateImage()
                 busyFetchingLocalWeather = false
@@ -128,7 +128,7 @@ struct WeatherView: View {
             Spacer()
             
             WeatherDataView(weatherViewModel: weatherViewModel)
-                .opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
+                //.opacity(busyFetchingLocalWeather ? disabledViewOpacity : 1.0)
                 .padding(.bottom, 15)
             
             HStack {
