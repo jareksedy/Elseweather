@@ -39,6 +39,13 @@ struct PlayButton: ButtonStyle {
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
                         Circle()
+                            .frame(width: 38, height: 38)
+                            .foregroundColor(.customPrimary(for: colorScheme))
+                            .opacity(disabledButtonOpacity)
+                        : nil
+            )
+            .background(inContinuousMode ?
+                        Circle()
                            .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
                            .foregroundColor(.customPrimary(for: colorScheme))
                            .opacity(disabledButtonOpacity)
@@ -103,7 +110,7 @@ struct LocationButton: ButtonStyle {
                         .scaleEffect(animate ? 3.0 : 1.0)
                         .opacity(animate ? 0.0 : 0.15)
                         .frame(width: 24.0, height: 24.0)
-                        .animation(.easeInOut(duration: 0.9).repeatCount(1, autoreverses: false))
+                        .animation(.easeInOut(duration: 1.5).repeatCount(1, autoreverses: false))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil

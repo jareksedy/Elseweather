@@ -41,7 +41,6 @@ extension CGFloat {
 }
 
 extension Color {
-    
     static let customDarkPrimary = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
     static let customDarkBackground = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))
     

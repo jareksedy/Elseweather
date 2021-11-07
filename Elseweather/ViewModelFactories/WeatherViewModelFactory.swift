@@ -55,60 +55,85 @@ final class WeatherViewModelFactory {
         1282: "with heavy snow and thunder",
     ]
     
-    //dBF7-x4o?Gof?^0Ms,WB?a-.bF-o?GWBR,WVRkIpofRk cloudy
+    //dpKdxe4:ozoL*0xDe:kCMybvocs.R*WBs:oJxaoJWVfj sunny
+    //dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax patchyrain
+    //d3B|gJ4:00_300_3xu4.8w%MNHxu9Znh_3Ip-.00t8?v overcast
+    //dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof thundery outbreaks
+    //daC%W^M{WVt7~qRjWBt6%Mt7RkfQt7t7WBV[a|ofayWB fog
     
     private let blurHashForWeatherCode = [
         0000: ["dFMakn$xx]xa0[PB%2WX4TD%o#NGpexZV@WBVqtSW=xa"], // default
-        1000: ["dxOC1{n+IpW;ysW=s9j[5@ofbaj@xDsmWCWVbXRkn%a#",  // sunny
-               "dkDnX}={jFt7.T$%n%ayJBNde.R*XTR*R,bb$2r=W=ay"], // clear
-        1003: ["dLJSkVD%8{V@~VfPNHWB~U%Lx[bIR.s:%1WC%1xaWBoe",  // partly cloudy
-               "dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2"], // partly cloudy (night)
-        1006: ["dBHV--Dh00V?00xZ~URkVVxuSkSiM{D%WB^+RPe,ogW?"], // cloudy
-        1009: ["d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_",  // overcast
-               "d272KwVY?^MxM{j]%gRP00W;8^WB00IAo}%gs,%gx]M_"], // overcast (night)
-        1030: ["dXHCWVr=IAX7_N~UIBNG^+e.t7RkM{xaozWVkCWBofof"], // mist
-        1063: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // rain patches
-        1066: ["d*F?U[V@j[j[_NWBfQj@%gWXWBj[W;a#ayj[R*ayj[fR"], // snow patches
+        
+        1000: ["d[J90+%Ls+of.AxZs,s:D%R+s-s.R+bHa|j?o#ayayay",  // sunny
+               "VUH2yXT04;s.n#3ZM{-QNdRjver=OFfioeR.kDaxsAj]"], // clear
+        
+        1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2",  // partly cloudy
+               "dEGl|_pI?^%MYR00ofJ700IXJn=|Wn?Z?b0eWBIXn~9t"], // partly cloudy
+        
+        1006: ["dDJSFZ1n59WY0DDh-moJ02^g=^WXQ-?F9zI=xtIqRjxY"], // cloudy
+        
+        1009: ["d3B|gJ4:00_300_3xu4.8w%MNHxu9Znh_3Ip-.00t8?v",  // overcast
+               "d2Cj00~qfQfQt7~q000e8w?bRjt79FACrr~q?X00t7?^"], // overcast
+        
+        1030: ["dQH2TLIURjNG_4D%M{ayV@a#Rjay%M%Lj[Rjt7Rjf6ay",  // mist
+               "dTH2ccfQfQfQ_4ayM{IURjaKaya#%Mj[Rj%Lt7Rjayf6"], // mist
+        
+        1063: ["dpKdxe4:ozoL*0xDe:kCMybvocs.R*WBs:oJxaoJWVfj"], // rain patches
+        1066: ["d9DA15_N_4%Mf5RiRjWB%MRjM{t7axj[RPayM_MxMxoz"], // snow patches
         1069: ["d9DA15_N_4%Mf5RiRjWB%MRjM{t7axj[RPayM_MxMxoz"], // sleet patches
         1072: ["diKd_Et7IUWBofxuRjaz~qj[RkayM{j[axj[t7WBofj["], // freezing drizzle patches
-        1087: ["dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof"], // thundery outbreaks possible
+        
+        1087: ["dVI5.ItRItay?wRPD%WBNGRkMxoc4mWY-;oeWDRjWAWA"], // thundery outbreaks possible
+        
         1114: ["daL5RX~pIUoz-:M{R*WB?bM_WEax%Lj[t7WBxZfRt6s:"], // blowing snow
         1117: ["d9HVPL?bs;ofa#M{M{Rj~qxukCWBxvInofM{4nWBM{t7"], // blizzard
-        1135: ["dfK23P-;IARk~pIUa}ay-oWBxut6-oofM{WCbFoKWBof"], // fog
-        1147: ["dxLOTit7oej[~Vjuf6j[s9j[WVa|X9fPazaybHfQj@j["], // freezing fog
+        
+        1135: ["dlGSfTWBWBof~pofayf6$*ofayayWCj[ayfkWVWCfkfQ"], // fog
+        1147: ["dlGSfTWBWBof~pofayf6$*ofayayWCj[ayfkWVWCfkfQ"], // freezing fog
+        
         1150: ["dXKn-vt7t7kC~qayWBf6WVoff6aejZayfkkCWBayj[fk"], // patchy light drizzle
         1153: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // light drizzle
-        1168: ["dAEMOITJRpMy-@a0RPJU-UxvIobv.TS2D$rqS~.9RP-V"], // freezing drizzle
-        1171: ["d7AAm*004-%300-r%LRj00Rj?bRkS@-rNEIU_MIUM{%4"], // heavy freezing drizzle !REPLACE!
-        1180: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // patchy light rain
-        1183: ["dwG[.xRjS2oL~pWBRjj[-;ayV@bHxbj[oLazR+j[offQ"], // light rain
+        1168: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // freezing drizzle
+        1171: ["dTF6e0xuRjj[~qt7WBjuWBofayazIUWBj[fQxuWBayj["], // heavy freezing drizzle
+        
+        1180: ["dpKdxe4:ozoL*0xDe:kCMybvocs.R*WBs:oJxaoJWVfj"], // patchy light rain
+        1183: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // light rain
         1186: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain at times
         1189: ["dfD,D#M{WBoe_4RjWBoex[j]WBoLjZWBj[j[j[Rjofaz"], // moderate rain
-        1192: ["d65j8t?8p0IV*0yFo#Vr4TEVjDxr4TD4VryF%%sQROMx"], // heavy rain at times
-        1195: ["d65j8t?8p0IV*0yFo#Vr4TEVjDxr4TD4VryF%%sQROMx"], // heavy rain
-        1198: ["d84.#vlVD#ZgzpVXNYs;QRR4cZt-PpcFnOicbungibVX"], // light freezing rain
-        1201: ["d84.#vlVD#ZgzpVXNYs;QRR4cZt-PpcFnOicbungibVX"], // moderate or heavy freezing rain
+        1192: ["drD^cARjRQj]?^RjWBj[x^axfij[bJj?j[f6WDfkj[ay"], // heavy rain at times
+        1195: ["drD^cARjRQj]?^RjWBj[x^axfij[bJj?j[f6WDfkj[ay"], // heavy rain
+        1198: ["dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax"], // light freezing rain
+        1201: ["drD^cARjRQj]?^RjWBj[x^axfij[bJj?j[f6WDfkj[ay"], // moderate or heavy freezing rain
+        
         1204: ["dFM%[@%ME0RQ_NM_xut7D%t7M{of-=bF%gRPkWWBRjtR"], // light sleet
         1207: ["d8K23J00_4-p00.7-pxu00%f00V[004oozV@00~qxuV?"], // moderate or heavy sleet
-        1210: ["d-M%G]o#tlRjw0WBbcaK~AWBR*n%Rkf+f+ofXTozWWkC"], // patchy light snow
+        
+        1210: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // patchy light snow
         1213: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // light snow
         1216: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // patchy moderate snow
         1219: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate snow
         1222: ["dEKUm900ITbd00E2$%V?00~UV@ad-.MxbvxvD*%2R*Io"], // patchy heavy snow
         1225: ["dEKUm900ITbd00E2$%V?00~UV@ad-.MxbvxvD*%2R*Io"], // heavy snow
+        
         1237: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // ice pellets
-        1240: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // light rain shower
-        1243: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // moderate or heavy rain shower
-        1246: ["daGJD~00%3NF_4D~V@aj-;NFV@ofWCofR%ofRkj]axoy"], // torrential rain shower
+        
+        1240: ["daC%W^M{WVt7~qRjWBt6%Mt7RkfQt7t7WBV[a|ofayWB"], // light rain shower
+        1243: ["daC%W^M{WVt7~qRjWBt6%Mt7RkfQt7t7WBV[a|ofayWB"], // moderate or heavy rain shower
+        1246: ["daC%W^M{WVt7~qRjWBt6%Mt7RkfQt7t7WBV[a|ofayWB"], // torrential rain shower
+        
         1249: ["dFM%[@%ME0RQ_NM_xut7D%t7M{of-=bF%gRPkWWBRjtR"], // light sleet showers
         1252: ["d8K23J00_4-p00.7-pxu00%f00V[004oozV@00~qxuV?"], // moderate or heavy sleet showers
+        
         1255: ["dsOX5rRiS5W?~VR-ozt6Iqa#t6R+NGR*Rkj[ofogaeoJ"], // light snow showers
         1258: ["dUK_:@~Aofxu02s.xZofNIENslWAt7R+IpjFRks:R+R+"], // moderate or heavy snow showers
+        
         1261: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // light showers of ice pellets
         1264: ["dEKVR70000=]0000^h?F~701^%WX9a?G?aEO4ow[t7Iq"], // moderate or heavy showers of ice pellets
-        1273: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // patchy rain with thunder
+        
+        1273: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // patchy rain with thunder [R]
         1276: ["dUA_hlz.tRt7uPi^oJofI9S$M{M{ROWAkCRis:jEX8W;"], // moderate or heavy rain with thunder
-        1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder
+        
+        1279: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // patchy snow with thunder [R]
         1282: ["d69@6j8wPB=d00?dm+TL%O+~x_R4-n%5w|XT0L-C%3WB"], // moderate or heavy snow with thunder
     ]
     
@@ -254,6 +279,8 @@ final class WeatherViewModelFactory {
         } else {
             bhString =  blurHashForWeatherCode[0]![0]
         }
+        
+//        bhString = blurHashForWeatherCode[1195]![0]
         
         return WeatherViewModel(location: (lat: weather.location.lat, lon: weather.location.lon),
                                 conditionCelsius: conditionCelsius,
