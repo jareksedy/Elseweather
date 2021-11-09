@@ -221,12 +221,9 @@ struct LogoImage: ViewModifier {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
         Spacer()
-            .frame(width: 12)
         
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
-        
-        Spacer()
     }
 }
 

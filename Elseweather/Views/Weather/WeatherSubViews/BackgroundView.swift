@@ -13,7 +13,6 @@ struct BackgroundView: View {
     var backgroundImage: Image?
     
     var body: some View {
-        
         if session.minimalisticAppearance {
             Color.customBackground(for: colorScheme)
         } else {

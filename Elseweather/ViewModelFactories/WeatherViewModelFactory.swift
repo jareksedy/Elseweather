@@ -65,7 +65,7 @@ final class WeatherViewModelFactory {
         0000: ["dFMakn$xx]xa0[PB%2WX4TD%o#NGpexZV@WBVqtSW=xa"], // default
         
         1000: ["d[J90+%Ls+of.AxZs,s:D%R+s-s.R+bHa|j?o#ayayay",  // sunny
-               "VUH2yXT04;s.n#3ZM{-QNdRjver=OFfioeR.kDaxsAj]"], // clear
+               "dZN0MFozIvoL~Boea$jaI]t5t3ju9}oLovj[jIWCR,j@"], // clear
         
         1003: ["dFGcih?wtl%2Y8I;00t700IpJV=|?b56WU?GR*M|oIE2",  // partly cloudy
                "dEGl|_?^%MpI00J7YRofJn00IX=|Wn0e?b?ZWBn~IX9t"], // partly cloudy

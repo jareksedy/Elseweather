@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tiny" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-7o-YC8">
-                                <rect key="frame" x="71.5" y="398" width="275" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-7o-YC8">
+                                <rect key="frame" x="82" y="398" width="250" height="100"/>
                                 <color key="tintColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="dQh-SE-z5e"/>
+                                    <constraint firstAttribute="width" constant="250" id="dQh-SE-z5e"/>
                                     <constraint firstAttribute="height" constant="100" id="eam-Yy-vGU"/>
                                 </constraints>
                             </imageView>
@@ -31,7 +31,7 @@
                         <color key="backgroundColor" name="LaunchscreenBackground"/>
                         <constraints>
                             <constraint firstItem="Qfc-7o-YC8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CdZ-bK-mPn"/>
-                            <constraint firstItem="Qfc-7o-YC8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="2" id="qjg-8c-9J3"/>
+                            <constraint firstItem="Qfc-7o-YC8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qjg-8c-9J3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,9 +41,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-tiny" width="97" height="13"/>
+        <image name="logo" width="246" height="58"/>
         <namedColor name="LaunchscreenBackground">
-            <color red="0.97999999999999998" green="0.94999999999999996" blue="0.87" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98000001907348633" green="0.94999998807907104" blue="0.87000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
