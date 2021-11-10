@@ -55,12 +55,6 @@ final class WeatherViewModelFactory {
         1282: "with heavy snow and thunder",
     ]
     
-    //dpKdxe4:ozoL*0xDe:kCMybvocs.R*WBs:oJxaoJWVfj sunny
-    //dlH.A{ofIoWY_4W=R+WDV@ogt7j[IAWYR*ofROofWBax patchyrain
-    //d3B|gJ4:00_300_3xu4.8w%MNHxu9Znh_3Ip-.00t8?v overcast
-    //dNGluG_48_9ZNY%hIUjc-;%MWBIU?csobIWCIAbFxuof thundery outbreaks
-    //daC%W^M{WVt7~qRjWBt6%Mt7RkfQt7t7WBV[a|ofayWB fog
-    
     private let blurHashForWeatherCode = [
         0000: ["dFMakn$xx]xa0[PB%2WX4TD%o#NGpexZV@WBVqtSW=xa"], // default
         
@@ -247,9 +241,17 @@ final class WeatherViewModelFactory {
             return location
         }
         
-        var localDate: String {
+        var localDateUS: String {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "E, MMM dd yyyy"
+            let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: weather.location.tzID)!)
+            
+            return dateFormatter.string(from: localDate)
+        }
+        
+        var localDate: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "E, dd MMM yyyy"
             let localDate = Date().convert(from: TimeZone.current, to: TimeZone(identifier: weather.location.tzID)!)
             
             return dateFormatter.string(from: localDate)
@@ -301,6 +303,7 @@ final class WeatherViewModelFactory {
                                 windGustMetric: weather.current.gustKPH,
                                 windGustImperial: weather.current.gustMPH,
                                 localDate: localDate.uppercased(),
+                                localDateUS: localDateUS.uppercased(),
                                 localTime: localTime,
                                 localTimeZone: weather.location.tzID.uppercased(),
                                 blurHash: bhString)

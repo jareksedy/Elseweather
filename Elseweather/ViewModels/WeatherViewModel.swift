@@ -59,6 +59,7 @@ struct WeatherViewModel {
     let windGustCaption = "GUST"
     
     let localDate: String
+    let localDateUS: String
     let localTime: String
     let localTimeZone: String
     
