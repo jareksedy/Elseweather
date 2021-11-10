@@ -35,7 +35,7 @@ struct PlayButton: ButtonStyle {
         configuration
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
-            .opacity(configuration.isPressed ? 0.5 : 1.0)
+            .opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
                         LinearGradient(gradient: Gradient(colors: [.clear, .customPrimary(for: colorScheme)]), startPoint: .top, endPoint: .bottom)
@@ -220,10 +220,12 @@ struct SettingsToggleStyle: ToggleStyle {
 struct LogoImage: ViewModifier {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
-        Spacer()
+        Spacer().frame(width: 12)
         
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
+        
+        Spacer()
     }
 }
 
