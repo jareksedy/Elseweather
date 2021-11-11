@@ -10,6 +10,7 @@ import MapKit
 
 struct WeatherView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Environment(\.scenePhase) var scenePhase
     
     @State var weatherViewModel: WeatherViewModel
     @State private var backgroundImage: Image?
@@ -202,6 +203,19 @@ struct WeatherView: View {
         .onReceive(timer) { _ in runContinuousMode() }
         .onTapGesture {
             viewTap()
+        }
+        .onChange(of: colorScheme) { _ in
+            inContinuousMode = false
+            isSettingsPresented = false
+        }
+        .onChange(of: scenePhase) { newScenePhase in
+            switch newScenePhase {
+            case .background:
+                inContinuousMode = false
+            default:
+                return
+            }
+            
         }
     }
 }
