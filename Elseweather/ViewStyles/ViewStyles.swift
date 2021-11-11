@@ -296,7 +296,7 @@ extension AnyTransition {
     }
     
     static var standardBackground: AnyTransition {
-        .opacity.animation(.easeOut(duration: 1.25))
+        .opacity.animation(.easeOut(duration: 2.0))
     }
     
     static var standardHeadingText: AnyTransition {
