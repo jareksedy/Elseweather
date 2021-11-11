@@ -46,10 +46,10 @@ struct PlayButton: ButtonStyle {
             )
             .background(inContinuousMode ?
                         Circle()
-                           .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
-                           .foregroundColor(.customPrimary(for: colorScheme))
-                           .opacity(disabledButtonOpacity)
-                           .frame(width: 44, height: 44)
+                            .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
+                            .foregroundColor(.customPrimary(for: colorScheme))
+                            .opacity(disabledButtonOpacity)
+                            .frame(width: 44, height: 44)
                         : nil
             )
             .overlay(inContinuousMode ?
@@ -91,11 +91,10 @@ struct MapsButton: ButtonStyle {
 struct LocationButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State private var animate: Bool = false
-    private var displayingLocalWeather: Bool = false
-    
-    init(_ displayingLocalWeather: Bool) {
-        self.displayingLocalWeather = displayingLocalWeather
-    }
+    @State private var cOpacity = 0.5
+    @State private var cScale = 1.0
+    @State private var cProgress = 0.0
+    @Binding var displayingLocalWeather: Bool
     
     func makeBody(configuration: Configuration) -> some View {
         configuration
@@ -107,12 +106,20 @@ struct LocationButton: ButtonStyle {
                      Circle()
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .scaleEffect(animate ? 2.75 : 1.0)
-                        .opacity(animate ? 0.0 : 0.15)
+                        .scaleEffect(cScale/*animate ? 2.75 : 1.0*/)
+                        .opacity(cOpacity/*animate ? 0.0 : 0.15*/)
                         .frame(width: 24.0, height: 24.0)
-                        .animation(.easeInOut(duration: 1.25).repeatCount(1, autoreverses: false))
-                        .onAppear { self.animate = true }
-                        .onDisappear { self.animate = false }
+                        .animation(.easeInOut(duration: 1.25)/*.repeatCount(1, autoreverses: false)*/)
+                        .onAppear {
+                            animate = true
+                            cScale = 2.75
+                            cOpacity = 0.0
+                        }
+                        .onDisappear {
+                            animate = false
+                            cScale = 1.0
+                            cOpacity = 0.5
+                        }
                      : nil
             )
     }
@@ -220,12 +227,8 @@ struct SettingsToggleStyle: ToggleStyle {
 struct LogoImage: ViewModifier {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     func body(content: Content) -> some View {
-        Spacer().frame(width: 12)
-        
         content
             .foregroundColor(Color.customPrimary(for: colorScheme))
-        
-        Spacer()
     }
 }
 

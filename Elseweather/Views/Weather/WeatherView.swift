@@ -118,16 +118,19 @@ struct WeatherView: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
+                Image("logo-tiny").modifier(LogoImage())
+                
+                Spacer()
+                
                 Toggle("", isOn: $isSettingsPresented)
                     .toggleStyle(SettingsToggleStyle(onColor: .customPrimary(for: colorScheme), offColor: Color.clear))
                     .sheet(isPresented: $isSettingsPresented) { SettingsView() }
                 
-//                Spacer().frame(width: 24)
-//                Text("Elseweather").textStyle(LogoText())
-//                Spacer()
-
-                Image("logo-tiny").modifier(LogoImage())
-            }.padding(.top, 30)
+            }.padding(.top, 35)
+            
+            Divider(2)
+                .opacity(settingsDividerOpacity)
+                .padding(.top, 15)
             
             Spacer()
             
@@ -141,7 +144,7 @@ struct WeatherView: View {
                 }, label: {
                     Image(displayingLocalWeather ? "button-location-pressed" : "button-location")
                 })
-                    .buttonStyle(LocationButton(displayingLocalWeather))
+                    .buttonStyle(LocationButton(displayingLocalWeather: $displayingLocalWeather))
                     .disabled(busyFetchingLocalWeather || displayingLocalWeather || inContinuousMode)
                     .opacity(inContinuousMode || busyFetchingLocalWeather ? disabledButtonOpacity : 1.0)
                     .alert(isPresented: $isLocationAlertPresented) { presentLocationAlert() }
