@@ -234,13 +234,13 @@
 		CAC954442703A2EC0015BBE1 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				CAD3631027248B9E009FF2DC /* WeatherSubviews */,
+				CAD3631027248B9E009FF2DC /* Subviews */,
 				CAD416E727030BAB009516D6 /* WeatherView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
 		};
-		CAD3631027248B9E009FF2DC /* WeatherSubviews */ = {
+		CAD3631027248B9E009FF2DC /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				CAD416E927030C5C009516D6 /* WeatherDataView.swift */,
@@ -252,7 +252,7 @@
 				CAC9543C270393BD0015BBE1 /* IndexView.swift */,
 				CA935948271F0FF000F168F3 /* BackgroundView.swift */,
 			);
-			path = WeatherSubviews;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		CAD416E427030A69009516D6 /* Views */ = {
