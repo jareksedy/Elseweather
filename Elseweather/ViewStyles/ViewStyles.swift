@@ -56,11 +56,11 @@ struct PlayButton: ButtonStyle {
                      Circle()
                         .trim(from: 0.0, to: animate ? 1.0 : 0.0)
                         .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
-                        .rotationEffect(.degrees(animate ? 270.0 : 180.0))
+                        .rotationEffect(.degrees(animate ? 270.0 : 0.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
                         .opacity(animate ? 1.0 : 0.0)
                         .frame(width: 44, height: 44)
-                        .animation(.easeOut(duration: continuousModeInterval).repeatForever(autoreverses: false))
+                        .animation(.easeOut(duration: continuousModeInterval).repeatForever(autoreverses: true))
                         .onAppear { self.animate = true }
                         .onDisappear { self.animate = false }
                      : nil
