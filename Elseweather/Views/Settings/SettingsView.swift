@@ -39,7 +39,7 @@ struct SettingsView: View {
                     .onChange(of: session.showUnits) { value in
                         appSettingsService.storeSettings()
                     }
-                    .toggleStyle(CustomToggleStyle(label: "Display Temperature Units",
+                    .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
                                                    thumbColor: .customPrimary(for: colorScheme)))
@@ -60,9 +60,15 @@ struct SettingsView: View {
             
             HStack {
                 Text("""
-                     Elseweather v.\(Session.shared.version).
-                     Jarek Šedý <jareksedy@icloud.com>
-                     GitHub: github.com/jareksedy
+                     Elseweather v.\(Session.shared.version). By Jarek Šedý.
+                     
+                     Open source. Distributed under MIT license.
+                     github.com/jareksedy/Elseweather
+                     
+                     Weather data provided by weatherapi.com
+                     World cities database by simplemaps.com
+                     
+                     Contact me at <jareksedy@icloud.com>
                      """.uppercased())
                     .kerning(-0.25)
                     .textStyle(SmallMonospaced())
