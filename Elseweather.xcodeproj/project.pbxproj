@@ -40,7 +40,6 @@
 		CAD416EA27030C5C009516D6 /* WeatherDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD416E927030C5C009516D6 /* WeatherDataView.swift */; };
 		CAD416EC270315DD009516D6 /* ViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD416EB270315DD009516D6 /* ViewStyles.swift */; };
 		CAD8A962271DE79D0036EAB2 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD8A961271DE79D0036EAB2 /* Config.swift */; };
-		CAE1D896273AF46100733891 /* AnimatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1D895273AF46100733891 /* AnimatableModifier.swift */; };
 		CAFC958E26EE272000ABF8EE /* WeatherFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +78,6 @@
 		CAD416E927030C5C009516D6 /* WeatherDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataView.swift; sourceTree = "<group>"; };
 		CAD416EB270315DD009516D6 /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		CAD8A961271DE79D0036EAB2 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		CAE1D895273AF46100733891 /* AnimatableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableModifier.swift; sourceTree = "<group>"; };
 		CAFC958D26EE272000ABF8EE /* WeatherFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				CA535C8226F2535100BD48BC /* Extensions.swift */,
-				CAE1D895273AF46100733891 /* AnimatableModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 				CA9DA311272594BE00AF717D /* SettingsView.swift in Sources */,
 				CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */,
 				CA11D22026EE4B3B007C7E93 /* WeatherQueue.swift in Sources */,
-				CAE1D896273AF46100733891 /* AnimatableModifier.swift in Sources */,
 				CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */,
 				CAC9543D270393BD0015BBE1 /* IndexView.swift in Sources */,
 				CA535C8B26F2578E00BD48BC /* Session.swift in Sources */,

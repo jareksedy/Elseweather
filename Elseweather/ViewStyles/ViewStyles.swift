@@ -44,13 +44,12 @@ struct PlayButton: ButtonStyle {
                             .opacity(disabledButtonOpacity)
                         : nil
             )
-            .background(inContinuousMode ?
+            .background(
                         Circle()
                             .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
                             .foregroundColor(.customPrimary(for: colorScheme))
-                            .opacity(disabledButtonOpacity)
+                            .opacity(inContinuousMode ? disabledButtonOpacity : 1.0)
                             .frame(width: 44, height: 44)
-                        : nil
             )
             .overlay(inContinuousMode ?
                      Circle()
@@ -58,7 +57,7 @@ struct PlayButton: ButtonStyle {
                         .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(animate ? 270.0 : 0.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .opacity(animate ? 1.0 : 0.0)
+                        //.opacity(animate ? 1.0 : 0.0)
                         .frame(width: 44, height: 44)
                         .animation(.easeOut(duration: continuousModeInterval).repeatForever(autoreverses: true))
                         .onAppear { self.animate = true }
@@ -90,10 +89,8 @@ struct MapsButton: ButtonStyle {
 
 struct LocationButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    @State private var animate: Bool = false
     @State private var cOpacity = 0.5
     @State private var cScale = 1.0
-    @State private var cProgress = 0.0
     @Binding var displayingLocalWeather: Bool
     
     func makeBody(configuration: Configuration) -> some View {
@@ -106,19 +103,17 @@ struct LocationButton: ButtonStyle {
                      Circle()
                         .stroke(lineWidth: 10.0)
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        .scaleEffect(cScale/*animate ? 2.75 : 1.0*/)
-                        .opacity(cOpacity/*animate ? 0.0 : 0.15*/)
+                        .scaleEffect(cScale)
+                        .opacity(cOpacity)
                         .frame(width: 24.0, height: 24.0)
-                        .animation(.easeInOut(duration: 1.25)/*.repeatCount(1, autoreverses: false)*/)
+                        .animation(.easeInOut(duration: 1.25))
                         .onAppear {
-                            animate = true
                             cScale = 2.75
                             cOpacity = 0.0
                         }
                         .onDisappear {
-                            animate = false
                             cScale = 1.0
-                            cOpacity = 0.5
+                            cOpacity = 0.25
                         }
                      : nil
             )
