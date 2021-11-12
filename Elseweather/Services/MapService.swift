@@ -9,7 +9,6 @@ import Foundation
 import MapKit
 
 class MapService {
-    
     func openInMaps(location: Location, locality: String) {
         let latitude: CLLocationDegrees = location.lat
         let longitude: CLLocationDegrees = location.lon
