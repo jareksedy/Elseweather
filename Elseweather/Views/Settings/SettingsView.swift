@@ -64,9 +64,12 @@ struct SettingsView: View {
                      By Jarek Šedý <jareksedy@icloud.com>.
                      Open source. Distributed under MIT license.
                      github.com/jareksedy/Elseweather
-                     ~
+                     ✦
                      Weather data provided by weatherapi.com.
                      World cities database by simplemaps.com.
+                     ✦
+                     Elseweather utilizes BlurHash algorithm by Wolt.
+                     github.com/woltapp/blurhash
                      """.uppercased())
                     .kerning(-0.25)
                     .textStyle(SmallMonospaced())
