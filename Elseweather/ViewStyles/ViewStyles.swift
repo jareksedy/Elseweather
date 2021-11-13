@@ -143,7 +143,7 @@ struct RetryButton: ButtonStyle {
             .padding(.trailing, 75)
             .padding(.top, 15)
             .padding(.bottom, 15)
-            .border(Color.customPrimary(for: colorScheme), width: 2.0)
+            .border(Color.customPrimary(for: colorScheme).opacity(disabledButtonOpacity), width: 2.0)
             .background(Color.customErrorBackground(for: colorScheme))
             .opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
     }

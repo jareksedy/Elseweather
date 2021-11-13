@@ -42,7 +42,7 @@ extension CGFloat {
 
 extension Color {
     static let errorDarkBackground = Color(UIColor(red: 0.65, green: 0.20, blue: 0.11, alpha: 1.00))
-    static let errorLightBackground = Color(UIColor(red: 0.73, green: 0.13, blue: 0.13, alpha: 1.00))
+    static let errorLightBackground = Color(UIColor(red: 0.98, green: 0.51, blue: 0.44, alpha: 1.00))
     
     static let customDarkPrimary = Color(UIColor(red: 0.98, green: 0.95, blue: 0.87, alpha: 1.00))
     static let customDarkBackground = Color(UIColor(red: 0.13, green: 0.14, blue: 0.15, alpha: 1.00))

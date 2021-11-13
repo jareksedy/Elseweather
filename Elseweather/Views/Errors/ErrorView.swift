@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ErrorView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @Binding var weatherAtStartup: WAWeather?
     
     var body: some View {
         VStack {
@@ -37,9 +38,11 @@ struct ErrorView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
-                HStack {
+                HStack {                    
                     Button(action: {
-                        print("hello!")
+                        weatherQueue.enqueueSync(1)
+                        weatherAtStartup = weatherQueue.head
+                        weatherQueue.enqueueAsync(queueLength - 1)
                     }, label: { Text("Retry") })
                         .buttonStyle(RetryButton())
                 }.padding(.top, 35)

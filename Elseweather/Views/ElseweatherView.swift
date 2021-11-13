@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ElseweatherView: View {
+    @State var weatherAtStartup: WAWeather? = weatherQueue.head
+    
     var body: some View {
-        ErrorView()
-//        if let weatherAtStartup = weatherQueue.head {
-//            WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup))
-//        } else {
-//            ErrorView()
-//        }
+        if weatherAtStartup != nil {
+            WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup!))
+        } else {
+            ErrorView(weatherAtStartup: $weatherAtStartup)
+        }
     }
 }
