@@ -2,7 +2,7 @@
 //  NoAPIKeyErrorView.swift
 //  Elseweather
 //
-//  Created by Ярослав on 13.11.2021.
+//  Created by Jarek Šedý on 13.11.2021.
 //
 
 import SwiftUI

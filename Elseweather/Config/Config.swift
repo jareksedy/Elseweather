@@ -17,8 +17,6 @@ let backgroundOpacityLight: CGFloat = 0.90
 let dividerOpacity: CGFloat = 0.5
 let settingsDividerOpacity: CGFloat = 0.25
 
-let viewDownScale: CGFloat = 0.990
-let viewDownOpacity: CGFloat = 0.5
 let disabledViewOpacity: CGFloat = 0.5
 let disabledButtonOpacity: CGFloat = 0.25
 

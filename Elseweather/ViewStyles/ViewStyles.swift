@@ -35,7 +35,6 @@ struct PlayButton: ButtonStyle {
         configuration
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
-            //.opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
             .scaleEffect(configuration.isPressed ? 0.85 : 1.0)
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
@@ -58,7 +57,6 @@ struct PlayButton: ButtonStyle {
                         .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
                         .rotationEffect(.degrees(animate ? 270.0 : 90.0))
                         .foregroundColor(.customPrimary(for: colorScheme))
-                        //.opacity(animate ? 1.0 : 0.0)
                         .frame(width: 44, height: 44)
                         .animation(.easeOut(duration: continuousModeInterval).repeatForever(autoreverses: true))
                         .onAppear { self.animate = true }
@@ -129,7 +127,6 @@ struct SettingsButton: ButtonStyle {
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
             .opacity(configuration.isPressed ? 0.5 : 1.0)
-        //.frame(maxWidth: .infinity)
     }
 }
 
