@@ -226,6 +226,9 @@
 		CAB6232826EDA8BE00E85106 = {
 			isa = PBXGroup;
 			children = (
+				CAA149CF273FBEDD00AF3762 /* README.md */,
+				CAA149CD273FBCDE00AF3762 /* LICENSE.txt */,
+				CAA3561F2740029600FB7075 /* Demo */,
 				CAB6233326EDA8BF00E85106 /* Elseweather */,
 				CAB6233226EDA8BF00E85106 /* Products */,
 			);
@@ -243,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */,
-				CAA149CF273FBEDD00AF3762 /* README.md */,
 				CAD416E427030A69009516D6 /* Views */,
 				CAD416ED270315E5009516D6 /* ViewStyles */,
 				CA30C3C327043336005CC7D6 /* ViewModelFactories */,
@@ -257,8 +259,6 @@
 				CA83676226EDC8F90098C709 /* Global */,
 				CA71A06826EDB1AF00831014 /* Resources */,
 				CAA149CA273FB57000AF3762 /* Config */,
-				CAA3561F2740029600FB7075 /* Demo */,
-				CAA149CD273FBCDE00AF3762 /* LICENSE.txt */,
 				CAB6233A26EDA8C500E85106 /* Preview Content */,
 			);
 			path = Elseweather;
