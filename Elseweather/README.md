@@ -15,7 +15,7 @@ Elseweather was created as a student/research project with no practical purpose 
 1. Get a free API key at [WeatherAPI.com](https://www.weatherapi.com)
 2. Clone the repo
 ```sh
-git clone https://github.com/jareksedy/elseweather.git
+git clone https://github.com/jareksedy/Elseweather.git
 ```
 3. Put your API key in `Config/Config.swift`
 ```swift
