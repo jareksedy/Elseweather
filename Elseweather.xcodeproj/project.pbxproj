@@ -26,6 +26,9 @@
 		CAA149CC273FB7D500AF3762 /* NoAPIKeyErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA149CB273FB7D500AF3762 /* NoAPIKeyErrorView.swift */; };
 		CAA149CE273FBCDE00AF3762 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CAA149CD273FBCDE00AF3762 /* LICENSE.txt */; };
 		CAA149D0273FBEDD00AF3762 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CAA149CF273FBEDD00AF3762 /* README.md */; };
+		CAA35621274002CB00FB7075 /* ew_sc1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA35620274002CB00FB7075 /* ew_sc1.png */; };
+		CAA35623274002D600FB7075 /* ew_sc2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA35622274002D600FB7075 /* ew_sc2.png */; };
+		CAA35625274002E200FB7075 /* ew_video.gif in Resources */ = {isa = PBXBuildFile; fileRef = CAA35624274002E200FB7075 /* ew_video.gif */; };
 		CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */; };
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		CAA149CB273FB7D500AF3762 /* NoAPIKeyErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAPIKeyErrorView.swift; sourceTree = "<group>"; };
 		CAA149CD273FBCDE00AF3762 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		CAA149CF273FBEDD00AF3762 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CAA35620274002CB00FB7075 /* ew_sc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ew_sc1.png; sourceTree = "<group>"; };
+		CAA35622274002D600FB7075 /* ew_sc2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ew_sc2.png; sourceTree = "<group>"; };
+		CAA35624274002E200FB7075 /* ew_video.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ew_video.gif; sourceTree = "<group>"; };
 		CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeadingView.swift; sourceTree = "<group>"; };
 		CAB6233126EDA8BF00E85106 /* Elseweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elseweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherApp.swift; sourceTree = "<group>"; };
@@ -207,6 +213,16 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		CAA3561F2740029600FB7075 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				CAA35624274002E200FB7075 /* ew_video.gif */,
+				CAA35622274002D600FB7075 /* ew_sc2.png */,
+				CAA35620274002CB00FB7075 /* ew_sc1.png */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		CAB6232826EDA8BE00E85106 = {
 			isa = PBXGroup;
 			children = (
@@ -236,11 +252,12 @@
 				CA83676B26EDCBCA0098C709 /* Models */,
 				CA535C8426F2535A00BD48BC /* Extensions */,
 				CA3FC62F26EDB7B2000987C5 /* Data */,
-				CA83676226EDC8F90098C709 /* Global */,
 				CA207291271CA01800710EC5 /* BlurHash */,
 				CAD8A960271DE7740036EAB2 /* ThreadSafeArray */,
+				CA83676226EDC8F90098C709 /* Global */,
 				CA71A06826EDB1AF00831014 /* Resources */,
 				CAA149CA273FB57000AF3762 /* Config */,
+				CAA3561F2740029600FB7075 /* Demo */,
 				CAA149CD273FBCDE00AF3762 /* LICENSE.txt */,
 				CAB6233A26EDA8C500E85106 /* Preview Content */,
 			);
@@ -369,7 +386,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA35623274002D600FB7075 /* ew_sc2.png in Resources */,
+				CAA35625274002E200FB7075 /* ew_video.gif in Resources */,
 				CAA149D0273FBEDD00AF3762 /* README.md in Resources */,
+				CAA35621274002CB00FB7075 /* ew_sc1.png in Resources */,
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
 				CA2F896C273854B900E42DEF /* Launch Screen.storyboard in Resources */,
