@@ -60,7 +60,7 @@ struct SettingsView: View {
             
             HStack {
                 Text("""
-                     Elseweather v.\(Session.shared.version) by Jarek Šedý. Open source. Distributed under MIT license at https://github.com/jareksedy/Elseweather
+                     Elseweather v.\(Session.shared.version) by Jarek Šedý. Open source. Distributed under MIT license at https://github.com/jareksedy/elseweather
                      
                      Weather data provided by weatherapi.com. World cities database by simplemaps.com.
                      
