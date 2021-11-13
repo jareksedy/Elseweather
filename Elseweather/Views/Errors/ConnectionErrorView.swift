@@ -7,9 +7,15 @@
 
 import SwiftUI
 
-struct ErrorView: View {
+struct ConnectionErrorView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Binding var weatherAtStartup: WAWeather?
+    
+    private func retryOnError() {
+        weatherQueue.enqueueSync(1)
+        weatherAtStartup = weatherQueue.head
+        weatherQueue.enqueueAsync(queueLength - 1)
+    }
     
     var body: some View {
         VStack {
@@ -38,12 +44,8 @@ struct ErrorView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
-                HStack {                    
-                    Button(action: {
-                        weatherQueue.enqueueSync(1)
-                        weatherAtStartup = weatherQueue.head
-                        weatherQueue.enqueueAsync(queueLength - 1)
-                    }, label: { Text("Retry") })
+                HStack {
+                    Button(action: { retryOnError() }, label: { Text("Retry") })
                         .buttonStyle(RetryButton())
                 }.padding(.top, 35)
             }

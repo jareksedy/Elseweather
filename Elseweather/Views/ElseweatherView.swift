@@ -14,7 +14,7 @@ struct ElseweatherView: View {
         if weatherAtStartup != nil {
             WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup!))
         } else {
-            ErrorView(weatherAtStartup: $weatherAtStartup)
+            ConnectionErrorView(weatherAtStartup: $weatherAtStartup)
         }
     }
 }
