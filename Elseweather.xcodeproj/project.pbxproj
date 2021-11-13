@@ -213,14 +213,14 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		CAA3561F2740029600FB7075 /* Demo */ = {
+		CAA3561F2740029600FB7075 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
 				CAA35624274002E200FB7075 /* ew_video.gif */,
 				CAA35622274002D600FB7075 /* ew_sc2.png */,
 				CAA35620274002CB00FB7075 /* ew_sc1.png */,
 			);
-			path = Demo;
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		CAB6232826EDA8BE00E85106 = {
@@ -228,7 +228,7 @@
 			children = (
 				CAA149CF273FBEDD00AF3762 /* README.md */,
 				CAA149CD273FBCDE00AF3762 /* LICENSE.txt */,
-				CAA3561F2740029600FB7075 /* Demo */,
+				CAA3561F2740029600FB7075 /* Screenshots */,
 				CAB6233326EDA8BF00E85106 /* Elseweather */,
 				CAB6233226EDA8BF00E85106 /* Products */,
 			);

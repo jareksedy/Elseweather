@@ -6,7 +6,11 @@ App that displays current weather at a random location.
 
 Elseweather was created as a student/research project with no practical purpose in mind. Made with SwiftUI, Apple’s latest framework and targets iOS 14.0 or higher. Feel free to use, modify, redistribute it without any restrictions.
 
-![Elseweather Demo](Demo/ew_sc1.png) ![Elseweather Demo](Demo/ew_sc2.png) ![Elseweather Demo](Demo/ew_video.gif)
+<p float="left">
+  <img src="Screenshots/ew_sc1.png" width="300" />
+  <img src="Screenshots/ew_sc2.png" width="300" /> 
+  <img src="Screenshots/ew_video.gif" width="300" />
+</p>
 
 ## Installation
 
@@ -23,7 +27,7 @@ let apiKey = ""
 
 ## Version History
 
-* 1.0.0. Initial release.
+* 1.0.0 — Initial release.
 
 ## License
 
