@@ -14,8 +14,8 @@ struct ElseweatherView: View {
         if apiKey == "" {
             NoAPIKeyErrorView()
         } else {
-            if weatherAtStartup != nil {
-                WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup!))
+            if let weatherAtStartup = weatherAtStartup {
+                WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup))
             } else {
                 ConnectionErrorView(weatherAtStartup: $weatherAtStartup)
             }
