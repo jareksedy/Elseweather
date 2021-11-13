@@ -60,16 +60,13 @@ struct SettingsView: View {
             
             HStack {
                 Text("""
-                     Elseweather v.\(Session.shared.version).
-                     By Jarek Šedý <jareksedy@icloud.com>.
-                     Open source. Distributed under MIT license.
-                     github.com/jareksedy/Elseweather
-                     ✦
-                     Weather data provided by weatherapi.com.
-                     World cities database by simplemaps.com.
-                     ✦
-                     Elseweather utilizes BlurHash algorithm by Wolt.
-                     github.com/woltapp/blurhash
+                     Elseweather v.\(Session.shared.version) by Jarek Šedý. Open source. Distributed under MIT license at https://github.com/jareksedy/Elseweather
+                     
+                     Weather data provided by weatherapi.com. World cities database by simplemaps.com.
+                     
+                     Elseweather utilizes Swift implementation of Wolt BlurHash algorithm. https://github.com/woltapp/blurhash.
+                     
+                     Contact me at <jareksedy@icloud.com>.
                      """.uppercased())
                     .kerning(-0.25)
                     .textStyle(SmallMonospaced())
