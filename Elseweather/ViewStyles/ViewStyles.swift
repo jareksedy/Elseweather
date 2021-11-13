@@ -35,7 +35,8 @@ struct PlayButton: ButtonStyle {
         configuration
             .label
             .foregroundColor(.customPrimary(for: colorScheme))
-            .opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
+            //.opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.85 : 1.0)
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
                         LinearGradient(gradient: Gradient(colors: [.clear, .customPrimary(for: colorScheme)]), startPoint: .top, endPoint: .bottom)
@@ -48,7 +49,7 @@ struct PlayButton: ButtonStyle {
                         Circle()
                             .stroke(style: StrokeStyle(lineWidth: 2.0, lineCap: .round, lineJoin: .round))
                             .foregroundColor(.customPrimary(for: colorScheme))
-                            .opacity(inContinuousMode ? disabledButtonOpacity : 1.0)
+                            .opacity(inContinuousMode || configuration.isPressed ? disabledButtonOpacity : 1.0)
                             .frame(width: 44, height: 44)
             )
             .overlay(inContinuousMode ?
