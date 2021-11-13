@@ -133,15 +133,19 @@ struct SettingsButton: ButtonStyle {
     }
 }
 
-struct DefaultControlButton: ButtonStyle {
+struct RetryButton: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    func makeBody(configuration: Self.Configuration) -> some View {
+    func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(Color.customPrimary(for: colorScheme))
-        //.opacity(dividerOpacity)
-            .animation(.spring(response: 0.4, dampingFraction: 0.6))
-            .scaleEffect(configuration.isPressed ? 0.75 : 1.0)
+            .foregroundColor(.customPrimary(for: colorScheme))
+            .padding(.leading, 75)
+            .padding(.trailing, 75)
+            .padding(.top, 15)
+            .padding(.bottom, 15)
+            .border(Color.customPrimary(for: colorScheme), width: 2.0)
+            .background(Color.customErrorBackground(for: colorScheme))
+            .opacity(configuration.isPressed ? disabledButtonOpacity : 1.0)
     }
 }
 

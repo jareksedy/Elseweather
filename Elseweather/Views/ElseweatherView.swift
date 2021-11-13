@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ElseweatherView: View {
     var body: some View {
-        WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherQueue.head!))
+        ErrorView()
+//        if let weatherAtStartup = weatherQueue.head {
+//            WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup))
+//        } else {
+//            ErrorView()
+//        }
     }
 }
