@@ -11,10 +11,14 @@ struct ElseweatherView: View {
     @State var weatherAtStartup: WAWeather? = weatherQueue.head
     
     var body: some View {
-        if weatherAtStartup != nil {
-            WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup!))
+        if apiKey == "" {
+            NoAPIKeyErrorView()
         } else {
-            ConnectionErrorView(weatherAtStartup: $weatherAtStartup)
+            if weatherAtStartup != nil {
+                WeatherView(weatherViewModel: weatherViewModelFactory.construct(from: weatherAtStartup!))
+            } else {
+                ConnectionErrorView(weatherAtStartup: $weatherAtStartup)
+            }
         }
     }
 }
