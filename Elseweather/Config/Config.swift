@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let apiKey = "f9979cbf228a4fa2a0e180440212605"
+
 let queueLength = 10
 
 let backgroundOpacityDark: CGFloat = 0.75

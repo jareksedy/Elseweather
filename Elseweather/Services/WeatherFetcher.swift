@@ -12,7 +12,7 @@ final class WeatherFetcher {
         var weather: WAWeather?
         
         guard let url = URL(string: Session.shared.baseUrl +
-                                "?key=\(Session.shared.apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no") else { return nil }
+                                "?key=\(apiKey)&q=\(location.lat),\(location.lon)&aqi=no&alerts=no") else { return nil }
         
         do { let data = try Data(contentsOf: url)
             do { weather = try JSONDecoder().decode(WAWeather.self, from: data)

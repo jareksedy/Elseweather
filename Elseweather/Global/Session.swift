@@ -16,7 +16,6 @@ final class Session: ObservableObject {
     
     private let defaults = UserDefaults.standard
     
-    let apiKey = "f9979cbf228a4fa2a0e180440212605"
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
     let dataFileName = "Locations", dataFileExt = "sqlite"
     

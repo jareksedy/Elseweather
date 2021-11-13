@@ -18,6 +18,8 @@ let weatherFetcher = WeatherFetcher()
 
 let weatherQueue = WeatherQueue(length: queueLength, locationFetcher: randomLocationFetcher, weatherFetcher: weatherFetcher)
 let weatherViewModelFactory = WeatherViewModelFactory()
+
 let imageGenerator = ImageGenerator()
+
 let appSettingsService = AppSettingsService()
 let mapService = MapService()
