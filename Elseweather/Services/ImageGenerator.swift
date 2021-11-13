@@ -1,5 +1,5 @@
 //
-//  BlurHashGenerator.swift
+//  ImageGenerator.swift
 //  Elseweather
 //
 //  Created by Jarek Šedý on 30.09.2021.

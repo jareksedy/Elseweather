@@ -2,7 +2,7 @@
 //  MapService.swift
 //  Elseweather
 //
-//  Created by Ярослав on 04.11.2021.
+//  Created by Jarek Šedý on 04.11.2021.
 //
 
 import Foundation
