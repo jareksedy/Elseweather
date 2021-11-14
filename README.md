@@ -27,18 +27,23 @@ let apiKey = ""
 
 ## Version History
 
-* 1.0.0 — Initial release.
+### 1.0.0. Initial release.
+#### Features
+
+* Metric and Imperial measurement units.
+* Continuous mode (Play button).
+* Support for system light and dark mode.
 
 ## License
 
 Distributed under MIT License. See the LICENSE file for details.
-
-## Contact
-
-Drop me a line at jareksedy@icloud.com
 
 ## Acknowledgments
 
 * Weather data provided by [WeatherAPI](https://www.weatherapi.com).
 * World cities database by [SimpleMaps](https://simplemaps.com/data/world-cities).
 * Elseweather utilizes BlurHash decoding algorithm by [Wolt](https://github.com/woltapp/blurhash).
+
+## Contact
+
+Drop me a line at jareksedy@icloud.com
