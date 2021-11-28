@@ -38,7 +38,7 @@ struct PlayButton: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.85 : 1.0)
             .frame(maxWidth: .infinity)
             .background(inContinuousMode ?
-                        LinearGradient(gradient: Gradient(colors: [.clear, .customPrimary(for: colorScheme)]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [.clear, .customPrimary(for: colorScheme)]), startPoint: colorScheme == .dark ? .top : .bottom, endPoint: colorScheme == .dark ? .bottom : .top)
                             .frame(width: 38, height: 38)
                             .clipShape(Circle())
                             .opacity(disabledButtonOpacity)

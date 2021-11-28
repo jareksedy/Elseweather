@@ -19,7 +19,7 @@ final class Session: ObservableObject {
     let baseUrl = "https://api.weatherapi.com/v1/current.json"
     let dataFileName = "Locations", dataFileExt = "sqlite"
     
-    let version = "1.0.0"
+    let version = "1.0.5"
     
     // MARK: - Default user settings.
     

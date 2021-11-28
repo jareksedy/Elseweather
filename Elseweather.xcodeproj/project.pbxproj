@@ -18,6 +18,7 @@
 		CA535C8326F2535100BD48BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8226F2535100BD48BC /* Extensions.swift */; };
 		CA535C8B26F2578E00BD48BC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA535C8A26F2578E00BD48BC /* Session.swift */; };
 		CA5EF3492728680500476DD3 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5EF3482728680500476DD3 /* AppSettingsService.swift */; };
+		CA64FF252753E80F00E095AB /* ew-scr.png in Resources */ = {isa = PBXBuildFile; fileRef = CA64FF242753E80F00E095AB /* ew-scr.png */; };
 		CA83676126EDC7B70098C709 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676026EDC7B70098C709 /* Global.swift */; };
 		CA83676426EDC9560098C709 /* RandomLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */; };
 		CA83676A26EDCBC00098C709 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83676926EDCBC00098C709 /* WeatherModel.swift */; };
@@ -26,9 +27,6 @@
 		CAA149CC273FB7D500AF3762 /* NoAPIKeyErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA149CB273FB7D500AF3762 /* NoAPIKeyErrorView.swift */; };
 		CAA149CE273FBCDE00AF3762 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CAA149CD273FBCDE00AF3762 /* LICENSE.txt */; };
 		CAA149D0273FBEDD00AF3762 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CAA149CF273FBEDD00AF3762 /* README.md */; };
-		CAA35621274002CB00FB7075 /* ew_sc1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA35620274002CB00FB7075 /* ew_sc1.png */; };
-		CAA35623274002D600FB7075 /* ew_sc2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA35622274002D600FB7075 /* ew_sc2.png */; };
-		CAA35625274002E200FB7075 /* ew_video.gif in Resources */ = {isa = PBXBuildFile; fileRef = CAA35624274002E200FB7075 /* ew_video.gif */; };
 		CAAA16B627031D61003771D9 /* WeatherHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */; };
 		CAB6233526EDA8BF00E85106 /* ElseweatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */; };
 		CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB6233826EDA8C500E85106 /* Assets.xcassets */; };
@@ -61,6 +59,7 @@
 		CA535C8226F2535100BD48BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA535C8A26F2578E00BD48BC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CA5EF3482728680500476DD3 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
+		CA64FF242753E80F00E095AB /* ew-scr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ew-scr.png"; sourceTree = "<group>"; };
 		CA83676026EDC7B70098C709 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		CA83676326EDC9560098C709 /* RandomLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomLocationFetcher.swift; sourceTree = "<group>"; };
 		CA83676926EDCBC00098C709 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -69,9 +68,6 @@
 		CAA149CB273FB7D500AF3762 /* NoAPIKeyErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAPIKeyErrorView.swift; sourceTree = "<group>"; };
 		CAA149CD273FBCDE00AF3762 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		CAA149CF273FBEDD00AF3762 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		CAA35620274002CB00FB7075 /* ew_sc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ew_sc1.png; sourceTree = "<group>"; };
-		CAA35622274002D600FB7075 /* ew_sc2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ew_sc2.png; sourceTree = "<group>"; };
-		CAA35624274002E200FB7075 /* ew_video.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ew_video.gif; sourceTree = "<group>"; };
 		CAAA16B527031D61003771D9 /* WeatherHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeadingView.swift; sourceTree = "<group>"; };
 		CAB6233126EDA8BF00E85106 /* Elseweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elseweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB6233426EDA8BF00E85106 /* ElseweatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElseweatherApp.swift; sourceTree = "<group>"; };
@@ -216,9 +212,7 @@
 		CAA3561F2740029600FB7075 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				CAA35624274002E200FB7075 /* ew_video.gif */,
-				CAA35622274002D600FB7075 /* ew_sc2.png */,
-				CAA35620274002CB00FB7075 /* ew_sc1.png */,
+				CA64FF242753E80F00E095AB /* ew-scr.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -386,15 +380,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAA35623274002D600FB7075 /* ew_sc2.png in Resources */,
-				CAA35625274002E200FB7075 /* ew_video.gif in Resources */,
 				CAA149D0273FBEDD00AF3762 /* README.md in Resources */,
-				CAA35621274002CB00FB7075 /* ew_sc1.png in Resources */,
 				CAB6233C26EDA8C500E85106 /* Preview Assets.xcassets in Resources */,
 				CAB6233926EDA8C500E85106 /* Assets.xcassets in Resources */,
 				CA2F896C273854B900E42DEF /* Launch Screen.storyboard in Resources */,
 				CA46F3942733045200D22EB3 /* Locations.sqlite in Resources */,
 				CAA149CE273FBCDE00AF3762 /* LICENSE.txt in Resources */,
+				CA64FF252753E80F00E095AB /* ew-scr.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

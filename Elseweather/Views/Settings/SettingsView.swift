@@ -31,7 +31,7 @@ struct SettingsView: View {
                     .toggleStyle(CustomToggleStyle(label: "Metric System",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
-                                                   thumbColor: .customPrimary(for: colorScheme)))
+                                                   thumbColor: colorScheme == .dark ? .customPrimary(for: colorScheme) : .customBackground(for: colorScheme)))
             }.padding(.top, 25).padding(.bottom, 10)
             
             Group {
@@ -42,7 +42,7 @@ struct SettingsView: View {
                     .toggleStyle(CustomToggleStyle(label: "Show Temperature Units",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
-                                                   thumbColor: .customPrimary(for: colorScheme)))
+                                                   thumbColor: colorScheme == .dark ? .customPrimary(for: colorScheme) : .customBackground(for: colorScheme)))
             }.padding(.top, 10).padding(.bottom, 10)
             
             Group {
@@ -53,7 +53,7 @@ struct SettingsView: View {
                     .toggleStyle(CustomToggleStyle(label: "Minimalistic Appearance",
                                                    onColor: .customSecondary(for: colorScheme),
                                                    offColor: .customBackground(for: colorScheme),
-                                                   thumbColor: .customPrimary(for: colorScheme)))
+                                                   thumbColor: colorScheme == .dark ? .customPrimary(for: colorScheme) : .customBackground(for: colorScheme)))
             }.padding(.top, 10).padding(.bottom, 25)
             
             Divider(2).opacity(settingsDividerOpacity)
@@ -61,10 +61,6 @@ struct SettingsView: View {
             HStack {
                 Text("""
                      Elseweather v.\(Session.shared.version) by Jarek Šedý. Open source. Distributed under MIT license at https://github.com/jareksedy/elseweather
-                     
-                     Weather data provided by weatherapi.com. World cities database by simplemaps.com.
-                     
-                     Elseweather utilizes Swift implementation of Wolt BlurHash algorithm. https://github.com/woltapp/blurhash.
                      
                      Contact me at <jareksedy@icloud.com>.
                      """.uppercased())
